@@ -11,7 +11,7 @@ const SearchBox = ({ history }) => {
   const animateOpacity = useSpring({ opacity: toggle ? 0 : 1 });
   const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
+  const onChangeHandler = (e) => {
     setSearchValue(e.target.value);
   };
 
@@ -22,8 +22,9 @@ const SearchBox = ({ history }) => {
   const callSearchFunction = (e) => {
     e.preventDefault();
     dispatch(searchStories(searchValue));
-    resetInputField();
     history.push(`/search/${searchValue}`);
+    resetInputField();
+    setToggle(!toggle);
   };
 
   return (
@@ -31,15 +32,14 @@ const SearchBox = ({ history }) => {
       <GlobalStyles />
       <Wrapper style={animateWidth}>
         <i className="fa fa-search" aria-hidden="true" onClick={() => setToggle(!toggle)} />
-        <SearchForm>
+        <SearchForm onSubmit={callSearchFunction}>
           <SearchInput
             value={searchValue}
-            onChange={handleSearch}
+            onChange={onChangeHandler}
             placeholder="Search All News"
             type="text"
             style={animateOpacity}
           />
-          {/* <input onClick={callSearchFunction} type="submit" value="SEARCH" /> */}
         </SearchForm>
       </Wrapper>
     </>

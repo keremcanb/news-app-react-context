@@ -20,13 +20,15 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <nav className="nav-links">
-          <Link to="/">News Today</Link>
-          <Link to="/category/sport">Sports</Link>
-          <Link to="/category/culture">Culture</Link>
-          <Link to="/category/lifeandstyle">Lifestyle</Link>
+        <div className="nav-footer">
+          <nav className="nav-links">
+            <Link to="/">News Today</Link>
+            <Link to="/category/sport">Sports</Link>
+            <Link to="/category/culture">Culture</Link>
+            <Link to="/category/lifeandstyle">Lifestyle</Link>
+          </nav>
           <Route render={({ history }) => <SearchBox history={history} />} />
-        </nav>
+        </div>
       </div>
     </Wrapper>
   );
@@ -69,7 +71,7 @@ const Wrapper = styled.header`
     display: none;
   }
   @media (min-width: 992px) {
-    height: 8rem;
+    height: 9rem;
     .nav-toggle {
       display: none;
     }
@@ -80,6 +82,11 @@ const Wrapper = styled.header`
       grid-template-columns: auto 1fr auto;
       align-items: center; */
     }
+    .nav-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .nav-links {
       display: flex;
       /* justify-content: center; */
@@ -90,14 +97,15 @@ const Wrapper = styled.header`
       a {
         color: white;
         text-transform: uppercase;
-        list-style: none;
         font-size: 0.8rem;
-        padding: 0 4rem 1rem;
-        text-decoration: none;
+        padding: 1.3rem 4rem 1rem;
         font-weight: bold;
+        line-height: 0.85;
+        /* text-decoration: none;
         display: inline-block;
         text-align: center;
-        line-height: 0.85;
+        list-style: none; */
+
         &:nth-child(1) {
           border-bottom: 3px solid #388e3c;
         }

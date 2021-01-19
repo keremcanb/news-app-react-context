@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       {stories && !loading ? (
         <>
-          <PageHero title="Top Stories" sort bookmark />
+          <PageHero title="Top Stories" stories={stories} sort bookmark />
           <StoryGrid stories={stories} />
           <PageHero title="Sports" />
           <StoryGrid stories={stories} />

@@ -1,29 +1,39 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBookmark } from 'react-icons/fa';
+import { sortStories } from '../store/actions/stories';
 
-const PageHero = ({ title, bookmark, sort }) => (
-  <Wrapper>
-    <h1>{title}</h1>
-    <div className="button-group">
-      {bookmark && (
-        <Link to="/bookmarks">
-          <button>
-            <i className="fa fa-bookmark" aria-hidden="true" />
-            View Bookmarks
-          </button>
-        </Link>
-      )}
-      {sort && (
-        <select>
-          <option value="">Newest first</option>
-          <option value="">Oldest first</option>
-          <option value="">Most popular</option>
-        </select>
-      )}
-    </div>
-  </Wrapper>
-);
+const PageHero = ({ stories: { webPublicationDate }, title, bookmark, sort }) => {
+  const dispatch = useDispatch();
+  useDispatch(sortStories);
+
+  return (
+    <Wrapper>
+      <h1>{title}</h1>
+      <div className="button-group">
+        {bookmark && (
+          <Link to="/bookmarks">
+            <button>
+              {/* <FaBookmark /> */}
+              <i className="fa fa-bookmark" aria-hidden="true" />
+              View Bookmarks
+            </button>
+          </Link>
+        )}
+        {sort && (
+          <form>
+            <select name="sort" id="sort" value={sort} onChange={sortStories}>
+              <option value="">Newest first</option>
+              <option value="">Oldest first</option>
+            </select>
+          </form>
+        )}
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   margin-top: 1rem;

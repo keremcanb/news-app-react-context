@@ -1,5 +1,5 @@
 import { get } from 'axios';
-import { SET_LOADING, GET_STORIES, SEARCH_STORIES } from './types';
+import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES } from './types';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiUrl = 'https://content.guardianapis.com/';
@@ -32,4 +32,9 @@ export const searchStories = (searchValue) => async (dispatch) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const sortStories = (e) => (dispatch) => {
+  const { value } = e.target;
+  dispatch({ type: SORT_STORIES, payload: value });
 };
