@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES } from '../actions/types';
 
 const initialState = {

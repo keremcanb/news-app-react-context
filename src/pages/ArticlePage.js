@@ -6,8 +6,8 @@ import Moment from 'react-moment';
 import { Loader } from '../components';
 
 const ArticlePage = () => {
-  const news = useSelector((state) => state.stories);
-  const { stories, loading } = news;
+  const store = useSelector((state) => state.stories);
+  const { stories, loading } = store;
 
   const location = useLocation();
   const article = location.pathname.replace('/', '');

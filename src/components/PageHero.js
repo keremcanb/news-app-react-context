@@ -1,13 +1,21 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaBookmark } from 'react-icons/fa';
-import { sortStories } from '../store/actions/stories';
 
-const PageHero = ({ stories: { webPublicationDate }, title, bookmark, sort }) => {
-  const dispatch = useDispatch();
-  useDispatch(sortStories);
+const PageHero = ({ stories, title, bookmark, sort }) => {
+  // const sorted = stories.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+
+  // console.log(sorted);
+
+  const onChangeHandler = (e) => {
+    const { value } = e.target;
+    if (value === 'newest') {
+      console.log('Newest');
+    }
+    if (value === 'oldest') {
+      console.log('Oldest');
+    }
+  };
 
   return (
     <Wrapper>
@@ -16,7 +24,6 @@ const PageHero = ({ stories: { webPublicationDate }, title, bookmark, sort }) =>
         {bookmark && (
           <Link to="/bookmarks">
             <button>
-              {/* <FaBookmark /> */}
               <i className="fa fa-bookmark" aria-hidden="true" />
               View Bookmarks
             </button>
@@ -24,9 +31,9 @@ const PageHero = ({ stories: { webPublicationDate }, title, bookmark, sort }) =>
         )}
         {sort && (
           <form>
-            <select name="sort" id="sort" value={sort} onChange={sortStories}>
-              <option value="">Newest first</option>
-              <option value="">Oldest first</option>
+            <select name="sort" id="sort" onChange={onChangeHandler}>
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
             </select>
           </form>
         )}

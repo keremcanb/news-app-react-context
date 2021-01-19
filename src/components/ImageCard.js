@@ -41,7 +41,7 @@ const ImageCard = ({
           {isBookmark(story) ? (
             <i className="fa fa-bookmark" aria-hidden="true" onClick={() => unBookmark(story)} />
           ) : (
-            <i className="fa fa-bookmark-o" aria-hidden="true" onClick={() => addBookmark(story)}></i>
+            <i className="fa fa-bookmark-o" aria-hidden="true" onClick={() => addBookmark(story)} />
           )}
         </div>
       </div>

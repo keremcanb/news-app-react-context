@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStories } from '../store/actions/stories';
-import { ImageCard, PageHero, Loader, StoryGrid } from '../components';
+import { PageHero, Loader, StoryGrid } from '../components';
 
 const CategoryPage = () => {
   const store = useSelector((state) => state.stories);

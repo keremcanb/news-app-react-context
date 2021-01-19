@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { getBookmarkItems } from '../store/actions/bookmarks';
-import { ImageCard, PageHero, StoryGrid, Loader } from '../components';
+import { PageHero, StoryGrid } from '../components';
 
 const SearchPage = () => {
-  const search = useSelector((state) => state.stories);
-  const { searchResults, loading } = search;
+  const store = useSelector((state) => state.stories);
+  const { searchResults } = store;
 
-  return !loading ? (
+  return (
     <>
       {searchResults.length > 0 ? (
         <>
@@ -18,8 +17,6 @@ const SearchPage = () => {
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Results Found</h1>
       )}
     </>
-  ) : (
-    <Loader />
   );
 };
 

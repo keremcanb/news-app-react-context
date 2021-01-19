@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useDispatch } from 'react-redux';
