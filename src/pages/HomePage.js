@@ -11,6 +11,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getStories('world'));
+    // dispatch(getStories('sport'));
     dispatch(getBookmarkItems());
   }, [dispatch]);
 

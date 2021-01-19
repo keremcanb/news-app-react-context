@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
@@ -9,14 +9,15 @@ const ArticlePage = () => {
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
 
-  const location = useLocation();
-  const article = location.pathname.replace('/', '');
-  const currentArticle = stories.find((story) => story.id === article);
+  const { section, year, month, day, id } = useParams();
+  const currentArticle = `${section}/${year}/${month}/${day}/${id}`;
+
+  const article = stories.find((story) => story.id === currentArticle);
   const {
     fields: { headline, bodyText, thumbnail },
     webPublicationDate,
     webTitle
-  } = currentArticle;
+  } = article;
 
   return (
     <>

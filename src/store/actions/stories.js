@@ -1,8 +1,9 @@
 import { get } from 'axios';
 import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES } from './types';
 
-const apiKey = process.env.REACT_APP_API_KEY;
 const apiUrl = 'https://content.guardianapis.com/';
+const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
+// const apiKey = process.env.REACT_APP_API_KEY;
 
 export const setLoading = () => ({
   type: SET_LOADING
@@ -11,7 +12,7 @@ export const setLoading = () => ({
 export const getStories = (section) => async (dispatch) => {
   try {
     setLoading();
-    const { data } = await get(`${apiUrl}${section}?show-fields=all&show-elements=all&api-key=${apiKey}`);
+    const { data } = await get(`${apiUrl}${section}?show-fields=all&show-elements=all&type=article&api-key=${apiKey}`);
     dispatch({
       type: GET_STORIES,
       payload: data.response.results
