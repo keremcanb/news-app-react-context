@@ -1,52 +1,93 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 
-const Header = () => (
-  <Wrapper>
-    <div className="logo">
-      <Link to="/">
-        <img src="/logo.jpg" alt="logo" />
-      </Link>
-    </div>
-    <div className="nav-wrapper">
-      <nav className="nav-links">
-        <Link to="/">News Today</Link>
-        <Link to="/category/sport">Sports</Link>
-        <Link to="/category/culture">Culture</Link>
-        <Link to="/category/lifeandstyle">Lifestyle</Link>
-      </nav>
-      <Route render={({ history }) => <SearchBox history={history} />} />
-    </div>
-  </Wrapper>
-);
+const Header = () => {
+  // const { openSidebar } = useProductsContext();
+  // const { myUser } = useUserContext();
+
+  return (
+    <Wrapper>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            <img src="/logo.jpg" alt="logo" />
+          </Link>
+          <button type="button" className="nav-toggle">
+            {/* <button type="button" className="nav-toggle" onClick={openSidebar}> */}
+            <FaBars />
+          </button>
+        </div>
+        <nav className="nav-links">
+          <Link to="/">News Today</Link>
+          <Link to="/category/sport">Sports</Link>
+          <Link to="/category/culture">Culture</Link>
+          <Link to="/category/lifeandstyle">Lifestyle</Link>
+          <Route render={({ history }) => <SearchBox history={history} />} />
+        </nav>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.header`
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #09357b;
-  .logo {
-    margin-left: 0.5rem;
+
+  .nav-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
   }
-  .nav-links a {
+  .nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 175px;
+      margin-left: -15px;
+    }
+  }
+  .nav-toggle {
+    background: transparent;
+    border: transparent;
+    color: var(--clr-primary-5);
+    cursor: pointer;
+    svg {
+      font-size: 2rem;
+    }
+  }
+  .nav-links {
     display: none;
   }
-  @media (min-width: 768px) {
-    height: 8rem;
-    padding-left: 5rem;
-    .logo {
-      margin-bottom: 0.3rem;
-    }
+  .cart-btn-wrapper {
+    display: none;
   }
   @media (min-width: 992px) {
     height: 8rem;
-    padding-left: 12rem;
-    .logo {
-      margin-bottom: 0.3rem;
+    .nav-toggle {
+      display: none;
     }
-    .nav-wrapper {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      .nav-links a {
+    .nav-center {
+      display: flex;
+      flex-direction: column;
+      /* display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center; */
+    }
+    .nav-links {
+      display: flex;
+      /* justify-content: center; */
+      margin-right: 5rem;
+      li {
+        margin: 0 0.5rem;
+      }
+      a {
         color: white;
         text-transform: uppercase;
         list-style: none;

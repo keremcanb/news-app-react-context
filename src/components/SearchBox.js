@@ -39,7 +39,7 @@ const SearchBox = ({ history }) => {
             type="text"
             style={animateOpacity}
           />
-          <input onClick={callSearchFunction} type="submit" value="SEARCH" />
+          {/* <input onClick={callSearchFunction} type="submit" value="SEARCH" /> */}
         </SearchForm>
       </Wrapper>
     </>
