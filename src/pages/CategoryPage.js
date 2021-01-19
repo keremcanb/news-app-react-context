@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStories } from '../store/actions/stories';
+import { getBookmarkItems } from '../store/actions/bookmarks';
 import { PageHero, Loader, StoryGrid } from '../components';
 
 const CategoryPage = () => {
@@ -21,6 +22,7 @@ const CategoryPage = () => {
     if (id === 'lifeandstyle') {
       dispatch(getStories('lifeandstyle'));
     }
+    dispatch(getBookmarkItems());
   }, [dispatch, id]);
 
   const titleHandler = () => {

@@ -1,12 +1,15 @@
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS } from '../actions/types';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../actions/types';
 
 const initialState = {
-  bookmarkItems: []
+  bookmarkItems: [],
+  loading: true
 };
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case SET_LOADING:
+      return { ...state, loading: true };
     case BOOKMARK_ITEM:
       localStorage.setItem('bookmarks', JSON.stringify([payload, ...state.bookmarkItems]));
       return {
@@ -23,7 +26,8 @@ export default (state = initialState, action) => {
     case GET_BOOKMARK_ITEMS:
       return {
         ...state,
-        bookmarkItems: payload
+        bookmarkItems: payload,
+        loading: false
       };
     default:
       return state;

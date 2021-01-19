@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStories } from '../store/actions/stories';
+import { getBookmarkItems } from '../store/actions/bookmarks';
 import { ImageCard, PageHero, Loader, StoryGrid } from '../components';
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getStories('world'));
+    dispatch(getBookmarkItems());
   }, [dispatch]);
 
   return (

@@ -4,7 +4,7 @@ import { Home, Category, Article, Bookmarks, SearchResults } from './pages';
 import { Header, Footer } from './components';
 
 const App = () => (
-  <Router>
+  <Router forceRefresh>
     <Header />
     <main>
       <Switch>

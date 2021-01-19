@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBookmarkItems } from '../store/actions/bookmarks';
-import { PageHero, StoryGrid } from '../components';
+import { PageHero, StoryGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
   const store = useSelector((state) => state.bookmarks);
-  const { bookmarkItems } = store;
+  const { bookmarkItems, loading } = store;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookmarkItems());
   }, [dispatch]);
 
-  return (
+  return !loading ? (
     <>
       {bookmarkItems.length > 0 ? (
         <>
@@ -23,6 +23,8 @@ const BookmarksPage = () => {
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Bookmarks Found</h1>
       )}
     </>
+  ) : (
+    <Loader />
   );
 };
 

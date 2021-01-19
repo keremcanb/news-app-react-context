@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { PageHero, StoryGrid } from '../components';
+import { PageHero, StoryGrid, Loader } from '../components';
 
 const SearchPage = () => {
   const store = useSelector((state) => state.stories);
-  const { searchResults } = store;
+  const { searchResults, loading } = store;
 
-  return (
+  return !loading ? (
     <>
       {searchResults.length > 0 ? (
         <>
@@ -17,6 +17,8 @@ const SearchPage = () => {
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Results Found</h1>
       )}
     </>
+  ) : (
+    <Loader />
   );
 };
 

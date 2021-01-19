@@ -1,4 +1,8 @@
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS } from './types';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from './types';
+
+export const setLoading = () => ({
+  type: SET_LOADING
+});
 
 export const bookmarkItem = (item) => ({
   type: BOOKMARK_ITEM,
