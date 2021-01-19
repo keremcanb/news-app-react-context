@@ -9,6 +9,8 @@ const HomePage = () => {
   const { stories, loading } = store;
   const dispatch = useDispatch();
 
+  console.log(stories);
+
   useEffect(() => {
     dispatch(getStories('world'));
     // dispatch(getStories('sport'));

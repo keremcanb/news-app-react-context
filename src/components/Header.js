@@ -3,6 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
+import Logo from '../img/logo.jpg';
 
 const Header = () => {
   // const { openSidebar } = useProductsContext();
@@ -13,7 +14,7 @@ const Header = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src="/logo.jpg" alt="logo" />
+            <img src={Logo} alt="logo" />
           </Link>
           <button type="button" className="nav-toggle">
             {/* <button type="button" className="nav-toggle" onClick={openSidebar}> */}

@@ -5,6 +5,7 @@ import { PageHero, StoryGrid, Loader } from '../components';
 const SearchPage = () => {
   const store = useSelector((state) => state.stories);
   const { searchResults, loading } = store;
+  console.log(searchResults);
 
   return !loading ? (
     <>
