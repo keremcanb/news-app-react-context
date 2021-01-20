@@ -37,7 +37,7 @@ const ImageCard = ({
         {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={tempimage} alt="temp" />}
         <div className="card">
           <Link to={`/${id}`}>
-            <h4>{webTitle}</h4>
+            <h2>{webTitle}</h2>
           </Link>
           <div className="card-footer">
             {isBookmark(story) ? (

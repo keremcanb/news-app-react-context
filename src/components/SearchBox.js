@@ -28,33 +28,20 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <>
-      <GlobalStyles />
-      <Wrapper style={animateWidth}>
-        <i className="fa fa-search" aria-hidden="true" onClick={() => setToggle(!toggle)} />
-        <SearchForm onSubmit={callSearchFunction}>
-          <SearchInput
-            value={searchValue}
-            onChange={onChangeHandler}
-            placeholder="Search All News"
-            type="text"
-            style={animateOpacity}
-          />
-        </SearchForm>
-      </Wrapper>
-    </>
+    <Wrapper style={animateWidth}>
+      <i className="fa fa-search" aria-hidden="true" onClick={() => setToggle(!toggle)} />
+      <SearchForm onSubmit={callSearchFunction}>
+        <SearchInput
+          value={searchValue}
+          onChange={onChangeHandler}
+          placeholder="Search All News"
+          type="text"
+          style={animateOpacity}
+        />
+      </SearchForm>
+    </Wrapper>
   );
 };
-
-const GlobalStyles = createGlobalStyle`
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  `;
 
 const Wrapper = styled(animated.div)`
   width: 280px;
@@ -67,10 +54,11 @@ const Wrapper = styled(animated.div)`
     outline: none;
   }
   i {
+    margin-top: 0.8rem;
     color: #fff;
     cursor: pointer;
     border-bottom: 3px solid white;
-    padding-bottom: 1rem;
+    padding-bottom: 1.1rem;
     padding-right: 1rem;
     width: 2rem;
     text-align: center;
@@ -81,6 +69,8 @@ const SearchForm = styled.form`
   height: 100%;
   width: 100%;
   display: flex;
+  border-bottom: 3px solid white;
+  padding-bottom: 0.7rem;
 `;
 
 const SearchInput = styled(animated.input)`

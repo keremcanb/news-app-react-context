@@ -49,6 +49,9 @@ const ArticlePage = () => {
 };
 
 const Wrapper = styled.section`
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
   hr {
     width: 50%;
   }
@@ -73,10 +76,8 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 768px) {
-    padding: 0 5rem;
   }
   @media (min-width: 992px) {
-    padding: 0 10rem;
     .article-header {
       margin-top: 5rem;
       margin-bottom: 1rem;
