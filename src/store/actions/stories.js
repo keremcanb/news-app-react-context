@@ -35,7 +35,7 @@ export const searchStories = (searchValue) => async (dispatch) => {
   }
 };
 
-export const sortStories = (e) => (dispatch) => {
-  const { value } = e.target;
-  dispatch({ type: SORT_STORIES, payload: value });
-};
+// export const sortStories = (e) => (dispatch) => {
+//   const { value } = e.target;
+//   dispatch({ type: SORT_STORIES, payload: value });
+// };

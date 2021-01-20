@@ -5,38 +5,32 @@ import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import Logo from '../img/logo.jpg';
 
-const Header = () => {
-  // const { openSidebar } = useProductsContext();
-  // const { myUser } = useUserContext();
-
-  return (
-    <Wrapper>
-      <div className="nav-center">
-        <div className="nav-header">
-          <Link to="/">
-            <img src={Logo} alt="logo" />
-          </Link>
-          <button type="button" className="nav-toggle">
-            {/* <button type="button" className="nav-toggle" onClick={openSidebar}> */}
-            <FaBars />
-          </button>
-        </div>
-        <div className="nav-footer">
-          <nav className="nav-links">
-            <Link to="/">News Today</Link>
-            <Link to="/category/sport">Sports</Link>
-            <Link to="/category/culture">Culture</Link>
-            <Link to="/category/lifeandstyle">Lifestyle</Link>
-          </nav>
-          <Route render={({ history }) => <SearchBox history={history} />} />
-        </div>
+const Header = ({ toggleSidebar }) => (
+  <Wrapper>
+    <div className="nav-center">
+      <div className="nav-header">
+        <Link to="/">
+          <img src={Logo} alt="logo" />
+        </Link>
+        <button type="button" className="nav-toggle" onClick={toggleSidebar}>
+          <FaBars />
+        </button>
       </div>
-    </Wrapper>
-  );
-};
+      <div className="nav-footer">
+        <nav className="nav-links">
+          <Link to="/">News Today</Link>
+          <Link to="/category/sport">Sports</Link>
+          <Link to="/category/culture">Culture</Link>
+          <Link to="/category/lifeandstyle">Lifestyle</Link>
+        </nav>
+        <Route render={({ history }) => <SearchBox history={history} />} />
+      </div>
+    </div>
+  </Wrapper>
+);
 
 const Wrapper = styled.header`
-  height: 5rem;
+  height: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +53,7 @@ const Wrapper = styled.header`
   .nav-toggle {
     background: transparent;
     border: transparent;
-    color: var(--clr-primary-5);
+    color: #fff;
     cursor: pointer;
     svg {
       font-size: 2rem;
@@ -102,10 +96,10 @@ const Wrapper = styled.header`
         padding: 1.3rem 4rem 1rem;
         font-weight: bold;
         line-height: 0.85;
-        /* text-decoration: none;
+        text-decoration: none;
         display: inline-block;
         text-align: center;
-        list-style: none; */
+        list-style: none;
 
         &:nth-child(1) {
           border-bottom: 3px solid #388e3c;

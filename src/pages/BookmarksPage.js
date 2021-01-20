@@ -7,6 +7,7 @@ const BookmarksPage = () => {
   const store = useSelector((state) => state.bookmarks);
   const { bookmarkItems, loading } = store;
   const dispatch = useDispatch();
+  console.log(bookmarkItems);
 
   useEffect(() => {
     dispatch(getBookmarkItems());

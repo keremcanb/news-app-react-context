@@ -51,8 +51,6 @@ const ImageCard = ({
 };
 
 const Wrapper = styled.article`
-  display: flex;
-  flex-direction: column;
   position: relative;
   width: 22rem;
   overflow: hidden;
@@ -61,7 +59,7 @@ const Wrapper = styled.article`
     position: absolute;
     height: 9rem;
     width: 100%;
-    top: 9.8rem;
+    top: 10.1rem;
     color: white;
     background-color: #0c3371;
     padding: 1rem;
