@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
-import logo from '../img/logo.jpg';
+import SearchBox from './SearchBox';
+import Links from '../constants';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => (
   <SidebarContainer>
@@ -11,12 +12,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => (
         <FaTimes />
       </button>
       <div className="side-container">
-        <div styleClass={`${isOpen ? 'sidebar-links' : ''}`}>
-          <Link to="/">News Today</Link>
-          <Link to="/category/sport">Sports</Link>
-          <Link to="/category/culture">Culture</Link>
-          <Link to="/category/lifeandstyle">Lifestyle</Link>
-        </div>
+        <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
+        <Route render={({ history }) => <SearchBox history={history} />} />
       </div>
     </aside>
   </SidebarContainer>
@@ -24,7 +21,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => (
 
 const SidebarContainer = styled.div`
   .sidebar {
-    background: var(--clr-grey-10);
+    background: #09357b;
     position: fixed;
     top: 0;
     left: 0;
@@ -48,12 +45,13 @@ const SidebarContainer = styled.div`
     display: block;
     text-align: center;
     text-transform: capitalize;
-    color: var(--clr-grey-5);
+    color: #fff;
     letter-spacing: var(--spacing);
     margin-bottom: 0.5rem;
     font-size: 2rem;
     transition: var(--transition);
     border-radius: var(--radius);
+    text-decoration: none;
   }
   .sidebar-links li a:hover {
     background: var(--clr-primary-9);

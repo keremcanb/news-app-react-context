@@ -23,7 +23,7 @@ const Header = ({ toggleSidebar }) => (
           <Link to="/category/culture">Culture</Link>
           <Link to="/category/lifeandstyle">Lifestyle</Link>
         </nav>
-        <Route render={({ history }) => <SearchBox history={history} />} />
+        {/* <Route render={({ history }) => <SearchBox history={history} />} /> */}
       </div>
     </div>
   </Wrapper>

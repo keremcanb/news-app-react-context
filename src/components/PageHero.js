@@ -30,12 +30,10 @@ const PageHero = ({ stories, title, bookmark, sort }) => {
           </Link>
         )}
         {sort && (
-          <form>
-            <select name="sort" id="sort" onChange={onChangeHandler}>
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-            </select>
-          </form>
+          <select name="sort" id="sort" onChange={onChangeHandler}>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
         )}
       </div>
     </Wrapper>
