@@ -82,12 +82,6 @@ const Wrapper = styled.section`
   hr {
     margin: 1rem 0;
   }
-  .article-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-    justify-content: space-between;
-  }
   @media (min-width: 768px) {
   }
   @media (min-width: 992px) {
@@ -97,6 +91,13 @@ const Wrapper = styled.section`
     }
     hr {
       width: 50%;
+    }
+    .article-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    img {
+      justify-self: end;
     }
   }
 `;
