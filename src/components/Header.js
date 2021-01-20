@@ -47,7 +47,6 @@ const Wrapper = styled.header`
     justify-content: space-between;
     img {
       width: 175px;
-      margin-left: -15px;
     }
   }
   .nav-toggle {
