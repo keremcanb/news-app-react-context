@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { bookmarkItem, unBookmarkItem } from '../store/actions/bookmarks';
-import Image from '../img/image.jpg';
+import tempimage from '../assets/tempimage.jpg';
 
 const ImageCard = ({
   story,
@@ -34,7 +34,7 @@ const ImageCard = ({
   return (
     <Wrapper>
       <article>
-        {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={Image} alt="temp" />}
+        {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={tempimage} alt="temp" />}
         <div className="card">
           <Link to={`/${id}`}>
             <h4>{webTitle}</h4>

@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
-import Logo from '../img/logo.jpg';
+import Logo from '../assets/logo.jpg';
 
 const Header = ({ toggleSidebar }) => (
   <Wrapper>
