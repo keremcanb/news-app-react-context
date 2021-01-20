@@ -7,7 +7,7 @@ import Links from '../constants';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => (
   <SidebarContainer>
-    <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''} `}>
+    <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''}`}>
       <button className="close-btn" onClick={toggleSidebar}>
         <FaTimes />
       </button>

@@ -11,22 +11,18 @@ const Storygrid = ({ stories }) => (
 );
 
 const Wrapper = styled.section`
-  display: grid;
-  gap: 1rem;
-  grid-gap: 2rem;
-  justify-items: center;
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-      padding: 0 5rem;
-    }
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+
+  @media screen and (min-width: 576px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
+    column-gap: 2rem;
   }
-  @media (min-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 10rem;
-    h1 {
-      font-size: 3rem;
-    }
+
+  @media screen and (min-width: 992px) {
+    width: 95vw;
   }
 `;
 

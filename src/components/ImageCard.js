@@ -33,28 +33,62 @@ const ImageCard = ({
 
   return (
     <Wrapper>
-      {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={Image} alt="temp" />}
-      <div className="card-title">
-        <Link to={`/${id}`}>
-          <h2>{webTitle}</h2>
-        </Link>
-        <div className="bookmark">
-          {isBookmark(story) ? (
-            <i className="fa fa-bookmark" aria-hidden="true" onClick={() => unBookmark(story)} />
-          ) : (
-            <i className="fa fa-bookmark-o" aria-hidden="true" onClick={() => addBookmark(story)} />
-          )}
+      <article>
+        {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={Image} alt="temp" />}
+        <div className="card">
+          <Link to={`/${id}`}>
+            <h4>{webTitle}</h4>
+          </Link>
+          <div className="card-footer">
+            {isBookmark(story) ? (
+              <i className="fa fa-bookmark" aria-hidden="true" onClick={() => unBookmark(story)} />
+            ) : (
+              <i className="fa fa-bookmark-o" aria-hidden="true" onClick={() => addBookmark(story)} />
+            )}
+          </div>
         </div>
-      </div>
+      </article>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.article`
-  position: relative;
+const Wrapper = styled.div`
+  display: block;
+  margin-bottom: 2rem;
+
+  article {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  img {
+    position: relative;
+    overflow: hidden;
+    height: 15rem;
+    width: 20rem;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* position: relative;
   width: 22rem;
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;
+  margin-bottom: 2rem;
   .card-title {
     position: absolute;
     height: 9rem;
@@ -94,7 +128,7 @@ const Wrapper = styled.article`
         }
       }
     }
-  }
+  } */
 `;
 
 export default ImageCard;

@@ -5,6 +5,7 @@ import { Header, Sidebar, Footer } from './components';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };

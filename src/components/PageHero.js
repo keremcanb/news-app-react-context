@@ -41,7 +41,15 @@ const PageHero = ({ stories, title, bookmark, sort }) => {
 };
 
 const Wrapper = styled.section`
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+
   margin-top: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
   h1 {
     font-size: 2rem;
     text-align: center;
@@ -76,7 +84,16 @@ const Wrapper = styled.section`
       cursor: pointer;
     }
   }
-  @media (min-width: 768px) {
+
+  @media screen and (min-width: 576px) {
+  }
+
+  @media screen and (min-width: 992px) {
+    width: 95vw;
+  }
+`;
+
+/* @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
     padding: 0 10rem;
@@ -120,7 +137,6 @@ const Wrapper = styled.section`
         height: 3rem;
       }
     }
-  }
-`;
+  } */
 
 export default PageHero;
