@@ -53,7 +53,6 @@ const Wrapper = styled.section`
     font-size: 2rem;
   }
   button {
-    margin-top: 1rem;
     background-color: #09357b;
     color: white;
     font-size: 0.8rem;

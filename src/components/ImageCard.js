@@ -57,18 +57,13 @@ const Wrapper = styled.div`
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;
   margin-bottom: 2rem;
+  width: 21rem;
   article {
-    height: 100%;
     display: grid;
     grid-template-rows: auto 1fr;
   }
-  img {
-    object-fit: cover;
-  }
   .card {
     height: 8.7rem;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     padding: 1.5rem 1rem;
     position: absolute;
     top: 10.1rem;
@@ -91,7 +86,7 @@ const Wrapper = styled.div`
     align-items: center;
   }
   i {
-    padding-right: 1rem;
+    margin-right: 1rem;
     position: absolute;
     top: 7rem;
     right: 1rem;

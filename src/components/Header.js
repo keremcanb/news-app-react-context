@@ -23,7 +23,9 @@ const Header = ({ toggleSidebar }) => (
           <Link to="/category/culture">Culture</Link>
           <Link to="/category/lifeandstyle">Lifestyle</Link>
         </nav>
-        {/* <Route render={({ history }) => <SearchBox history={history} />} /> */}
+        <div className="searchbox">
+          <Route render={({ history }) => <SearchBox history={history} />} />
+        </div>
       </div>
     </div>
   </Wrapper>
@@ -35,7 +37,6 @@ const Wrapper = styled.header`
   align-items: center;
   justify-content: center;
   background: #09357b;
-
   .nav-center {
     width: 90vw;
     margin: 0 auto;
@@ -64,6 +65,11 @@ const Wrapper = styled.header`
   .cart-btn-wrapper {
     display: none;
   }
+  @media (max-width: 992px) {
+    .searchbox {
+      display: none;
+    }
+  }
   @media (min-width: 992px) {
     height: 9rem;
     .nav-toggle {
@@ -72,18 +78,13 @@ const Wrapper = styled.header`
     .nav-center {
       display: flex;
       flex-direction: column;
-      /* display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center; */
     }
     .nav-footer {
       display: flex;
       justify-content: space-between;
     }
-
     .nav-links {
       display: flex;
-      /* justify-content: center; */
       margin-right: 5rem;
       li {
         margin: 0 0.5rem;
@@ -99,7 +100,6 @@ const Wrapper = styled.header`
         display: inline-block;
         text-align: center;
         list-style: none;
-
         &:nth-child(1) {
           border-bottom: 3px solid #388e3c;
         }
