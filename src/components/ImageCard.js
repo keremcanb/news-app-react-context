@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;
   margin-bottom: 2rem;
-  width: 21rem;
+  width: 23rem;
   article {
     display: grid;
     grid-template-rows: auto 1fr;

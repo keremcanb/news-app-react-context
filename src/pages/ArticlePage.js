@@ -23,17 +23,18 @@ const ArticlePage = () => {
     <>
       {!loading ? (
         <Wrapper>
-          <article className="article-header">
-            <div className="button-group">
+          <div className="article-header">
+            <div className="article-header-left">
               <button>
                 <i className="fa fa-bookmark" aria-hidden="true" />
                 Add Bookmark
               </button>
+              <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
+              <h1>{webTitle}</h1>
+              {headline && <h4>{headline}</h4>}
             </div>
-            <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
-            <h1>{webTitle}</h1>
-            {headline && <h2>{headline}</h2>}
-          </article>
+            <div className="article-header-right" />
+          </div>
           <hr />
           <article className="article-body">
             {bodyText}
@@ -52,58 +53,50 @@ const Wrapper = styled.section`
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
-  hr {
-    width: 50%;
+  .article-header {
+    margin-top: 5rem;
   }
-  .button-group {
-    margin-top: 2rem;
+  .article-header-left {
+    display: flex;
+    flex-direction: column;
+  }
+  i {
+    margin-right: 1rem;
+  }
+  button {
+    background-color: #09357b;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    text-transform: uppercase;
+    width: 10rem;
+    height: 2rem;
+    cursor: pointer;
+    border: none;
     margin-bottom: 1rem;
-    button {
-      margin-right: 2rem;
-      background-color: #09357b;
-      color: white;
-      font-size: 0.8rem;
-      padding: 0.5rem;
-      border-radius: 0.2rem;
-      text-transform: uppercase;
-      width: 8rem;
-      height: 3rem;
-      cursor: pointer;
-      border: none;
-      i {
-        padding-right: 1rem;
-      }
-    }
+  }
+  h1 {
+    margin-top: 1rem;
+  }
+  hr {
+    margin: 1rem 0;
+  }
+  .article-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    justify-content: space-between;
   }
   @media (min-width: 768px) {
   }
   @media (min-width: 992px) {
     .article-header {
-      margin-top: 5rem;
-      margin-bottom: 1rem;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      padding-right: 40rem;
-    }
-    .article-body {
-      margin-top: 1rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      img {
-        margin-left: 1.5rem;
-      }
     }
-    h1 {
-      font-size: 2.5rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-    }
-    .button-group {
-      button {
-        width: 10rem;
-        height: 2rem;
-      }
+    hr {
+      width: 50%;
     }
   }
 `;

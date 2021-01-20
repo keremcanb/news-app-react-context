@@ -46,11 +46,12 @@ const Wrapper = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
-      width: 175px;
-    }
+  }
+  img {
+    width: 175px;
   }
   .nav-toggle {
+    margin-right: 1rem;
     background: transparent;
     border: transparent;
     color: #fff;

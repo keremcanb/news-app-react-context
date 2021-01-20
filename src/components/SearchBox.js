@@ -44,7 +44,6 @@ const SearchBox = ({ history }) => {
 };
 
 const Wrapper = styled(animated.div)`
-  width: 280px;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -68,14 +67,13 @@ const Wrapper = styled(animated.div)`
 const SearchForm = styled.form`
   height: 100%;
   width: 100%;
-  display: flex;
   border-bottom: 3px solid white;
   padding-bottom: 0.7rem;
 `;
 
 const SearchInput = styled(animated.input)`
   height: 100%;
-  padding: 10px 10px 10px 36px;
+  padding: 10px 0 10px 0;
   margin: initial !important;
   border: none;
   width: 100%;
