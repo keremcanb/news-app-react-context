@@ -33,14 +33,14 @@ const ArticlePage = () => {
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              <h2>{fields.trailText}</h2>
+              {fields.trailText && <h2>{fields.trailText}</h2>}
             </div>
             <div className="article-header-right" />
           </div>
           <hr />
           <article className="article-body">
             <p>{fields.bodyText}</p>
-            <img src={fields.thumbnail} alt="headline" />
+            {fields.thumbnail && <img src={fields.thumbnail} alt="headline" />}
           </article>
         </Wrapper>
       ) : (
