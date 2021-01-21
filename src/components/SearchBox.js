@@ -1,86 +1,106 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 import { useDispatch } from 'react-redux';
 import { searchStories } from '../store/actions/stories';
 
 const SearchBox = ({ history }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [toggle, setToggle] = useState(true);
-  const animateWidth = useSpring({ width: toggle ? '40px' : '200px' });
-  const animateOpacity = useSpring({ opacity: toggle ? 0 : 1 });
+  const [barOpened, setBarOpened] = useState(false);
+  const formRef = useRef();
+  const inputFocus = useRef();
   const dispatch = useDispatch();
 
-  const onChangeHandler = (e) => {
-    setSearchValue(e.target.value);
-  };
-
-  const resetInputField = () => {
-    setSearchValue('');
-  };
-
-  const callSearchFunction = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
     dispatch(searchStories(searchValue));
     history.push(`/search/${searchValue}`);
-    resetInputField();
-    setToggle(!toggle);
+    setSearchValue('');
+    setBarOpened(false);
   };
 
   return (
-    <Wrapper style={animateWidth}>
-      <i className="fa fa-search" aria-hidden="true" onClick={() => setToggle(!toggle)} />
-      <SearchForm onSubmit={callSearchFunction}>
-        <SearchInput
+    <div className="App">
+      <Form
+        barOpened={barOpened}
+        onClick={() => {
+          // When form clicked, set state of baropened to true and focus the input
+          setBarOpened(true);
+          inputFocus.current.focus();
+        }}
+        // on focus open search bar
+        onFocus={() => {
+          setBarOpened(true);
+          inputFocus.current.focus();
+        }}
+        // on blur close search bar
+        onBlur={() => {
+          setBarOpened(false);
+        }}
+        // On submit, call the onFormSubmit function
+        onSubmit={onFormSubmit}
+        ref={formRef}
+      >
+        <Button type="submit" barOpened={barOpened}>
+          <i className="fa fa-search" aria-hidden="true" />
+        </Button>
+        <Input
+          onChange={(e) => setSearchValue(e.target.value)}
+          ref={inputFocus}
           value={searchValue}
-          onChange={onChangeHandler}
-          placeholder="Search All News"
-          type="text"
-          style={animateOpacity}
+          barOpened={barOpened}
+          placeholder="Search all news"
         />
-      </SearchForm>
-    </Wrapper>
+      </Form>
+    </div>
   );
 };
 
-const Wrapper = styled(animated.div)`
+const Form = styled.form`
+  position: relative;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #09357b;
-  z-index: 1;
-  *:focus {
+  justify-content: center;
+  /* Change width of the form depending if the bar is opened or not */
+  width: ${(props) => (props.barOpened ? '20rem' : '2rem')};
+  /* If bar opened, normal cursor on the whole form. If closed, show pointer on the whole form so user knows he can click to open it */
+  cursor: ${(props) => (props.barOpened ? 'auto' : 'pointer')};
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  height: 2rem;
+  /* border-radius: 10rem; */
+  transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+`;
+
+const Input = styled.input`
+  font-size: 14px;
+  line-height: 1;
+  background-color: transparent;
+  width: 100%;
+  margin-left: ${(props) => (props.barOpened ? '1rem' : '0rem')};
+  border: none;
+  color: white;
+  transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:focus,
+  &:active {
     outline: none;
   }
-  i {
-    margin-top: 0.8rem;
-    color: #fff;
-    cursor: pointer;
-    border-bottom: 3px solid white;
-    padding-bottom: 1.3rem;
-    padding-right: 1rem;
-    width: 2rem;
-    text-align: center;
+  &::placeholder {
+    color: white;
   }
 `;
 
-const SearchForm = styled.form`
-  height: 100%;
-  width: 100%;
-  border-bottom: 3px solid white;
-  padding-bottom: 0.7rem;
-`;
-
-const SearchInput = styled(animated.input)`
-  height: 100%;
-  padding: 10px 0 10px 0;
-  margin: initial !important;
+const Button = styled.button`
+  line-height: 1;
+  pointer-events: ${(props) => (props.barOpened ? 'auto' : 'none')};
+  cursor: ${(props) => (props.barOpened ? 'pointer' : 'none')};
+  background-color: transparent;
   border: none;
-  width: 100%;
-  font-weight: 400;
-  font-size: 14px;
-  color: #fff;
-  background-color: #0f3f8c;
+  outline: none;
+  color: white;
+  i {
+    font-size: 1.5rem;
+  }
 `;
 
 export default SearchBox;

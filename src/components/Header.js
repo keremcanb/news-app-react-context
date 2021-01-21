@@ -92,7 +92,7 @@ const Wrapper = styled.header`
         color: white;
         text-transform: uppercase;
         font-size: 0.8rem;
-        padding: 1.3rem 4rem 1rem;
+        padding: 1rem 4rem 1rem;
         font-weight: bold;
         line-height: 0.85;
         text-decoration: none;
