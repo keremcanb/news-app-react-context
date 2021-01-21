@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/search/:keyword">
             <SearchResults />
           </Route>
-          <Route path="/:section/:year/:month/:day/:id">
+          <Route path="/article/:section/:year/:month/:day/:id">
             <Article />
           </Route>
           <Route path="/category/:id">

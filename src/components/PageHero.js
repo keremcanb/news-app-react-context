@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-const PageHero = ({ stories, title, bookmark, sort }) => {
-  // const sorted = stories.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+const PageHero = ({ title, bookmark, sort }) => {
+  const store = useSelector((state) => state.stories);
+  const { stories } = store;
 
-  // console.log(sorted);
+  const newest = stories.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+  const oldest = stories.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
+
+  console.log(newest);
+  console.log(oldest);
 
   const onChangeHandler = (e) => {
     const { value } = e.target;
@@ -78,7 +84,7 @@ const Wrapper = styled.section`
     width: 10rem;
     height: 3rem;
     padding: 0.5rem;
-
+    outline: 0;
     cursor: pointer;
   }
   @media screen and (min-width: 768px) {

@@ -37,7 +37,7 @@ const ImageCard = ({
       <article>
         {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
         <div className="card">
-          <Link to={`/${id}`}>
+          <Link to={`/article/${id}`}>
             <h2>{webTitle}</h2>
           </Link>
           <div className="card-footer">

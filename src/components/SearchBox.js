@@ -7,7 +7,7 @@ import { searchStories } from '../store/actions/stories';
 const SearchBox = ({ history }) => {
   const [searchValue, setSearchValue] = useState('');
   const [toggle, setToggle] = useState(true);
-  const animateWidth = useSpring({ width: toggle ? '40px' : '280px' });
+  const animateWidth = useSpring({ width: toggle ? '40px' : '200px' });
   const animateOpacity = useSpring({ opacity: toggle ? 0 : 1 });
   const dispatch = useDispatch();
 
