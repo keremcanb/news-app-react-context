@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 import { FaBookmark } from 'react-icons/fa';
 import { Loader } from '../components';
+import { getArticle } from '../store/actions/stories';
 
 const ArticlePage = () => {
   const store = useSelector((state) => state.stories);
-  const { stories, loading } = store;
+  const { article, loading } = store;
 
   const { section, year, month, day, id } = useParams();
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
 
-  const article = stories.find((story) => story.id === selectedArticle);
-  const {
-    fields: { trailText, bodyText, thumbnail },
-    webPublicationDate,
-    webTitle
-  } = article;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getArticle(selectedArticle));
+  }, [dispatch, selectedArticle]);
+
+  const { webTitle, webPublicationDate, fields } = article;
 
   return (
     <>
@@ -32,15 +33,14 @@ const ArticlePage = () => {
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              <h2>{trailText}</h2>
+              <h2>{fields.trailText}</h2>
             </div>
             <div className="article-header-right" />
           </div>
           <hr />
           <article className="article-body">
-            <p>{bodyText}</p>
-            {/* <div dangerouslySetInnerHTML={{ __html: body }} /> */}
-            <img src={thumbnail} alt="headline" />
+            <p>{fields.bodyText}</p>
+            <img src={fields.thumbnail} alt="headline" />
           </article>
         </Wrapper>
       ) : (
@@ -93,9 +93,11 @@ const Wrapper = styled.section`
   }
   img {
     margin-top: 1rem;
-    justify-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     .article-header {
       display: grid;
       grid-template-columns: 1fr 1fr;

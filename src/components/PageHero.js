@@ -66,38 +66,30 @@ const Wrapper = styled.section`
     text-transform: uppercase;
     cursor: pointer;
     border: none;
+    width: 11rem;
+    height: 2rem;
   }
   svg {
     margin-right: 0.5rem;
   }
   select {
     margin-left: 2rem;
-    outline: 0;
-    border-width: 0 0 2px;
+    border-width: 0 0 1px;
     font-size: 1rem;
-    padding: 0.5rem;
     width: 10rem;
     height: 3rem;
+    padding: 0.5rem;
+
     cursor: pointer;
   }
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    h1 {
-      margin-top: 1rem;
-    }
   }
   @media screen and (min-width: 992px) {
     flex-direction: row;
     width: 95vw;
-    button {
-      width: 11rem;
-      height: 2rem;
-    }
     select {
-      font-size: 1rem;
-      padding: 0.5rem;
       width: 15rem;
-      height: 3rem;
     }
   }
   @media screen and (min-width: 1200px) {

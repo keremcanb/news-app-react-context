@@ -2,18 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStories } from '../store/actions/stories';
-import { getBookmarkItems } from '../store/actions/bookmarks';
 import { PageHero, Loader, StoryGrid } from '../components';
 
 const CategoryPage = () => {
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
-  const store2 = useSelector((state) => state.bookmarks);
-  const { bookmarkItems } = store2;
 
   const dispatch = useDispatch();
   const { id } = useParams();
-
   useEffect(() => {
     if (id === 'sport') {
       dispatch(getStories('sport'));
@@ -24,7 +20,6 @@ const CategoryPage = () => {
     if (id === 'lifeandstyle') {
       dispatch(getStories('lifeandstyle'));
     }
-    dispatch(getBookmarkItems());
   }, [dispatch, id]);
 
   const titleHandler = () => {

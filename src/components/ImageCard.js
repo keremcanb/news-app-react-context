@@ -42,9 +42,9 @@ const ImageCard = ({
           </Link>
           <div className="card-footer">
             {isBookmark(story) ? (
-              <FaRegBookmark onClick={() => unBookmark(story)} />
+              <FaBookmark onClick={() => unBookmark(story)} />
             ) : (
-              <FaBookmark onClick={() => addBookmark(story)} />
+              <FaRegBookmark onClick={() => addBookmark(story)} />
             )}
           </div>
         </div>

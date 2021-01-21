@@ -1,9 +1,10 @@
-import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES } from '../actions/types';
+import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES, GET_ARTICLE } from '../actions/types';
 
 const initialState = {
   loading: true,
   stories: [],
-  searchResults: []
+  searchResults: [],
+  article: {}
   // sort: 'newest'
 };
 
@@ -16,6 +17,8 @@ export default (state = initialState, action) => {
       return { ...state, stories: payload, loading: false };
     case SEARCH_STORIES:
       return { ...state, searchResults: payload, loading: false };
+    case GET_ARTICLE:
+      return { ...state, article: payload, loading: false };
     // case SORT_STORIES: {
     //   if (sort === 'newest') {
     //     return stories.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
