@@ -37,6 +37,7 @@ export const getArticle = (id) => async (dispatch) => {
 
 export const searchStories = (searchValue) => async (dispatch) => {
   try {
+    setLoading();
     const { data } = await get(`${apiUrl}search?q=${searchValue}&show-fields=all&show-elements=all&api-key=${apiKey}`);
     dispatch({
       type: SEARCH_STORIES,

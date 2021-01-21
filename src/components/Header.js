@@ -73,7 +73,7 @@ const Wrapper = styled.header`
     }
   }
   @media (min-width: 992px) {
-    height: 9rem;
+    height: 8.7rem;
     .nav-center {
       display: flex;
       flex-direction: column;

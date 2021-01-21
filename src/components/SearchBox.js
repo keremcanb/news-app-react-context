@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { useDispatch } from 'react-redux';
+import { FaSearch } from 'react-icons/fa';
 import { searchStories } from '../store/actions/stories';
 
 const SearchBox = ({ history }) => {
-  const [searchValue, setSearchValue] = useState('');
+  const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
@@ -12,9 +13,9 @@ const SearchBox = ({ history }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchStories(searchValue));
-    history.push(`/search/${searchValue}`);
-    setSearchValue('');
+    dispatch(searchStories(input));
+    history.push(`/search/${input}`);
+    setInput('');
     setBarOpened(false);
   };
 
@@ -40,13 +41,13 @@ const SearchBox = ({ history }) => {
         onSubmit={onFormSubmit}
         ref={formRef}
       >
-        <Button type="submit" barOpened={barOpened}>
-          <i className="fa fa-search" aria-hidden="true" />
+        <Button type="submit">
+          <FaSearch onClick={() => setToggle(!barOpened)} />
         </Button>
         <Input
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           ref={inputFocus}
-          value={searchValue}
+          value={input}
           barOpened={barOpened}
           placeholder="Search all news"
         />
@@ -98,7 +99,7 @@ const Button = styled.button`
   border: none;
   outline: none;
   color: white;
-  i {
+  svg {
     font-size: 1.5rem;
   }
 `;
