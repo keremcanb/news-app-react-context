@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useDispatch } from 'react-redux';
-import { FaSearch } from 'react-icons/fa';
 import { searchStories } from '../store/actions/stories';
 
 const SearchBox = ({ history }) => {
@@ -30,7 +29,7 @@ const SearchBox = ({ history }) => {
 
   return (
     <Wrapper style={animateWidth}>
-      <FaSearch onClick={() => setToggle(!toggle)} />
+      <i className="fa fa-search" aria-hidden="true" onClick={() => setToggle(!toggle)} />
       <SearchForm onSubmit={callSearchFunction}>
         <SearchInput
           value={searchValue}
@@ -53,7 +52,7 @@ const Wrapper = styled(animated.div)`
   *:focus {
     outline: none;
   }
-  svg {
+  i {
     margin-top: 0.8rem;
     color: #fff;
     cursor: pointer;

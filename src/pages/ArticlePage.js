@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import { FaBookmark } from 'react-icons/fa';
 import { Loader } from '../components';
 import { getArticle } from '../store/actions/stories';
 
@@ -28,12 +27,12 @@ const ArticlePage = () => {
           <div className="article-header">
             <div className="article-header-left">
               <button>
-                <FaBookmark />
+                <i className="fa fa-bookmark" aria-hidden="true" />
                 Add Bookmark
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {fields.trailText && <h2>{fields.trailText}</h2>}
+              {fields.standfirst && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
             </div>
             <div className="article-header-right" />
           </div>
@@ -63,7 +62,7 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
   }
-  svg {
+  i {
     margin-right: 1rem;
     font-size: 0.8rem;
   }
