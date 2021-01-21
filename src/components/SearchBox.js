@@ -57,7 +57,7 @@ const Wrapper = styled(animated.div)`
     color: #fff;
     cursor: pointer;
     border-bottom: 3px solid white;
-    padding-bottom: 1.1rem;
+    padding-bottom: 1.3rem;
     padding-right: 1rem;
     width: 2rem;
     text-align: center;

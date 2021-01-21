@@ -57,16 +57,20 @@ const Wrapper = styled.div`
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;
   margin-bottom: 2rem;
-  width: 23rem;
+  width: 20rem;
+  height: 22rem;
   article {
     display: grid;
     grid-template-rows: auto 1fr;
+  }
+  img {
+    height: 22rem;
   }
   .card {
     height: 8.7rem;
     padding: 1.5rem 1rem;
     position: absolute;
-    top: 10.1rem;
+    top: 13.4rem;
     color: white;
     background-color: #0c3371;
     opacity: 0.9;
@@ -94,6 +98,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
   @media (min-width: 768px) {
+    width: 22rem;
   }
   @media (min-width: 992px) {
     button {

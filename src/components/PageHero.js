@@ -47,10 +47,16 @@ const Wrapper = styled.section`
   margin: 0 auto;
   max-width: 1170px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
   padding: 3rem 0;
   .title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+  .input-group {
+    margin-top: 1rem;
   }
   button {
     background-color: #09357b;
@@ -77,13 +83,11 @@ const Wrapper = styled.section`
     height: 3rem;
     cursor: pointer;
   }
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 992px) {
+    flex-direction: row;
     width: 95vw;
-    h1 {
-      font-size: 3rem;
-    }
     button {
       width: 10rem;
       height: 2rem;
@@ -94,6 +98,9 @@ const Wrapper = styled.section`
       width: 15rem;
       height: 3rem;
     }
+  }
+  @media screen and (min-width: 1200px) {
+    justify-content: space-between;
   }
 `;
 

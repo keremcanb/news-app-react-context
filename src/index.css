@@ -39,12 +39,6 @@
   --fixed-width: 620px;
 }
 
-/*
-===============
-Global Styles
-===============
-*/
-
 *,
 ::after,
 ::before {
@@ -66,7 +60,7 @@ ul {
 a {
   text-decoration: none;
 }
-hr {
+/* hr {
   border: none;
   border-top: 1px solid var(--clr-grey-8);
 }
@@ -81,7 +75,7 @@ h5 {
   margin-bottom: 0.75rem;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 h2 {
   font-size: 2rem;
@@ -124,7 +118,7 @@ p {
   h4 {
     line-height: 1;
   }
-}
+} */
 
 /* body {
   margin: 0;

@@ -63,8 +63,7 @@ const Wrapper = styled.header`
   .nav-links {
     display: none;
   }
-  .cart-btn-wrapper {
-    display: none;
+  @media screen and (min-width: 768px) {
   }
   @media (max-width: 992px) {
     .searchbox {
@@ -73,9 +72,6 @@ const Wrapper = styled.header`
   }
   @media (min-width: 992px) {
     height: 9rem;
-    .nav-toggle {
-      display: none;
-    }
     .nav-center {
       display: flex;
       flex-direction: column;
@@ -114,6 +110,9 @@ const Wrapper = styled.header`
           border-bottom: 3px solid #2196f3;
         }
       }
+    }
+    .nav-toggle {
+      display: none;
     }
   }
 `;
