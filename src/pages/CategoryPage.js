@@ -8,6 +8,8 @@ import { PageHero, Loader, StoryGrid } from '../components';
 const CategoryPage = () => {
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
+  const store2 = useSelector((state) => state.bookmarks);
+  const { bookmarkItems } = store2;
 
   const dispatch = useDispatch();
   const { id } = useParams();

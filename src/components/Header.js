@@ -34,6 +34,7 @@ const Header = ({ toggleSidebar }) => (
 const Wrapper = styled.header`
   height: 7rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #09357b;

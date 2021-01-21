@@ -7,6 +7,8 @@ import { ImageCard, PageHero, Loader, StoryGrid } from '../components';
 const HomePage = () => {
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
+  const store2 = useSelector((state) => state.bookmarks);
+  const { bookmarkItems } = store2;
   const dispatch = useDispatch();
 
   console.log(stories);

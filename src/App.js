@@ -12,6 +12,7 @@ const App = () => {
 
   return (
     <Router>
+      {/* <Router forceRefresh> */}
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <main>
