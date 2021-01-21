@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBookmark } from 'react-icons/fa';
 
 const PageHero = ({ stories, title, bookmark, sort }) => {
   // const sorted = stories.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
@@ -26,7 +27,7 @@ const PageHero = ({ stories, title, bookmark, sort }) => {
         {bookmark && (
           <Link to="/bookmarks">
             <button>
-              <i className="fa fa-bookmark" aria-hidden="true" />
+              <FaBookmark />
               View Bookmarks
             </button>
           </Link>
@@ -61,15 +62,13 @@ const Wrapper = styled.section`
   button {
     background-color: #09357b;
     color: white;
-    font-size: 0.8rem;
-    padding: 0.5rem;
     border-radius: 0.2rem;
     text-transform: uppercase;
     cursor: pointer;
     border: none;
   }
-  i {
-    margin-right: 1rem;
+  svg {
+    margin-right: 0.5rem;
   }
   select {
     margin-left: 2rem;
@@ -91,7 +90,7 @@ const Wrapper = styled.section`
     flex-direction: row;
     width: 95vw;
     button {
-      width: 10rem;
+      width: 11rem;
       height: 2rem;
     }
     select {

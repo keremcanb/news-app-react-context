@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
+import { FaBookmark } from 'react-icons/fa';
 import { Loader } from '../components';
 
 const ArticlePage = () => {
@@ -10,11 +11,11 @@ const ArticlePage = () => {
   const { stories, loading } = store;
 
   const { section, year, month, day, id } = useParams();
-  const currentArticle = `${section}/${year}/${month}/${day}/${id}`;
+  const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
 
-  const article = stories.find((story) => story.id === currentArticle);
+  const article = stories.find((story) => story.id === selectedArticle);
   const {
-    fields: { headline, bodyText, thumbnail },
+    fields: { trailText, bodyText, thumbnail },
     webPublicationDate,
     webTitle
   } = article;
@@ -26,12 +27,12 @@ const ArticlePage = () => {
           <div className="article-header">
             <div className="article-header-left">
               <button>
-                <i className="fa fa-bookmark" aria-hidden="true" />
+                <FaBookmark />
                 Add Bookmark
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {headline && <h2>{headline}</h2>}
+              <h2>{trailText}</h2>
             </div>
             <div className="article-header-right" />
           </div>
@@ -53,6 +54,8 @@ const Wrapper = styled.section`
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
+  display: flex;
+  flex-direction: column;
   .article-header {
     margin-top: 5rem;
   }
@@ -60,8 +63,9 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
   }
-  i {
+  svg {
     margin-right: 1rem;
+    font-size: 0.8rem;
   }
   button {
     background-color: #09357b;
@@ -79,6 +83,7 @@ const Wrapper = styled.section`
   h1 {
     margin: 1rem 0;
     line-height: 3rem;
+    font-size: 3rem;
   }
   hr {
     margin: 1rem 0;
@@ -86,7 +91,9 @@ const Wrapper = styled.section`
   p {
     font-size: 1rem;
   }
-  @media (min-width: 768px) {
+  img {
+    margin-top: 1rem;
+    justify-self: center;
   }
   @media (min-width: 992px) {
     .article-header {
@@ -102,9 +109,7 @@ const Wrapper = styled.section`
     }
     img {
       justify-self: end;
-    }
-    h1 {
-      font-size: 3rem;
+      margin-top: 0;
     }
   }
 `;

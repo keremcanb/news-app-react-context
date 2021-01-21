@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import { bookmarkItem, unBookmarkItem } from '../store/actions/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
@@ -41,9 +42,9 @@ const ImageCard = ({
           </Link>
           <div className="card-footer">
             {isBookmark(story) ? (
-              <i className="fa fa-bookmark" aria-hidden="true" onClick={() => unBookmark(story)} />
+              <FaRegBookmark onClick={() => unBookmark(story)} />
             ) : (
-              <i className="fa fa-bookmark-o" aria-hidden="true" onClick={() => addBookmark(story)} />
+              <FaBookmark onClick={() => addBookmark(story)} />
             )}
           </div>
         </div>
@@ -86,7 +87,7 @@ const Wrapper = styled.div`
     justify-content: flex-end;
     align-items: center;
   }
-  i {
+  svg {
     margin-right: 0.5rem;
     position: absolute;
     top: 6.5rem;

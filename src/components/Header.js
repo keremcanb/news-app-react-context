@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import Logo from '../assets/logo.png';
+import Links from '../constants';
 
 const Header = ({ toggleSidebar }) => (
   <Wrapper>
