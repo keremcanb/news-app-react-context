@@ -68,7 +68,7 @@ const Wrapper = styled.div`
   }
   .card {
     height: 8.7rem;
-    padding: 1.5rem 1rem;
+    padding: 0.5rem 1rem 0 1rem;
     position: absolute;
     top: 13.4rem;
     color: white;
@@ -80,9 +80,6 @@ const Wrapper = styled.div`
       text-decoration: none;
       color: #fff;
     }
-    h2 {
-      font-size: 1.2rem;
-    }
   }
   .card-footer {
     display: flex;
@@ -90,10 +87,10 @@ const Wrapper = styled.div`
     align-items: center;
   }
   i {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     position: absolute;
     top: 6.5rem;
-    right: 1rem;
+    right: 0.5rem;
     font-size: 1.2rem;
     cursor: pointer;
   }

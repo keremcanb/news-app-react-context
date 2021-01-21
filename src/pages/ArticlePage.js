@@ -31,13 +31,13 @@ const ArticlePage = () => {
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {headline && <h4>{headline}</h4>}
+              {headline && <h2>{headline}</h2>}
             </div>
             <div className="article-header-right" />
           </div>
           <hr />
           <article className="article-body">
-            {bodyText}
+            <p>{bodyText}</p>
             {/* <div dangerouslySetInnerHTML={{ __html: body }} /> */}
             <img src={thumbnail} alt="headline" />
           </article>
@@ -77,10 +77,14 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
   }
   h1 {
-    margin-top: 1rem;
+    margin: 1rem 0;
+    line-height: 3rem;
   }
   hr {
     margin: 1rem 0;
+  }
+  p {
+    font-size: 1rem;
   }
   @media (min-width: 768px) {
   }
@@ -98,6 +102,9 @@ const Wrapper = styled.section`
     }
     img {
       justify-self: end;
+    }
+    h1 {
+      font-size: 3rem;
     }
   }
 `;

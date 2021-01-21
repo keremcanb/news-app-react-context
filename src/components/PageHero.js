@@ -65,8 +65,6 @@ const Wrapper = styled.section`
     padding: 0.5rem;
     border-radius: 0.2rem;
     text-transform: uppercase;
-    width: 8rem;
-    height: 3rem;
     cursor: pointer;
     border: none;
   }
@@ -84,6 +82,10 @@ const Wrapper = styled.section`
     cursor: pointer;
   }
   @media screen and (min-width: 768px) {
+    flex-direction: row;
+    h1 {
+      margin-top: 1rem;
+    }
   }
   @media screen and (min-width: 992px) {
     flex-direction: row;
