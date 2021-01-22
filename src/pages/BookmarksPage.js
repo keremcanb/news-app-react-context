@@ -8,6 +8,7 @@ const BookmarksPage = () => {
   const { bookmarkItems, loading } = store;
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBookmarkItems());
   }, [dispatch]);

@@ -10,6 +10,7 @@ const CategoryPage = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
+
   useEffect(() => {
     if (id === 'sport') {
       dispatch(getStories('sport'));

@@ -14,11 +14,13 @@ const ArticlePage = () => {
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getArticle(selectedArticle));
   }, [dispatch, selectedArticle]);
 
   const { webTitle, webPublicationDate, fields } = article;
+  console.log(article);
 
   return (
     <>
@@ -32,15 +34,15 @@ const ArticlePage = () => {
               </button>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {fields.standfirst && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+              {/* {fields.standfirst && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />} */}
             </div>
             <div className="article-header-right" />
           </div>
           <hr />
-          <article className="article-body">
+          {/* <article className="article-body">
             <p>{fields.bodyText}</p>
             {fields.thumbnail && <img src={fields.thumbnail} alt="headline" />}
-          </article>
+          </article> */}
         </Wrapper>
       ) : (
         <Loader />

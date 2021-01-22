@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import Logo from '../assets/logo.png';
-// import PageLinks from '../constants';
+import PageLinks from '../constants';
 
 const Header = ({ toggleSidebar }) => (
   <Wrapper>
-    <div className="nav-center">
-      <div className="nav-header">
+    <nav className="nav-container">
+      <div className="nav-top">
         <Link to="/">
           <img src={Logo} alt="logo" />
         </Link>
@@ -17,19 +17,13 @@ const Header = ({ toggleSidebar }) => (
           <FaBars />
         </button>
       </div>
-      <div className="nav-footer">
-        <nav className="nav-links">
-          <Link to="/">News Today</Link>
-          <Link to="/category/sport">Sports</Link>
-          <Link to="/category/culture">Culture</Link>
-          <Link to="/category/lifeandstyle">Lifestyle</Link>
-          {/* <PageLinks styleClass="nav-links" /> */}
-        </nav>
+      <div className="nav-bottom">
+        <PageLinks styleClass="nav-links" />
         <div className="searchbox">
           <Route render={({ history }) => <SearchBox history={history} />} />
         </div>
       </div>
-    </div>
+    </nav>
   </Wrapper>
 );
 
@@ -37,15 +31,13 @@ const Wrapper = styled.header`
   height: 7rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: #09357b;
-  .nav-center {
+  .nav-container {
     width: 90vw;
     margin: 0 auto;
     max-width: 1170px;
   }
-  .nav-header {
+  .nav-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,27 +69,16 @@ const Wrapper = styled.header`
       display: flex;
       flex-direction: column;
     }
-    .nav-footer {
+    .nav-bottom {
       display: flex;
       justify-content: space-between;
     }
     .nav-links {
       display: flex;
-      margin-right: 5rem;
       li {
-        margin: 0 0.5rem;
-      }
-      a {
-        color: white;
-        text-transform: uppercase;
-        font-size: 0.8rem;
         padding: 1rem 4rem 1rem;
         font-weight: bold;
         line-height: 0.85;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-        list-style: none;
         &:nth-child(1) {
           border-bottom: 3px solid #388e3c;
         }
@@ -109,6 +90,10 @@ const Wrapper = styled.header`
         }
         &:nth-child(4) {
           border-bottom: 3px solid #2196f3;
+        }
+        a {
+          text-transform: uppercase;
+          color: #fff;
         }
       }
     }

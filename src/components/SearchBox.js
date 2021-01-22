@@ -7,6 +7,7 @@ import { searchStories } from '../store/actions/stories';
 const SearchBox = ({ history }) => {
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
+
   const formRef = useRef();
   const inputFocus = useRef();
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ const Input = styled.input`
   font-size: 14px;
   line-height: 1;
   background-color: transparent;
-  width: 100%;
+  width: 60%;
   margin-left: ${(props) => (props.barOpened ? '1rem' : '0rem')};
   border: none;
   color: white;
