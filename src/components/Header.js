@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import Logo from '../assets/logo.png';
-import Links from '../constants';
+// import PageLinks from '../constants';
 
 const Header = ({ toggleSidebar }) => (
   <Wrapper>
@@ -23,6 +23,7 @@ const Header = ({ toggleSidebar }) => (
           <Link to="/category/sport">Sports</Link>
           <Link to="/category/culture">Culture</Link>
           <Link to="/category/lifeandstyle">Lifestyle</Link>
+          {/* <PageLinks styleClass="nav-links" /> */}
         </nav>
         <div className="searchbox">
           <Route render={({ history }) => <SearchBox history={history} />} />
@@ -65,14 +66,12 @@ const Wrapper = styled.header`
   .nav-links {
     display: none;
   }
-  @media screen and (min-width: 768px) {
-  }
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .searchbox {
       display: none;
     }
   }
-  @media (min-width: 992px) {
+  @media screen and (min-width: 1200px) {
     height: 8.7rem;
     .nav-center {
       display: flex;

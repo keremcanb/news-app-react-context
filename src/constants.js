@@ -29,6 +29,5 @@ const tempLinks = links.map((link) => (
     <Link to={link.url}>{link.text}</Link>
   </li>
 ));
-// I KNOW WE CAN COMBINE IT !!!!!
 
 export default ({ styleClass }) => <ul className={`page-links ${styleClass || ''}`}>{tempLinks}</ul>;

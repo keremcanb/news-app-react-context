@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,7 +13,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => (
       <button className="close-btn" onClick={toggleSidebar}>
         <FaTimes />
       </button>
-      <div className="side-container">
+      <div className="side-container" onClick={toggleSidebar}>
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
         <Route render={({ history }) => <SearchBox history={history} />} />
       </div>
@@ -67,7 +69,7 @@ const SidebarContainer = styled.div`
     color: var(--clr-red-dark);
     cursor: pointer;
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1200px) {
     .sidebar {
       transform: translateX(-100%);
     }
