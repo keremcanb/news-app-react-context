@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -10,9 +8,7 @@ import Links from '../constants';
 const Sidebar = ({ isOpen, toggleSidebar }) => (
   <SidebarContainer>
     <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''}`}>
-      <button className="close-btn" onClick={toggleSidebar}>
-        <FaTimes />
-      </button>
+      <FaTimes className="close-btn" onClick={toggleSidebar} />
       <div className="side-container" onClick={toggleSidebar}>
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
         <Route render={({ history }) => <SearchBox history={history} />} />

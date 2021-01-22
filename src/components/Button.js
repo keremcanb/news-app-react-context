@@ -22,6 +22,7 @@ const Wrapper = styled.button`
   cursor: pointer;
   border: none;
   margin-bottom: 1rem;
+  outline: 0;
   i {
     margin-right: 0.5rem;
   }

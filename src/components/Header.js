@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
-import Logo from '../assets/logo.png';
+import logo from '../assets/logo.png';
 import PageLinks from '../constants';
 
 const Header = ({ toggleSidebar }) => (
@@ -11,11 +11,9 @@ const Header = ({ toggleSidebar }) => (
     <nav className="nav-container">
       <div className="nav-top">
         <Link to="/">
-          <img src={Logo} alt="logo" />
+          <img src={logo} alt="logo" />
         </Link>
-        <button type="button" className="nav-toggle" onClick={toggleSidebar}>
-          <FaBars />
-        </button>
+        <FaBars className="nav-toggle" onClick={toggleSidebar} />
       </div>
       <div className="nav-bottom">
         <PageLinks styleClass="nav-links" />
@@ -51,9 +49,7 @@ const Wrapper = styled.header`
     cursor: pointer;
     transition: var(--transition);
     outline: 0;
-    svg {
-      font-size: 2rem;
-    }
+    font-size: 2rem;
   }
   .nav-toggle:hover {
     color: #fff;

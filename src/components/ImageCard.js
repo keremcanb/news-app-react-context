@@ -95,10 +95,6 @@ const Wrapper = styled.div`
     width: 22rem;
   }
   @media (min-width: 992px) {
-    button {
-      width: 12rem;
-      height: 2rem;
-    }
   }
 `;
 

@@ -30,15 +30,15 @@ const ArticlePage = () => {
               <Button text="Add Bookmark" />
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {/* {fields.standfirst && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />} */}
+              <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />
             </div>
             <div className="hero-right" />
           </div>
           <hr />
-          {/* <article className="article-body">
+          <article className="article-body">
             <p>{fields.bodyText}</p>
-            {fields.thumbnail && <img src={fields.thumbnail} alt="headline" />}
-          </article> */}
+            <img src={fields.thumbnail} alt="headline" />
+          </article>
         </Wrapper>
       ) : (
         <Loader />
@@ -55,6 +55,9 @@ const Wrapper = styled.section`
   flex-direction: column;
   .article-hero {
     margin-top: 5rem;
+  }
+  .article-body {
+    margin-bottom: 2rem;
   }
   .hero-left {
     display: flex;
