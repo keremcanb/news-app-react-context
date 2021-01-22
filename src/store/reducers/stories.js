@@ -14,12 +14,16 @@ export default (state = initialState, action) => {
   switch (type) {
     case SET_LOADING:
       return { ...state, loading: true };
+
     case GET_STORIES:
       return { ...state, stories: payload, loading: false };
+
     case SEARCH_STORIES:
       return { ...state, searchResults: payload, loading: false };
+
     case GET_ARTICLE:
       return { ...state, article: payload, loading: false };
+
     // case SORT_STORIES: {
     //   if (sort === 'newest') {
     //     return stories.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
@@ -29,6 +33,7 @@ export default (state = initialState, action) => {
     //   }
     //   return { ...state, filtered };
     // }
+
     default:
       return state;
   }

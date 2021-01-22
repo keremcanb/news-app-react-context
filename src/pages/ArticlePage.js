@@ -19,7 +19,6 @@ const ArticlePage = () => {
   }, [dispatch, selectedArticle]);
 
   const { webTitle, webPublicationDate, fields } = article;
-  console.log(article);
 
   return (
     <>
@@ -30,14 +29,15 @@ const ArticlePage = () => {
               <Button text="Add Bookmark" />
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />
+              {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
             </div>
             <div className="hero-right" />
           </div>
+
           <hr />
           <article className="article-body">
-            <p>{fields.bodyText}</p>
-            <img src={fields.thumbnail} alt="headline" />
+            {fields && <p>{fields.bodyText}</p>}
+            {fields && <img src={fields.thumbnail} alt="headline" />}
           </article>
         </Wrapper>
       ) : (

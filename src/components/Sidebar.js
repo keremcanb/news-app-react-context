@@ -9,6 +9,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => (
   <SidebarContainer>
     <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''}`}>
       <FaTimes className="close-btn" onClick={toggleSidebar} />
+
       <div className="side-container" onClick={toggleSidebar}>
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
         <Route render={({ history }) => <SearchBox history={history} />} />

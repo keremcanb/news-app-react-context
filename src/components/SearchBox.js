@@ -77,8 +77,8 @@ const Form = styled.form`
 const Input = styled.input`
   font-size: 14px;
   line-height: 1;
-  background-color: transparent;
-  width: 60%;
+  background-color: #0f3f8c;
+  width: 100%;
   margin-left: ${(props) => (props.barOpened ? '1rem' : '0rem')};
   border: none;
   color: white;
@@ -90,6 +90,8 @@ const Input = styled.input`
   &::placeholder {
     color: white;
   }
+  border-bottom: 3px solid #fff;
+  padding-bottom: 1rem;
 `;
 
 const Button = styled.button`
@@ -100,9 +102,11 @@ const Button = styled.button`
   border: none;
   outline: none;
   color: white;
-  svg {
-    font-size: 1.5rem;
-  }
+  font-size: 1.5rem;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 0.3rem;
+  padding-right: 2rem;
+  padding-left: 3rem;
 `;
 
 export default SearchBox;

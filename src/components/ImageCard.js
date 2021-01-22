@@ -14,9 +14,9 @@ const ImageCard = ({
     fields: { thumbnail }
   }
 }) => {
+  const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state.bookmarks);
   const { bookmarkItems } = bookmarks;
-  const dispatch = useDispatch();
 
   const isBookmark = (item) => {
     if (bookmarkItems !== null) {
@@ -40,6 +40,7 @@ const ImageCard = ({
           <Link to={`/article/${id}`}>
             <h2>{webTitle}</h2>
           </Link>
+
           <div className="card-footer">
             {isBookmark(story) ? (
               <FaBookmark onClick={() => unBookmark(story)} />

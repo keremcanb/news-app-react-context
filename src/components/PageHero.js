@@ -11,8 +11,8 @@ const PageHero = ({ title, bookmark, sort }) => {
   const newest = stories.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
   const oldest = stories.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
 
-  console.log(newest);
-  console.log(oldest);
+  // console.log(newest);
+  // console.log(oldest);
 
   const onChangeHandler = (e) => {
     const { value } = e.target;
@@ -35,6 +35,7 @@ const PageHero = ({ title, bookmark, sort }) => {
             <Button text="View Bookmarks" />
           </Link>
         )}
+
         {sort && (
           <select name="sort" id="sort" onChange={onChangeHandler}>
             <option value="newest">Newest first</option>
