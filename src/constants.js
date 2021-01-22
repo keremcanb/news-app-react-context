@@ -24,9 +24,9 @@ export const links = [
   }
 ];
 
-const tempLinks = links.map((link) => (
-  <li key={link.id}>
-    <Link to={link.url}>{link.text}</Link>
+const tempLinks = links.map(({ id, url, text }) => (
+  <li key={id}>
+    <Link to={url}>{text}</Link>
   </li>
 ));
 

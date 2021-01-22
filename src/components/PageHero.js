@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import Button from './Button';
 
 const PageHero = ({ title, bookmark, sort }) => {
   const store = useSelector((state) => state.stories);
@@ -31,10 +32,7 @@ const PageHero = ({ title, bookmark, sort }) => {
       <div className="input-group">
         {bookmark && (
           <Link to="/bookmarks">
-            <button>
-              <i className="fa fa-bookmark" aria-hidden="true" />
-              View Bookmarks
-            </button>
+            <Button text="View Bookmarks" />
           </Link>
         )}
         {sort && (
@@ -63,19 +61,6 @@ const Wrapper = styled.section`
   }
   .input-group {
     margin-top: 1rem;
-  }
-  button {
-    background-color: #09357b;
-    color: white;
-    border-radius: 0.2rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    width: 11rem;
-    height: 2rem;
-  }
-  i {
-    margin-right: 0.5rem;
   }
   select {
     margin-left: 2rem;

@@ -29,8 +29,6 @@ const Header = ({ toggleSidebar }) => (
 
 const Wrapper = styled.header`
   height: 7rem;
-  display: flex;
-  flex-direction: column;
   background: #09357b;
   .nav-container {
     width: 90vw;
@@ -46,14 +44,20 @@ const Wrapper = styled.header`
     width: 175px;
   }
   .nav-toggle {
-    margin-right: 1rem;
+    margin-top: 1rem;
     background: transparent;
     border: transparent;
     color: #fff;
     cursor: pointer;
+    transition: var(--transition);
+    outline: 0;
     svg {
       font-size: 2rem;
     }
+  }
+  .nav-toggle:hover {
+    color: #fff;
+    transform: rotate(90deg);
   }
   .nav-links {
     display: none;
@@ -65,7 +69,7 @@ const Wrapper = styled.header`
   }
   @media screen and (min-width: 1200px) {
     height: 8.7rem;
-    .nav-center {
+    .nav-container {
       display: flex;
       flex-direction: column;
     }

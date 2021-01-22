@@ -4,10 +4,9 @@ import { getStories } from '../store/actions/stories';
 import { ImageCard, PageHero, Loader, StoryGrid } from '../components';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getStories('world'));

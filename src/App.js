@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getBookmarkItems } from './store/actions/bookmarks';
-import { Home, Category, Article, Bookmarks, SearchResults } from './pages';
 import { Header, Sidebar, Footer } from './components';
+import Routes from './Routes';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBookmarkItems());
   }, [dispatch]);
@@ -21,25 +22,7 @@ const App = () => {
       {/* <Router forceRefresh> */}
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/bookmarks">
-            <Bookmarks />
-          </Route>
-          <Route path="/search/:keyword">
-            <SearchResults />
-          </Route>
-          <Route path="/article/:section/:year/:month/:day/:id">
-            <Article />
-          </Route>
-          <Route path="/category/:id">
-            <Category />
-          </Route>
-        </Switch>
-      </main>
+      <Routes />
       <Footer />
     </Router>
   );

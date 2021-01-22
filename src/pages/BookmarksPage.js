@@ -4,10 +4,9 @@ import { getBookmarkItems } from '../store/actions/bookmarks';
 import { PageHero, StoryGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
+  const dispatch = useDispatch();
   const store = useSelector((state) => state.bookmarks);
   const { bookmarkItems, loading } = store;
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookmarkItems());

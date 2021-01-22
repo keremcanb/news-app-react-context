@@ -60,10 +60,6 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
   width: 20rem;
   height: 22rem;
-  article {
-    display: grid;
-    grid-template-rows: auto 1fr;
-  }
   img {
     height: 22rem;
   }

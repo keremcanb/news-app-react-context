@@ -10,11 +10,8 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  width: 100%;
   height: 15rem;
-  display: grid;
   background: #09357b;
-  margin-top: 5rem;
 `;
 
 export default Footer;

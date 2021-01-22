@@ -3,17 +3,16 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import { Loader } from '../components';
+import { Loader, Button } from '../components';
 import { getArticle } from '../store/actions/stories';
 
 const ArticlePage = () => {
+  const dispatch = useDispatch();
   const store = useSelector((state) => state.stories);
   const { article, loading } = store;
 
   const { section, year, month, day, id } = useParams();
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getArticle(selectedArticle));
@@ -26,17 +25,14 @@ const ArticlePage = () => {
     <>
       {!loading ? (
         <Wrapper>
-          <div className="article-header">
-            <div className="article-header-left">
-              <button>
-                <i className="fa fa-bookmark" aria-hidden="true" />
-                Add Bookmark
-              </button>
+          <div className="article-hero">
+            <div className="hero-left">
+              <Button text="Add Bookmark" />
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
               {/* {fields.standfirst && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />} */}
             </div>
-            <div className="article-header-right" />
+            <div className="hero-right" />
           </div>
           <hr />
           {/* <article className="article-body">
@@ -57,29 +53,12 @@ const Wrapper = styled.section`
   max-width: 1170px;
   display: flex;
   flex-direction: column;
-  .article-header {
+  .article-hero {
     margin-top: 5rem;
   }
-  .article-header-left {
+  .hero-left {
     display: flex;
     flex-direction: column;
-  }
-  i {
-    margin-right: 1rem;
-    font-size: 0.8rem;
-  }
-  button {
-    background-color: #09357b;
-    color: white;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    text-transform: uppercase;
-    width: 10rem;
-    height: 2rem;
-    cursor: pointer;
-    border: none;
-    margin-bottom: 1rem;
   }
   h1 {
     margin: 1rem 0;
@@ -99,7 +78,7 @@ const Wrapper = styled.section`
     margin-right: auto;
   }
   @media (min-width: 1200px) {
-    .article-header {
+    .article-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }

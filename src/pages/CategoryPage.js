@@ -5,10 +5,9 @@ import { getStories } from '../store/actions/stories';
 import { PageHero, Loader, StoryGrid } from '../components';
 
 const CategoryPage = () => {
+  const dispatch = useDispatch();
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
-
-  const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {

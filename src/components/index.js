@@ -6,5 +6,6 @@ import StoryGrid from './StoryGrid';
 import ImageCard from './ImageCard';
 import TextCard from './TextCard';
 import Loader from './Loader';
+import Button from './Button';
 
-export { Header, Sidebar, Footer, PageHero, StoryGrid, ImageCard, TextCard, Loader };
+export { Header, Sidebar, Footer, PageHero, StoryGrid, ImageCard, TextCard, Loader, Button };
