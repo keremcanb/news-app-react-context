@@ -29,7 +29,7 @@ const ArticlePage = () => {
               <Button text="Add Bookmark" />
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+              {fields && <div dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
             </div>
             <div className="hero-right" />
           </div>
@@ -58,10 +58,18 @@ const Wrapper = styled.section`
   }
   .article-body {
     margin-bottom: 2rem;
+    p {
+      font-size: 1rem;
+    }
   }
   .hero-left {
     display: flex;
     flex-direction: column;
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 2rem;
+    }
   }
   h1 {
     margin: 1rem 0;
@@ -70,9 +78,6 @@ const Wrapper = styled.section`
   }
   hr {
     margin: 1rem 0;
-  }
-  p {
-    font-size: 1rem;
   }
   img {
     margin-top: 1rem;

@@ -30,7 +30,7 @@ const SidebarContainer = styled.aside`
     display: grid;
     place-items: center;
     opacity: 0;
-    transition: var(--transition);
+    transition: all 0.3s linear;
     transform: translateX(-100%);
   }
   .show-sidebar {
@@ -45,16 +45,16 @@ const SidebarContainer = styled.aside`
     text-align: center;
     text-transform: capitalize;
     color: #fff;
-    letter-spacing: var(--spacing);
+    letter-spacing: 0.1rem;
     margin-bottom: 0.5rem;
     font-size: 2rem;
-    transition: var(--transition);
-    border-radius: var(--radius);
+    transition: all 0.3s linear;
+    border-radius: 0.25rem;
     text-decoration: none;
   }
   .sidebar-links li a:hover {
-    background: var(--clr-primary-9);
-    color: var(--clr-primary-5);
+    background: hsl(22, 31%, 81%);
+    color: hsl(22, 31%, 52%);
   }
   .close-btn {
     position: absolute;

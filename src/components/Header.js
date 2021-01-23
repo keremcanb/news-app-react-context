@@ -48,7 +48,7 @@ const Wrapper = styled.header`
     border: transparent;
     color: #fff;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s linear;
     outline: 0;
     font-size: 2rem;
   }

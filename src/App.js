@@ -6,8 +6,8 @@ import { Header, Sidebar, Footer } from './components';
 import Routes from './Routes';
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
