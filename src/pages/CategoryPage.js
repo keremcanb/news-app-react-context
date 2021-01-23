@@ -1,24 +1,24 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getStories } from '../store/actions/stories';
+import { getArticles } from '../store/actions/articles';
 import { PageHero, Loader, StoryGrid } from '../components';
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.stories);
-  const { stories, loading } = store;
+  const store = useSelector((state) => state.articles);
+  const { articles, loading } = store;
   const { id } = useParams();
 
   useEffect(() => {
     if (id === 'sport') {
-      dispatch(getStories('sport'));
+      dispatch(getArticles('sport'));
     }
     if (id === 'culture') {
-      dispatch(getStories('culture'));
+      dispatch(getArticles('culture'));
     }
     if (id === 'lifeandstyle') {
-      dispatch(getStories('lifeandstyle'));
+      dispatch(getArticles('lifeandstyle'));
     }
   }, [dispatch, id]);
 
@@ -36,10 +36,10 @@ const CategoryPage = () => {
 
   return (
     <>
-      {stories && !loading ? (
+      {articles && !loading ? (
         <>
           <PageHero title={titleHandler()} sort />
-          <StoryGrid stories={stories} />
+          <StoryGrid articles={articles} />
         </>
       ) : (
         <Loader />

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import bookmarks from './bookmarks';
-import stories from './stories';
+import articles from './articles';
 
 export default combineReducers({
   bookmarks,
-  stories
+  articles
 });

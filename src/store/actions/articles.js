@@ -1,5 +1,5 @@
 import { get } from 'axios';
-import { SET_LOADING, GET_STORIES, SEARCH_STORIES, GET_ARTICLE } from './types';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from './types';
 
 const apiUrl = 'https://content.guardianapis.com/';
 const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
@@ -9,14 +9,14 @@ export const setLoading = () => ({
   type: SET_LOADING
 });
 
-export const getStories = (section) => async (dispatch) => {
+export const getArticles = (section) => async (dispatch) => {
   try {
     setLoading();
     const { data } = await get(
       `${apiUrl}${section}?show-fields=all&show-elements=all&page-size=9&type=article&api-key=${apiKey}`
     );
     dispatch({
-      type: GET_STORIES,
+      type: GET_ARTICLES,
       payload: data.response.results
     });
   } catch (err) {
@@ -37,12 +37,12 @@ export const getArticle = (id) => async (dispatch) => {
   }
 };
 
-export const searchStories = (searchValue) => async (dispatch) => {
+export const searchArticles = (keyword) => async (dispatch) => {
   try {
     setLoading();
-    const { data } = await get(`${apiUrl}search?q=${searchValue}&show-fields=all&show-elements=all&api-key=${apiKey}`);
+    const { data } = await get(`${apiUrl}search?q=${keyword}&show-fields=all&show-elements=all&api-key=${apiKey}`);
     dispatch({
-      type: SEARCH_STORIES,
+      type: SEARCH_ARTICLES,
       payload: data.response.results
     });
   } catch (err) {

@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const Footer = () => {
-  const stories = useSelector((state) => state.stories);
-  const { loading } = stories;
+  const articles = useSelector((state) => state.articles);
+  const { loading } = articles;
 
   return !loading && <Wrapper />;
 };

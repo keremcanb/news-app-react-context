@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 import { Loader, Button } from '../components';
-import { getArticle } from '../store/actions/stories';
+import { getArticle } from '../store/actions/articles';
 
 const ArticlePage = () => {
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.stories);
+  const store = useSelector((state) => state.articles);
   const { article, loading } = store;
 
   const { section, year, month, day, id } = useParams();

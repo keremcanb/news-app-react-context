@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { PageHero, StoryGrid, Loader } from '../components';
 
 const SearchPage = () => {
-  const store = useSelector((state) => state.stories);
+  const store = useSelector((state) => state.articles);
   const { searchResults, loading } = store;
 
   return !loading ? (
@@ -11,7 +11,7 @@ const SearchPage = () => {
       {searchResults.length > 0 ? (
         <>
           <PageHero title="Search Results" sort />
-          <StoryGrid stories={searchResults} />
+          <StoryGrid articles={searchResults} />
         </>
       ) : (
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Results Found</h1>

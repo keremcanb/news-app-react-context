@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import HomeCard from './HomeCard';
 
-const Storygrid = ({ stories }) => (
+const Storygrid = ({ articles }) => (
   <Wrapper>
-    {stories.map((story) => (
+    {articles.map((story) => (
       <HomeCard key={story.id} story={story} />
     ))}
   </Wrapper>

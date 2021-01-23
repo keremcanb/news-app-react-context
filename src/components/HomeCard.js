@@ -6,7 +6,7 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import { bookmarkItem, unBookmarkItem } from '../store/actions/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
-const ImageCard = ({
+const StoryCard = ({
   story,
   story: {
     id,
@@ -41,13 +41,13 @@ const ImageCard = ({
           <h3>{trailText}</h3>
         </Link>
 
-        {/* <div className="card-icon">
+        <div className="card-icon">
           {isBookmark(story) ? (
             <FaBookmark onClick={() => unBookmark(story)} />
           ) : (
             <FaRegBookmark onClick={() => addBookmark(story)} />
           )}
-        </div> */}
+        </div>
       </div>
     </Wrapper>
   );
@@ -90,8 +90,10 @@ const Wrapper = styled.article`
     font-size: 1.2rem;
     cursor: pointer;
   }
-  @media (min-width: 768px) {
-    width: 22rem;
+  @media (max-width: 1200px) {
+    h3 {
+      display: none;
+    }
   }
   @media (min-width: 1200px) {
     display: grid;
@@ -99,6 +101,9 @@ const Wrapper = styled.article`
     img {
       width: 100%;
       height: 100%;
+    }
+    h1 {
+      font-size: 5rem;
     }
     h3 {
       font-family: 'Open Sans', sans-serif;
@@ -110,10 +115,10 @@ const Wrapper = styled.article`
       grid-column: 1 / 7;
       grid-row-end: span 2;
       width: 595px;
-      height: 465px;
+      height: 462px;
       border-bottom: 3px solid #388e3c;
       .card-heading {
-        top: 20rem;
+        top: 19.5rem;
         height: 150px;
       }
     }
@@ -174,10 +179,7 @@ const Wrapper = styled.article`
     &:nth-child(9) {
       display: none;
     }
-    h1 {
-      font-size: 5rem;
-    }
   }
 `;
 
-export default ImageCard;
+export default StoryCard;

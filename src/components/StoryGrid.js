@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImageCard from './ImageCard';
+import StoryCard from './StoryCard';
 
-const Storygrid = ({ stories }) => (
+const Storygrid = ({ articles }) => (
   <Wrapper>
-    {stories.map((story) => (
-      <ImageCard key={story.id} story={story} />
+    {articles.map((story) => (
+      <StoryCard key={story.id} story={story} />
     ))}
   </Wrapper>
 );

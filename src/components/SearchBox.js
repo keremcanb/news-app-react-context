@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
-import { searchStories } from '../store/actions/stories';
+import { searchArticles } from '../store/actions/articles';
 
 const SearchBox = ({ history }) => {
   const [input, setInput] = useState('');
@@ -14,7 +14,7 @@ const SearchBox = ({ history }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchStories(input));
+    dispatch(searchArticles(input));
     history.push(`/search/${input}`);
     setInput('');
     setBarOpened(false);

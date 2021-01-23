@@ -17,7 +17,7 @@ const BookmarksPage = () => {
       {bookmarkItems.length > 0 ? (
         <>
           <PageHero title="All Bookmarks" sort />
-          <StoryGrid stories={bookmarkItems} />
+          <StoryGrid articles={bookmarkItems} />
         </>
       ) : (
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Bookmarks Found</h1>
