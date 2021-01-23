@@ -41,13 +41,13 @@ const ImageCard = ({
           <h3>{trailText}</h3>
         </Link>
 
-        <div className="card-icon">
+        {/* <div className="card-icon">
           {isBookmark(story) ? (
             <FaBookmark onClick={() => unBookmark(story)} />
           ) : (
             <FaRegBookmark onClick={() => addBookmark(story)} />
           )}
-        </div>
+        </div> */}
       </div>
     </Wrapper>
   );
@@ -93,7 +93,7 @@ const Wrapper = styled.article`
   @media (min-width: 768px) {
     width: 22rem;
   }
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     display: grid;
     grid-column-end: span 4;
     img {
@@ -104,6 +104,7 @@ const Wrapper = styled.article`
       font-family: 'Open Sans', sans-serif;
       font-weight: normal;
       margin-top: 0.2rem;
+      font-size: 0.9rem;
     }
     &:first-child {
       grid-column: 1 / 7;

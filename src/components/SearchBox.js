@@ -25,20 +25,16 @@ const SearchBox = ({ history }) => {
       <Form
         barOpened={barOpened}
         onClick={() => {
-          // When form clicked, set state of baropened to true and focus the input
           setBarOpened(true);
           inputFocus.current.focus();
         }}
-        // on focus open search bar
         onFocus={() => {
           setBarOpened(true);
           inputFocus.current.focus();
         }}
-        // on blur close search bar
         onBlur={() => {
           setBarOpened(false);
         }}
-        // On submit, call the onFormSubmit function
         onSubmit={onFormSubmit}
         ref={formRef}
       >
@@ -62,36 +58,9 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Change width of the form depending if the bar is opened or not */
-  width: ${(props) => (props.barOpened ? '20rem' : '2rem')};
-  /* If bar opened, normal cursor on the whole form. If closed, show pointer on the whole form so user knows he can click to open it */
+  width: ${(props) => (props.barOpened ? '13rem' : '2rem')};
   cursor: ${(props) => (props.barOpened ? 'auto' : 'pointer')};
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1.5rem;
-  height: 2rem;
-  /* border-radius: 10rem; */
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-`;
-
-const Input = styled.input`
-  font-size: 14px;
-  line-height: 1;
-  background-color: #0f3f8c;
-  width: 100%;
-  margin-left: ${(props) => (props.barOpened ? '1rem' : '0rem')};
-  border: none;
-  color: white;
-  transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  &:focus,
-  &:active {
-    outline: none;
-  }
-  &::placeholder {
-    color: white;
-  }
-  border-bottom: 3px solid #fff;
-  padding-bottom: 1rem;
 `;
 
 const Button = styled.button`
@@ -102,11 +71,25 @@ const Button = styled.button`
   border: none;
   outline: none;
   color: white;
-  font-size: 1.5rem;
-  border-bottom: 3px solid #fff;
-  padding-bottom: 0.4rem;
-  padding-right: 2rem;
-  padding-left: 3rem;
+  font-size: 1rem;
+`;
+
+const Input = styled.input`
+  font-size: 1rem;
+  background-color: ${(props) => (props.barOpened ? '#0f3f8c' : '#09357b')};
+  margin-left: ${(props) => (props.barOpened ? '0.5rem' : '0rem')};
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 0.9rem;
+  transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &::placeholder {
+    color: white;
+  }
 `;
 
 export default SearchBox;

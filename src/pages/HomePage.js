@@ -7,7 +7,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
-  console.log(stories);
 
   useEffect(() => {
     dispatch(getStories('world'));

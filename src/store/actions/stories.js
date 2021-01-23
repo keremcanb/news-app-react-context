@@ -1,5 +1,5 @@
 import { get } from 'axios';
-import { SET_LOADING, GET_STORIES, SEARCH_STORIES, SORT_STORIES, GET_ARTICLE } from './types';
+import { SET_LOADING, GET_STORIES, SEARCH_STORIES, GET_ARTICLE } from './types';
 
 const apiUrl = 'https://content.guardianapis.com/';
 const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
@@ -49,8 +49,3 @@ export const searchStories = (searchValue) => async (dispatch) => {
     console.log(err);
   }
 };
-
-// export const sortStories = (e) => (dispatch) => {
-//   const { value } = e.target;
-//   dispatch({ type: SORT_STORIES, payload: value });
-// };
