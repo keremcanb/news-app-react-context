@@ -6,9 +6,9 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import { bookmarkItem, unBookmarkItem } from '../store/actions/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
-const ImageCard = ({
-  story,
-  story: {
+const ArticleCard = ({
+  article,
+  article: {
     id,
     webTitle,
     fields: { thumbnail }
@@ -42,10 +42,10 @@ const ImageCard = ({
           </Link>
 
           <div className="card-icon">
-            {isBookmark(story) ? (
-              <FaBookmark onClick={() => unBookmark(story)} />
+            {isBookmark(article) ? (
+              <FaBookmark onClick={() => unBookmark(article)} />
             ) : (
-              <FaRegBookmark onClick={() => addBookmark(story)} />
+              <FaRegBookmark onClick={() => addBookmark(article)} />
             )}
           </div>
         </div>
@@ -108,4 +108,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ImageCard;
+export default ArticleCard;

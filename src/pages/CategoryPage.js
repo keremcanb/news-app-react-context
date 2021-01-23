@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getArticles } from '../store/actions/articles';
-import { PageHero, Loader, StoryGrid } from '../components';
+import { PageHero, Loader, ArticleGrid } from '../components';
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const CategoryPage = () => {
       {articles && !loading ? (
         <>
           <PageHero title={titleHandler()} sort />
-          <StoryGrid articles={articles} />
+          <ArticleGrid articles={articles} />
         </>
       ) : (
         <Loader />

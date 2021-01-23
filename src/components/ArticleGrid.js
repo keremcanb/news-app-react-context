@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import StoryCard from './StoryCard';
+import ArticleCard from './ArticleCard';
 
-const Storygrid = ({ articles }) => (
+const ArticleGrid = ({ articles }) => (
   <Wrapper>
-    {articles.map((story) => (
-      <StoryCard key={story.id} story={story} />
+    {articles.map((article) => (
+      <ArticleCard key={article.id} article={article} />
     ))}
   </Wrapper>
 );
@@ -25,4 +25,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Storygrid;
+export default ArticleGrid;

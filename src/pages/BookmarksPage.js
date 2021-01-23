@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBookmarkItems } from '../store/actions/bookmarks';
-import { PageHero, StoryGrid, Loader } from '../components';
+import { PageHero, ArticleGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const BookmarksPage = () => {
       {bookmarkItems.length > 0 ? (
         <>
           <PageHero title="All Bookmarks" sort />
-          <StoryGrid articles={bookmarkItems} />
+          <ArticleGrid articles={bookmarkItems} />
         </>
       ) : (
         <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>No Bookmarks Found</h1>
