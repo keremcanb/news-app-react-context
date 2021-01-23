@@ -57,11 +57,11 @@ const Wrapper = styled.article`
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;
   margin-bottom: 2rem;
-  /* width: 20rem;
+  width: 20rem;
   height: 22rem;
   img {
     height: 22rem;
-  } */
+  }
   .card {
     height: 8.7rem;
     padding: 0.5rem 1rem 0 1rem;
@@ -70,7 +70,6 @@ const Wrapper = styled.article`
     color: white;
     background-color: #0c3371;
     opacity: 0.9;
-    /* border-bottom: 4px solid #d32f2f; */
     a:link,
     a:visited {
       text-decoration: none;
@@ -85,7 +84,7 @@ const Wrapper = styled.article`
   svg {
     margin-right: 0.5rem;
     position: absolute;
-    top: 6.5rem;
+    bottom: 1rem;
     right: 0.5rem;
     font-size: 1.2rem;
     cursor: pointer;
@@ -100,27 +99,42 @@ const Wrapper = styled.article`
     &:first-child {
       grid-column: 1 / 7;
       grid-row-end: span 2;
-      width: 35rem;
-      height: 30rem;
+      width: 35.5rem;
+      height: 29rem;
       img {
         width: 100%;
         height: 100%;
       }
       .card {
-        top: 22rem;
+        top: 19rem;
+        height: 10rem;
       }
     }
     &:nth-child(-n + 5):not(:first-child) {
       grid-column-end: span 3;
-      width: 17rem;
-      height: 20rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
     }
     &:nth-child(1) {
       border-bottom: 3px solid #388e3c;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      width: 17rem;
+      height: 17rem;
+      .card {
+        top: 8.2rem;
+      }
+    }
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: 17rem;
+      height: 10rem;
+      img {
+        display: none;
+      }
+      .card {
+        top: 0;
+        height: 10rem;
+      }
     }
     &:nth-child(2) {
       border-bottom: 3px solid #f50057;
@@ -133,6 +147,11 @@ const Wrapper = styled.article`
     }
     &:nth-child(5) {
       border-bottom: 3px solid #388e3c;
+    }
+    &:nth-child(6),
+    &:nth-child(7),
+    &:nth-child(8) {
+      border-bottom: 3px solid #f50057;
     }
     h1 {
       font-size: 5rem;

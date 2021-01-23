@@ -37,7 +37,7 @@ const ArticlePage = () => {
           <hr />
           <article className="article-body">
             {fields && <p>{fields.bodyText}</p>}
-            {fields && <img src={fields.thumbnail} alt="headline" />}
+            {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
           </article>
         </Wrapper>
       ) : (
@@ -79,6 +79,8 @@ const Wrapper = styled.section`
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 30rem;
+    height: 20rem;
   }
   @media (min-width: 1200px) {
     .article-hero {
@@ -95,6 +97,9 @@ const Wrapper = styled.section`
     img {
       justify-self: end;
       margin-top: 0;
+    }
+    figcaption {
+      padding: 0.5rem 3.5rem;
     }
   }
 `;

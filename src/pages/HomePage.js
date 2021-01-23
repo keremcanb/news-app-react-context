@@ -7,10 +7,10 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state.stories);
   const { stories, loading } = store;
+  console.log(stories);
 
   useEffect(() => {
     dispatch(getStories('world'));
-    // dispatch(getStories('sport'));
   }, [dispatch]);
 
   return (
@@ -19,8 +19,6 @@ const HomePage = () => {
         <>
           <PageHero title="Top Stories" stories={stories} sort bookmark />
           <HomeGrid stories={stories} />
-          {/* <PageHero title="Sports" />
-          <StoryGrid stories={stories} /> */}
         </>
       ) : (
         <Loader />

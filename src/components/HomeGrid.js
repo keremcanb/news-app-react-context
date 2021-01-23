@@ -22,13 +22,7 @@ const Wrapper = styled.section`
   }
   @media screen and (min-width: 1200px) {
     width: 95vw;
-    display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    /* gap: 1rem;
-    max-width: 80vw;
-    margin: 0 auto; */
-    list-style: none;
-    padding: 0;
   }
 `;
 
