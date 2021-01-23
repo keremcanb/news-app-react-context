@@ -18,7 +18,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => (
   </SidebarContainer>
 );
 
-const SidebarContainer = styled.div`
+const SidebarContainer = styled.aside`
   .sidebar {
     background: #09357b;
     position: fixed;

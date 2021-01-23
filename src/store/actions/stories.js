@@ -12,7 +12,9 @@ export const setLoading = () => ({
 export const getStories = (section) => async (dispatch) => {
   try {
     setLoading();
-    const { data } = await get(`${apiUrl}${section}?show-fields=all&show-elements=all&type=article&api-key=${apiKey}`);
+    const { data } = await get(
+      `${apiUrl}${section}?show-fields=all&show-elements=all&total=8&type=article&api-key=${apiKey}`
+    );
     dispatch({
       type: GET_STORIES,
       payload: data.response.results
