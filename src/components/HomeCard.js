@@ -35,13 +35,13 @@ const ImageCard = ({
   return (
     <Wrapper>
       {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
-      <div className="card">
+      <div className="card-heading">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>
           <h3>{trailText}</h3>
         </Link>
 
-        <div className="card-footer">
+        <div className="card-icon">
           {isBookmark(story) ? (
             <FaBookmark onClick={() => unBookmark(story)} />
           ) : (
@@ -63,7 +63,7 @@ const Wrapper = styled.article`
   img {
     height: 22rem;
   }
-  .card {
+  .card-heading {
     height: 8.7rem;
     padding: 0.5rem 1rem 0 1rem;
     position: absolute;
@@ -77,7 +77,7 @@ const Wrapper = styled.article`
       color: #fff;
     }
   }
-  .card-footer {
+  .card-icon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -85,8 +85,8 @@ const Wrapper = styled.article`
   svg {
     margin-right: 0.5rem;
     position: absolute;
-    bottom: 1rem;
-    right: 0.5rem;
+    bottom: 0.6rem;
+    right: 0.1rem;
     font-size: 1.2rem;
     cursor: pointer;
   }
@@ -96,10 +96,14 @@ const Wrapper = styled.article`
   @media (min-width: 992px) {
     display: grid;
     grid-column-end: span 4;
-    padding: 0;
     img {
       width: 100%;
       height: 100%;
+    }
+    h3 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: normal;
+      margin-top: 0.2rem;
     }
     &:first-child {
       grid-column: 1 / 7;
@@ -107,14 +111,9 @@ const Wrapper = styled.article`
       width: 595px;
       height: 465px;
       border-bottom: 3px solid #388e3c;
-      .card {
+      .card-heading {
         top: 20rem;
         height: 150px;
-      }
-      h3 {
-        font-family: 'Open Sans', sans-serif;
-        font-weight: normal;
-        margin-top: 0.5rem;
       }
     }
     &:nth-child(-n + 5):not(:first-child) {
@@ -127,7 +126,7 @@ const Wrapper = styled.article`
     &:nth-child(3) {
       width: 280px;
       height: 280px;
-      .card {
+      .card-heading {
         top: 10.5rem;
         height: 115px;
       }
@@ -139,7 +138,7 @@ const Wrapper = styled.article`
       img {
         display: none;
       }
-      .card {
+      .card-heading {
         top: 0;
         height: 150px;
       }
@@ -147,9 +146,9 @@ const Wrapper = styled.article`
     &:nth-child(6),
     &:nth-child(7),
     &:nth-child(8) {
-      width: 385px;
+      width: 380px;
       height: 385px;
-      .card {
+      .card-heading {
         top: 15rem;
         height: 145px;
       }

@@ -56,12 +56,12 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   align-content: center;
-  padding: 3rem 0;
+  margin-top: 2rem;
   .title {
     font-size: 1.7rem;
   }
   .input-group {
-    margin-top: 1rem;
+    margin: 2rem 0 1.5rem 0;
   }
   select {
     margin-left: 2rem;

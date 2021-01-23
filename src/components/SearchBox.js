@@ -104,7 +104,7 @@ const Button = styled.button`
   color: white;
   font-size: 1.5rem;
   border-bottom: 3px solid #fff;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.4rem;
   padding-right: 2rem;
   padding-left: 3rem;
 `;

@@ -27,7 +27,7 @@ const Header = ({ toggleSidebar }) => (
 );
 
 const Wrapper = styled.header`
-  height: 7rem;
+  height: 140px;
   background: #09357b;
   .nav-container {
     width: 90vw;
@@ -65,7 +65,6 @@ const Wrapper = styled.header`
     }
   }
   @media screen and (min-width: 1200px) {
-    height: 8.7rem;
     .nav-container {
       display: flex;
       flex-direction: column;
@@ -77,7 +76,7 @@ const Wrapper = styled.header`
     .nav-links {
       display: flex;
       li {
-        padding: 1rem 4rem 1rem;
+        padding: 0.9rem 4rem 1rem;
         font-weight: bold;
         line-height: 0.85;
         &:nth-child(1) {
@@ -95,6 +94,8 @@ const Wrapper = styled.header`
         a {
           text-transform: uppercase;
           color: #fff;
+          font-size: 1rem;
+          letter-spacing: 0.1rem;
         }
       }
     }

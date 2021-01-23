@@ -36,12 +36,12 @@ const ImageCard = ({
     <Wrapper>
       <article>
         {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
-        <div className="card">
+        <div className="card-heading">
           <Link to={`/article/${id}`}>
             <h2>{webTitle}</h2>
           </Link>
 
-          <div className="card-footer">
+          <div className="card-icon">
             {isBookmark(story) ? (
               <FaBookmark onClick={() => unBookmark(story)} />
             ) : (
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
   img {
     height: 22rem;
   }
-  .card {
+  .card-heading {
     height: 8.7rem;
     padding: 0.5rem 1rem 0 1rem;
     position: absolute;
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
       color: #fff;
     }
   }
-  .card-footer {
+  .card-icon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -99,7 +99,7 @@ const Wrapper = styled.div`
       width: 385px;
       height: 385px;
     }
-    .card {
+    .card-heading {
       height: 145px;
       top: 15rem;
     }
