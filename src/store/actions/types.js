@@ -1,4 +1,6 @@
 export const SET_LOADING = 'SET_LOADING';
+export const UPDATE_SORT = 'UPDATE_SORT';
+export const SORT_ARTICLES = 'SORT_ARTICLES';
 
 export const GET_ARTICLES = 'GET_ARTICLES';
 export const GET_ARTICLE = 'GET_ARTICLE';

@@ -114,7 +114,7 @@ const Wrapper = styled.article`
     &:first-child {
       grid-column: 1 / 7;
       grid-row-end: span 2;
-      width: 595px;
+      width: 570px;
       height: 462px;
       border-bottom: 3px solid #388e3c;
       .card-heading {
@@ -130,8 +130,8 @@ const Wrapper = styled.article`
     }
     &:nth-child(2),
     &:nth-child(3) {
-      width: 280px;
-      height: 280px;
+      width: 270px;
+      height: 270px;
       .card-heading {
         top: 10.5rem;
         height: 115px;
@@ -139,7 +139,7 @@ const Wrapper = styled.article`
     }
     &:nth-child(4),
     &:nth-child(5) {
-      width: 280px;
+      width: 270px;
       height: 150px;
       img {
         display: none;
@@ -152,8 +152,8 @@ const Wrapper = styled.article`
     &:nth-child(6),
     &:nth-child(7),
     &:nth-child(8) {
-      width: 380px;
-      height: 385px;
+      width: 370px;
+      height: 370px;
       .card-heading {
         top: 15rem;
         height: 145px;

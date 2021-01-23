@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -9,8 +8,8 @@ const PageHero = ({ title, bookmark, sort }) => {
   const store = useSelector((state) => state.articles);
   const { articles } = store;
 
-  const newest = articles.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
-  const oldest = articles.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
+  // const newest = articles.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+  // const oldest = articles.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
 
   // console.log(newest);
   // console.log(oldest);

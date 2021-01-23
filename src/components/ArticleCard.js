@@ -93,18 +93,16 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
   @media (min-width: 768px) {
-    width: 385px;
-    height: 385px;
+    width: 370px;
+    height: 370px;
     img {
-      width: 385px;
-      height: 385px;
+      width: 370px;
+      height: 370px;
     }
     .card-heading {
       height: 145px;
       top: 15rem;
     }
-  }
-  @media (min-width: 992px) {
   }
 `;
 
