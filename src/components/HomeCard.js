@@ -11,7 +11,7 @@ const ImageCard = ({
   story: {
     id,
     webTitle,
-    fields: { thumbnail }
+    fields: { thumbnail, trailText }
   }
 }) => {
   const dispatch = useDispatch();
@@ -38,6 +38,7 @@ const ImageCard = ({
       <div className="card">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>
+          <h3>{trailText}</h3>
         </Link>
 
         <div className="card-footer">
@@ -96,44 +97,61 @@ const Wrapper = styled.article`
     display: grid;
     grid-column-end: span 4;
     padding: 0;
+    img {
+      width: 100%;
+      height: 100%;
+    }
     &:first-child {
       grid-column: 1 / 7;
       grid-row-end: span 2;
-      width: 35.5rem;
-      height: 29rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
+      width: 595px;
+      height: 465px;
+      border-bottom: 3px solid #388e3c;
       .card {
-        top: 19rem;
-        height: 10rem;
+        top: 20rem;
+        height: 150px;
+      }
+      h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: normal;
+        margin-top: 0.5rem;
       }
     }
     &:nth-child(-n + 5):not(:first-child) {
       grid-column-end: span 3;
-    }
-    &:nth-child(1) {
-      border-bottom: 3px solid #388e3c;
+      h3 {
+        display: none;
+      }
     }
     &:nth-child(2),
     &:nth-child(3) {
-      width: 17rem;
-      height: 17rem;
+      width: 280px;
+      height: 280px;
       .card {
-        top: 8.2rem;
+        top: 10.5rem;
+        height: 115px;
       }
     }
     &:nth-child(4),
     &:nth-child(5) {
-      width: 17rem;
-      height: 10rem;
+      width: 280px;
+      height: 150px;
       img {
         display: none;
       }
       .card {
         top: 0;
-        height: 10rem;
+        height: 150px;
+      }
+    }
+    &:nth-child(6),
+    &:nth-child(7),
+    &:nth-child(8) {
+      width: 385px;
+      height: 385px;
+      .card {
+        top: 15rem;
+        height: 145px;
       }
     }
     &:nth-child(2) {
@@ -152,6 +170,9 @@ const Wrapper = styled.article`
     &:nth-child(7),
     &:nth-child(8) {
       border-bottom: 3px solid #f50057;
+    }
+    &:nth-child(9) {
+      display: none;
     }
     h1 {
       font-size: 5rem;

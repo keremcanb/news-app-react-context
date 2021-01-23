@@ -13,7 +13,7 @@ export const getStories = (section) => async (dispatch) => {
   try {
     setLoading();
     const { data } = await get(
-      `${apiUrl}${section}?show-fields=all&show-elements=all&total=8&type=article&api-key=${apiKey}`
+      `${apiUrl}${section}?show-fields=all&show-elements=all&page-size=9&type=article&api-key=${apiKey}`
     );
     dispatch({
       type: GET_STORIES,

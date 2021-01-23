@@ -93,7 +93,16 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
   @media (min-width: 768px) {
-    width: 22rem;
+    width: 385px;
+    height: 385px;
+    img {
+      width: 385px;
+      height: 385px;
+    }
+    .card {
+      height: 145px;
+      top: 15rem;
+    }
   }
   @media (min-width: 992px) {
   }

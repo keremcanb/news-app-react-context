@@ -85,6 +85,9 @@ const Wrapper = styled.section`
   }
   @media screen and (min-width: 1200px) {
     justify-content: space-between;
+    .title {
+      font-size: 2.5rem;
+    }
   }
 `;
 
