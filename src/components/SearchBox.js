@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React, { useState, useRef } from 'react';
+import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 import { searchArticles } from '../store/actions/articles';
@@ -39,7 +39,7 @@ const SearchBox = ({ history }) => {
         ref={formRef}
       >
         <Button type="submit">
-          <FaSearch onClick={() => setToggle(!barOpened)} />
+          <FaSearch />
         </Button>
         <Input
           onChange={(e) => setInput(e.target.value)}

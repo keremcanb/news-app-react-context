@@ -19,13 +19,14 @@ export default (state = initialState, action) => {
         bookmarkItems: [payload, ...state.bookmarkItems]
       };
 
-    case UNBOOKMARK_ITEM:
-      const ubookmarkItems = state.bookmarkItems.filter((item) => item !== payload);
-      localStorage.setItem('bookmarks', JSON.stringify(ubookmarkItems));
+    case UNBOOKMARK_ITEM: {
+      const unbookmarkItems = state.bookmarkItems.filter((item) => item !== payload);
+      localStorage.setItem('bookmarks', JSON.stringify(unbookmarkItems));
       return {
         ...state,
         bookmarkItems: state.bookmarkItems.filter((item) => item.webTitle !== payload.webTitle)
       };
+    }
 
     case GET_BOOKMARK_ITEMS:
       return {
