@@ -38,7 +38,7 @@ const SearchBox = ({ history }) => {
         onSubmit={onFormSubmit}
         ref={formRef}
       >
-        <Button type="submit" barOpened={barOpened}>
+        <Button type="submit">
           <FaSearch />
         </Button>
         <Input

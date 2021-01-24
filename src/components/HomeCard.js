@@ -90,6 +90,10 @@ const Wrapper = styled.article`
     font-size: 1.2rem;
     cursor: pointer;
   }
+  @media screen and (min-width: 500px) {
+    width: 370px;
+    height: 370px;
+  }
   @media (max-width: 1200px) {
     h3 {
       display: none;
@@ -131,7 +135,7 @@ const Wrapper = styled.article`
     &:nth-child(2),
     &:nth-child(3) {
       width: 270px;
-      height: 270px;
+      height: 280px;
       .card-heading {
         top: 10.5rem;
         height: 115px;

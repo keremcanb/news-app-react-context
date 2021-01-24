@@ -101,7 +101,7 @@ const Wrapper = styled.div`
     }
     .card-heading {
       height: 145px;
-      top: 15rem;
+      top: 14.1rem;
     }
   }
 `;
