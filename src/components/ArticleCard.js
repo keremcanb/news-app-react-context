@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
-import { bookmarkItem, unBookmarkItem } from '../store/actions/bookmarks';
+import { useBookmarksContext } from '../context/actions/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
 const ArticleCard = ({
@@ -14,9 +13,7 @@ const ArticleCard = ({
     fields: { thumbnail }
   }
 }) => {
-  const dispatch = useDispatch();
-  const bookmarks = useSelector((state) => state.bookmarks);
-  const { bookmarkItems } = bookmarks;
+  const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
 
   const isBookmark = (item) => {
     if (bookmarkItems !== null) {
@@ -25,11 +22,11 @@ const ArticleCard = ({
   };
 
   const addBookmark = (item) => {
-    dispatch(bookmarkItem(item));
+    bookmarkItem(item);
   };
 
   const unBookmark = (item) => {
-    dispatch(unBookmarkItem(item));
+    unBookmarkItem(item);
   };
 
   return (

@@ -1,11 +1,6 @@
 import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../actions/types';
 
-const initialState = {
-  bookmarkItems: [],
-  loading: true
-};
-
-export default (state = initialState, action) => {
+const bookmarks_reducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -39,3 +34,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default bookmarks_reducer;

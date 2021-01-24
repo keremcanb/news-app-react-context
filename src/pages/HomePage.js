@@ -1,22 +1,19 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getArticles } from '../store/actions/articles';
+import { useArticlesContext } from '../context/actions/articles';
 import { HomeGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const store = useSelector((state) => state.articles);
-  const { articles, loading } = store;
+  const { articles, loading, getArticles } = useArticlesContext();
 
   useEffect(() => {
-    dispatch(getArticles('world'));
-  }, [dispatch]);
+    getArticles('world');
+  }, []);
 
   return (
     <>
       {articles && !loading ? (
         <>
-          <PageHero title="Top stories" articles={articles} sort bookmark />
+          <PageHero title="Top stories" articles={articles} sorting bookmark />
           <HomeGrid articles={articles} />
         </>
       ) : (

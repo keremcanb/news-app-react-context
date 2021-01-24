@@ -1,15 +1,6 @@
-/* eslint-disable camelcase */
 import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../actions/types';
 
-const initialState = {
-  loading: true,
-  articles: [],
-  article: {},
-  searchResults: [],
-  sort: 'newest'
-};
-
-export default (state = initialState, action) => {
+const articles_reducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -29,26 +20,28 @@ export default (state = initialState, action) => {
       return { ...state, sort: payload };
 
     case SORT_ARTICLES: {
-      const { sort, filtered_articles } = state;
-      let tempProducts = [...filtered_articles];
-      if (sort === 'price-lowest') {
-        tempProducts = tempProducts.sort((a, b) => {
-          if (a.price < b.price) {
+      const { sort, articles } = state;
+      let tempArticles = [...articles];
+      if (sort === 'newest') {
+        tempArticles = tempArticles.sort((a, b) => {
+          if (a.webPublicationDate < b.webPublicationDate) {
             return -1;
           }
-          if (a.price > b.price) {
+          if (a.webPublicationDate > b.webPublicationDate) {
             return 1;
           }
           return 0;
         });
       }
-      if (sort === 'price-highest') {
-        tempProducts = tempProducts.sort((a, b) => b.price - a.price);
+      if (sort === 'lowest') {
+        tempArticles = tempArticles.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
       }
-      return { ...state, filtered_products: tempProducts };
+      return { ...state, articles: tempArticles };
     }
 
     default:
       return state;
   }
 };
+
+export default articles_reducer;

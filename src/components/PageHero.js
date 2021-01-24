@@ -1,52 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import Button from './Button';
 
-const PageHero = ({ title, bookmark, sort }) => {
-  const store = useSelector((state) => state.articles);
-  const { articles } = store;
+const PageHero = ({ title, bookmark, sorting }) => (
+  // const dispatch = useDispatch();
+  // const store = useSelector((state) => state.articles);
+  // const { sort } = store;
 
-  // const newest = articles.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
-  // const oldest = articles.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
+  <Wrapper>
+    <div className="title">
+      <h1>{title}</h1>
+    </div>
+    <div className="input-group">
+      {bookmark && (
+        <Link to="/bookmarks">
+          <Button text="View Bookmarks" />
+        </Link>
+      )}
 
-  // console.log(newest);
-  // console.log(oldest);
-
-  const onChangeHandler = (e) => {
-    const { value } = e.target;
-    if (value === 'newest') {
-      console.log('Newest');
-    }
-    if (value === 'oldest') {
-      console.log('Oldest');
-    }
-  };
-
-  return (
-    <Wrapper>
-      <div className="title">
-        <h1>{title}</h1>
-      </div>
-      <div className="input-group">
-        {bookmark && (
-          <Link to="/bookmarks">
-            <Button text="View Bookmarks" />
-          </Link>
-        )}
-
-        {sort && (
-          <select name="sort" id="sort" onChange={onChangeHandler}>
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-          </select>
-        )}
-      </div>
-    </Wrapper>
-  );
-};
-
+      {/* {sorting && (
+        <select name="sort" id="sort" className="sort-input" value={sort} onChange={dispatch(updateSort)}>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      )} */}
+    </div>
+  </Wrapper>
+);
 const Wrapper = styled.section`
   width: 90vw;
   margin: 0 auto;

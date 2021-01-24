@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const SearchPage = () => {
-  const store = useSelector((state) => state.articles);
-  const { searchResults, loading } = store;
+  const { searchResults, loading } = useArticlesContext();
 
   return !loading ? (
     <Wrapper>

@@ -1,26 +1,23 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getArticles } from '../store/actions/articles';
+import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, Loader, ArticleGrid } from '../components';
 
 const CategoryPage = () => {
-  const dispatch = useDispatch();
-  const store = useSelector((state) => state.articles);
-  const { articles, loading } = store;
+  const { articles, loading, getArticles } = useArticlesContext();
   const { id } = useParams();
 
   useEffect(() => {
     if (id === 'sport') {
-      dispatch(getArticles('sport'));
+      getArticles('sport');
     }
     if (id === 'culture') {
-      dispatch(getArticles('culture'));
+      getArticles('culture');
     }
     if (id === 'lifeandstyle') {
-      dispatch(getArticles('lifeandstyle'));
+      getArticles('lifeandstyle');
     }
-  }, [dispatch, id]);
+  }, [id]);
 
   const titleHandler = () => {
     if (id === 'sport') {
@@ -38,7 +35,7 @@ const CategoryPage = () => {
     <>
       {articles && !loading ? (
         <>
-          <PageHero title={titleHandler()} sort />
+          <PageHero title={titleHandler()} sorting />
           <ArticleGrid articles={articles} />
         </>
       ) : (

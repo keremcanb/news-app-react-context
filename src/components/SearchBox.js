@@ -1,20 +1,20 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
-import { searchArticles } from '../store/actions/articles';
+import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = ({ history }) => {
+  const { searchArticles } = useArticlesContext();
+
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
 
   const formRef = useRef();
   const inputFocus = useRef();
-  const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchArticles(input));
+    searchArticles(input);
     history.push(`/search/${input}`);
     setInput('');
     setBarOpened(false);

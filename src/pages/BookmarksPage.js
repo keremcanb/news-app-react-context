@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { getBookmarkItems } from '../store/actions/bookmarks';
+import { useBookmarksContext } from '../context/actions/bookmarks';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
-  const dispatch = useDispatch();
-  const store = useSelector((state) => state.bookmarks);
-  const { bookmarkItems, loading } = store;
+  const { bookmarkItems, getBookmarkItems, loading } = useBookmarksContext();
 
   useEffect(() => {
-    dispatch(getBookmarkItems());
-  }, [dispatch]);
+    getBookmarkItems();
+  }, []);
 
   return !loading ? (
     <Wrapper>

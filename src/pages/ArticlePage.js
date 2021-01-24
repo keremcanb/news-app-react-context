@@ -1,23 +1,20 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
+import { useArticlesContext } from '../context/actions/articles';
 import { Loader, Button } from '../components';
-import { getArticle } from '../store/actions/articles';
 
 const ArticlePage = () => {
-  const dispatch = useDispatch();
-  const store = useSelector((state) => state.articles);
-  const { article, loading } = store;
+  const { article, loading, getArticle } = useArticlesContext();
 
   const { section, year, month, day, id } = useParams();
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
 
   useEffect(() => {
-    dispatch(getArticle(selectedArticle));
-  }, [dispatch, selectedArticle]);
+    getArticle(selectedArticle);
+  }, []);
 
   const { webTitle, webPublicationDate, fields } = article;
 

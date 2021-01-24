@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HomeCard from './HomeCard';
 
-const ArticleGrid = ({ articles }) => (
+const HomeGrid = ({ articles }) => (
   <Wrapper>
     {articles.map((article) => (
       <HomeCard key={article.id} article={article} />
@@ -26,4 +26,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default ArticleGrid;
+export default HomeGrid;

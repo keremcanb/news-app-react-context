@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getBookmarkItems } from './store/actions/bookmarks';
+import { useBookmarksContext } from './context/actions/bookmarks';
 import { Header, Sidebar, Footer } from './components';
 import Routes from './Routes';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const { getBookmarkItems } = useBookmarksContext();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -14,8 +13,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    dispatch(getBookmarkItems());
-  }, [dispatch]);
+    getBookmarkItems();
+  }, []);
 
   return (
     <Router>

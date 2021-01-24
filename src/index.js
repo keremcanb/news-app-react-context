@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store/store';
 import App from './App';
 import './index.css';
+import { ArticlesProvider } from './context/actions/articles';
+import { BookmarksProvider } from './context/actions/bookmarks';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ArticlesProvider>
+    <BookmarksProvider>
+      <App />
+    </BookmarksProvider>
+  </ArticlesProvider>,
+
   document.getElementById('root')
 );
