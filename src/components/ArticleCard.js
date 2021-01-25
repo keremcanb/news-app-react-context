@@ -37,7 +37,6 @@ const ArticleCard = ({
           <Link to={`/article/${id}`}>
             <h2>{webTitle}</h2>
           </Link>
-
           <div className="card-icon">
             {isBookmark(article) ? (
               <FaBookmark onClick={() => unBookmark(article)} />

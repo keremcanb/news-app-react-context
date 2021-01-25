@@ -15,7 +15,6 @@ const Header = ({ toggleSidebar }) => (
         </Link>
         <FaBars className="nav-toggle" onClick={toggleSidebar} />
       </div>
-
       <div className="nav-bottom">
         <PageLinks styleClass="nav-links" />
         <div className="searchbox">

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -7,7 +6,8 @@ import { useArticlesContext } from '../context/actions/articles';
 import { Loader, Button } from '../components';
 
 const ArticlePage = () => {
-  const { article, loading, getArticle } = useArticlesContext();
+  const { loading, article, getArticle } = useArticlesContext();
+  const { webTitle, webPublicationDate, fields } = article;
 
   const { section, year, month, day, id } = useParams();
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
@@ -15,8 +15,6 @@ const ArticlePage = () => {
   useEffect(() => {
     getArticle(selectedArticle);
   }, []);
-
-  const { webTitle, webPublicationDate, fields } = article;
 
   return (
     <>
@@ -31,7 +29,6 @@ const ArticlePage = () => {
             </div>
             <div className="hero-right" />
           </div>
-
           <hr />
           <article className="article-body">
             {fields && <p>{fields.bodyText}</p>}

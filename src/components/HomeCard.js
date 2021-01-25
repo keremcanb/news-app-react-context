@@ -37,7 +37,6 @@ const HomeCard = ({
           <h2>{webTitle}</h2>
           <h3>{trailText}</h3>
         </Link>
-
         <div className="card-icon">
           {isBookmark(article) ? (
             <FaBookmark onClick={() => unBookmark(article)} />

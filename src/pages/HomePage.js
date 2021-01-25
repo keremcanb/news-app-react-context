@@ -3,7 +3,7 @@ import { useArticlesContext } from '../context/actions/articles';
 import { HomeGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const { articles, loading, getArticles } = useArticlesContext();
+  const { loading, articles, getArticles } = useArticlesContext();
 
   useEffect(() => {
     getArticles('world');
@@ -13,7 +13,7 @@ const HomePage = () => {
     <>
       {articles && !loading ? (
         <>
-          <PageHero title="Top stories" articles={articles} sorting bookmark />
+          <PageHero title="Top stories" articles={articles} isSort isBookmark />
           <HomeGrid articles={articles} />
         </>
       ) : (

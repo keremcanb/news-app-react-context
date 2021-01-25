@@ -4,7 +4,7 @@ import { useBookmarksContext } from '../context/actions/bookmarks';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
-  const { bookmarkItems, getBookmarkItems, loading } = useBookmarksContext();
+  const { loading, bookmarkItems, getBookmarkItems } = useBookmarksContext();
 
   useEffect(() => {
     getBookmarkItems();
@@ -14,7 +14,7 @@ const BookmarksPage = () => {
     <Wrapper>
       {bookmarkItems.length > 0 ? (
         <>
-          <PageHero title="All Bookmarks" sort />
+          <PageHero title="All Bookmarks" isSort />
           <ArticleGrid articles={bookmarkItems} />
         </>
       ) : (

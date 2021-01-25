@@ -14,12 +14,13 @@ const articles_reducer = (state, action) => {
       return { ...state, sort: payload };
 
     case SORT_ARTICLES: {
-      switch (sort) {
-        case 'newest':
-          filtered.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
-          break;
-        case 'oldest':
-          filtered.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+      if (sort === 'newest') {
+        console.log('Newest');
+        // filtered.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
+      }
+      if (sort === 'oldest') {
+        console.log('Oldest');
+        // filtered.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
       }
       return { ...state, filtered };
     }

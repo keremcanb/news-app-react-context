@@ -4,10 +4,8 @@ import styled from 'styled-components';
 import { useSortContext } from '../context/actions/sort';
 import Button from './Button';
 
-const PageHero = ({ title, bookmark, sorting }) => {
+const PageHero = ({ title, isBookmark, isSort }) => {
   const { sort, updateSort } = useSortContext();
-  console.log(sort);
-  console.log(updateSort);
 
   return (
     <Wrapper>
@@ -15,14 +13,13 @@ const PageHero = ({ title, bookmark, sorting }) => {
         <h1>{title}</h1>
       </div>
       <div className="input-group">
-        {bookmark && (
+        {isBookmark && (
           <Link to="/bookmarks">
             <Button text="View Bookmarks" />
           </Link>
         )}
-
-        {sorting && (
-          <select name="sort" id="sort" value={sort} onChange={updateSort}>
+        {isSort && (
+          <select name="sort" value={sort} onChange={updateSort}>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>

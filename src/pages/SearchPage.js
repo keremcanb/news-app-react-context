@@ -4,13 +4,13 @@ import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const SearchPage = () => {
-  const { searchResults, loading } = useArticlesContext();
+  const { loading, searchResults } = useArticlesContext();
 
   return !loading ? (
     <Wrapper>
       {searchResults.length > 0 ? (
         <>
-          <PageHero title="Search Results" sort />
+          <PageHero title="Search Results" isSort />
           <ArticleGrid articles={searchResults} />
         </>
       ) : (
