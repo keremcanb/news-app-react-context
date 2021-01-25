@@ -86,9 +86,17 @@ const Wrapper = styled.article`
     font-size: 1.2rem;
     cursor: pointer;
   }
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 768px) {
     width: 370px;
     height: 370px;
+    img {
+      width: 370px;
+      height: 370px;
+    }
+    .card-heading {
+      height: 145px;
+      top: 14.1rem;
+    }
   }
   @media (max-width: 1200px) {
     h3 {

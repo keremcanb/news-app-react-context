@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import SearchBox from './SearchBox';
-import Links from '../constants';
+import Links from '../constants/navlinks';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => (
   <SidebarContainer>

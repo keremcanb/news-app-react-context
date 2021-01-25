@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useBookmarksContext } from './context/actions/bookmarks';
 import { Header, Sidebar, Footer } from './components';
-import Routes from './Routes';
+import Routes from './constants/routes';
 
 const App = () => {
   const { getBookmarkItems } = useBookmarksContext();

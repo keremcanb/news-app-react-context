@@ -1,7 +1,7 @@
 import React, { useContext, useReducer, createContext } from 'react';
 import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
 import reducer from '../reducers/articles';
-import axios from '../../axios';
+import axios from '../../constants/axios';
 
 const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
 // const apiKey = process.env.REACT_APP_API_KEY;
