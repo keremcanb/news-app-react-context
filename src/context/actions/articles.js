@@ -1,18 +1,17 @@
 import React, { useContext, useReducer, createContext } from 'react';
 import { get } from 'axios';
 import reducer from '../reducers/articles';
-import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from './types';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from './types';
 
 const apiUrl = 'https://content.guardianapis.com/';
-const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
+// const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
 // const apiKey = process.env.REACT_APP_API_KEY;
 
 const initialState = {
   loading: true,
   articles: [],
   article: {},
-  searchResults: [],
-  sort: 'newest'
+  searchResults: []
 };
 
 const ArticlesContext = createContext();
@@ -65,13 +64,8 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const updateSort = (e) => {
-    const { value } = e.target;
-    dispatch({ type: UPDATE_SORT, payload: value });
-  };
-
   return (
-    <ArticlesContext.Provider value={{ ...state, getArticles, getArticle, searchArticles, updateSort }}>
+    <ArticlesContext.Provider value={{ ...state, getArticles, getArticle, searchArticles }}>
       {children}
     </ArticlesContext.Provider>
   );

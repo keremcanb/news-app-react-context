@@ -1,33 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useBookmarksContext } from '../context/actions/bookmarks';
 import Button from './Button';
 
-const PageHero = ({ title, bookmark, sorting }) => (
-  // const dispatch = useDispatch();
-  // const store = useSelector((state) => state.articles);
-  // const { sort } = store;
+const PageHero = ({ title, bookmark, sorting }) => {
+  const { sort, updateSort } = useBookmarksContext();
 
-  <Wrapper>
-    <div className="title">
-      <h1>{title}</h1>
-    </div>
-    <div className="input-group">
-      {bookmark && (
-        <Link to="/bookmarks">
-          <Button text="View Bookmarks" />
-        </Link>
-      )}
+  return (
+    <Wrapper>
+      <div className="title">
+        <h1>{title}</h1>
+      </div>
+      <div className="input-group">
+        {bookmark && (
+          <Link to="/bookmarks">
+            <Button text="View Bookmarks" />
+          </Link>
+        )}
 
-      {/* {sorting && (
-        <select name="sort" id="sort" className="sort-input" value={sort} onChange={dispatch(updateSort)}>
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-        </select>
-      )} */}
-    </div>
-  </Wrapper>
-);
+        {sorting && (
+          <select name="sort" id="sort" className="sort-input" value={sort} onChange={updateSort}>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        )}
+      </div>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.section`
   width: 90vw;
   margin: 0 auto;

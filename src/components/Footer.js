@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useArticlesContext } from '../context/actions/articles';
 
-const Footer = () => <Wrapper />;
+const Footer = () => {
+  const { loading } = useArticlesContext();
+
+  return !loading && <Wrapper />;
+};
 
 const Wrapper = styled.footer`
   height: 15rem;
