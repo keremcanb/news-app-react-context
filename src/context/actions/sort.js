@@ -18,9 +18,6 @@ export const SortProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: LOAD_ARTICLES, payload: articles });
-  }, [articles]);
-
-  useEffect(() => {
     dispatch({ type: SORT_ARTICLES });
   }, [articles, sort]);
 

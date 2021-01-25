@@ -14,7 +14,7 @@ const BookmarksPage = () => {
     <Wrapper>
       {bookmarkItems.length > 0 ? (
         <>
-          <PageHero title="All Bookmarks" isSort />
+          <PageHero title="All Bookmarks" />
           <ArticleGrid articles={bookmarkItems} />
         </>
       ) : (
