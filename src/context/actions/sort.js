@@ -1,15 +1,15 @@
 import { useEffect, useContext, useReducer, createContext } from 'react';
 import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../types';
 import { useArticlesContext } from './articles';
-import reducer from '../reducers/articles';
+import reducer from '../reducers/sort';
+
+const SortContext = createContext();
 
 const initialState = {
   articles: [],
   filtered: [],
   sort: 'newest'
 };
-
-const SortContext = createContext();
 
 export const SortProvider = ({ children }) => {
   const { articles } = useArticlesContext();
@@ -22,7 +22,7 @@ export const SortProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: SORT_ARTICLES });
-  }, [sort]);
+  }, [articles, sort]);
 
   const updateSort = (e) => {
     const { value } = e.target;

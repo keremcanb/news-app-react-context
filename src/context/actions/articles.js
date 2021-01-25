@@ -6,14 +6,14 @@ import axios from '../../constants/axios';
 const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
 // const apiKey = process.env.REACT_APP_API_KEY;
 
+const ArticlesContext = createContext();
+
 const initialState = {
   loading: true,
   articles: [],
   article: {},
   searchResults: []
 };
-
-const ArticlesContext = createContext();
 
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

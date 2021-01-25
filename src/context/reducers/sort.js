@@ -1,6 +1,6 @@
 import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../types';
 
-const articles_reducer = (state, action) => {
+const sort_reducer = (state, action) => {
   const { type, payload } = action;
   const { sort, filtered } = state;
 
@@ -14,12 +14,10 @@ const articles_reducer = (state, action) => {
 
     case SORT_ARTICLES: {
       if (sort === 'newest') {
-        console.log('Newest');
-        // filtered.sort((a, b) => a.webPublicationDate - b.webPublicationDate);
+        filtered.sort((a, b) => b.webPublicationDate.localeCompare(a.webPublicationDate));
       }
       if (sort === 'oldest') {
-        console.log('Oldest');
-        // filtered.sort((a, b) => b.webPublicationDate - a.webPublicationDate);
+        filtered.sort((a, b) => a.webPublicationDate.localeCompare(b.webPublicationDate));
       }
       return { ...state, filtered };
     }
@@ -28,4 +26,4 @@ const articles_reducer = (state, action) => {
   }
 };
 
-export default articles_reducer;
+export default sort_reducer;

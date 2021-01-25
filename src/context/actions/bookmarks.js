@@ -2,12 +2,12 @@ import React, { useContext, useReducer, createContext } from 'react';
 import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 import reducer from '../reducers/bookmarks';
 
+const BookmarksContext = createContext();
+
 const initialState = {
   bookmarkItems: [],
   loading: true
 };
-
-const BookmarksContext = createContext();
 
 export const BookmarksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

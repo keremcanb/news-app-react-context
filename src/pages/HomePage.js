@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useArticlesContext } from '../context/actions/articles';
+import { useSortContext } from '../context/actions/sort';
 import { HomeGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
   const { loading, articles, getArticles } = useArticlesContext();
+  const { filtered } = useSortContext();
 
   useEffect(() => {
     getArticles('world');
@@ -14,7 +16,7 @@ const HomePage = () => {
       {articles && !loading ? (
         <>
           <PageHero title="Top stories" articles={articles} isSort isBookmark />
-          <HomeGrid articles={articles} />
+          <HomeGrid articles={filtered} />
         </>
       ) : (
         <Loader />

@@ -19,7 +19,7 @@ const PageHero = ({ title, isBookmark, isSort }) => {
           </Link>
         )}
         {isSort && (
-          <select name="sort" value={sort} onChange={updateSort}>
+          <select name="sort" id="sort" value={sort} onChange={updateSort}>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
