@@ -1,5 +1,6 @@
 export const SET_LOADING = 'SET_LOADING';
 export const LOAD_ARTICLES = 'LOAD_ARTICLES';
+
 export const UPDATE_SORT = 'UPDATE_SORT';
 export const SORT_ARTICLES = 'SORT_ARTICLES';
 

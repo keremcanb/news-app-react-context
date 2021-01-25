@@ -8,7 +8,6 @@ import { Loader, Button } from '../components';
 const ArticlePage = () => {
   const { loading, article, getArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
-
   const { section, year, month, day, id } = useParams();
   const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
 

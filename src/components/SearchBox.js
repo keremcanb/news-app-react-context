@@ -5,10 +5,8 @@ import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = ({ history }) => {
   const { searchArticles } = useArticlesContext();
-
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
-
   const formRef = useRef();
   const inputFocus = useRef();
 

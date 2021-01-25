@@ -1,4 +1,4 @@
-import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../actions/types';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
 
 const articles_reducer = (state, action) => {
   const { type, payload } = action;

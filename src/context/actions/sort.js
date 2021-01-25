@@ -1,7 +1,7 @@
 import { useEffect, useContext, useReducer, createContext } from 'react';
-import reducer from '../reducers/articles';
-import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from './types';
+import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../types';
 import { useArticlesContext } from './articles';
+import reducer from '../reducers/articles';
 
 const initialState = {
   articles: [],

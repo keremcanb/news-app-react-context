@@ -1,6 +1,6 @@
 import React, { useContext, useReducer, createContext } from 'react';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 import reducer from '../reducers/bookmarks';
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from './types';
 
 const initialState = {
   bookmarkItems: [],

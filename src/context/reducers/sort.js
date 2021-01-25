@@ -1,5 +1,4 @@
-/* eslint-disable default-case */
-import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../actions/types';
+import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../types';
 
 const articles_reducer = (state, action) => {
   const { type, payload } = action;

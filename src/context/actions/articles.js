@@ -1,10 +1,9 @@
 import React, { useContext, useReducer, createContext } from 'react';
-import { get } from 'axios';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
 import reducer from '../reducers/articles';
-import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from './types';
+import axios from '../../axios';
 
-const apiUrl = 'https://content.guardianapis.com/';
-// const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
+const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
 // const apiKey = process.env.REACT_APP_API_KEY;
 
 const initialState = {
@@ -26,8 +25,8 @@ export const ArticlesProvider = ({ children }) => {
   const getArticles = async (section) => {
     try {
       setLoading();
-      const { data } = await get(
-        `${apiUrl}${section}?show-fields=all&show-elements=all&page-size=9&type=article&api-key=test`
+      const { data } = await axios.get(
+        `${section}?show-fields=all&show-elements=all&page-size=9&type=article&api-key=${apiKey}`
       );
       dispatch({
         type: GET_ARTICLES,
@@ -41,7 +40,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticle = async (id) => {
     try {
       setLoading();
-      const { data } = await get(`${apiUrl}${id}?show-fields=all&show-elements=all&type=article&api-key=test`);
+      const { data } = await axios.get(`${id}?show-fields=all&show-elements=all&type=article&api-key=${apiKey}`);
       dispatch({
         type: GET_ARTICLE,
         payload: data.response.content
@@ -54,7 +53,7 @@ export const ArticlesProvider = ({ children }) => {
   const searchArticles = async (keyword) => {
     try {
       setLoading();
-      const { data } = await get(`${apiUrl}search?q=${keyword}&show-fields=all&show-elements=all&api-key=test`);
+      const { data } = await axios.get(`search?q=${keyword}&show-fields=all&show-elements=all&api-key=${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
         payload: data.response.results
