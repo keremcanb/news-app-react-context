@@ -21,6 +21,7 @@ const sort_reducer = (state, action) => {
       }
       return { ...state, filtered };
     }
+
     default:
       return state;
   }

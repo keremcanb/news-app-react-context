@@ -96,6 +96,7 @@ const Wrapper = styled.div`
       height: 370px;
     }
     .card-heading {
+      width: 370px;
       height: 145px;
       top: 14.1rem;
     }

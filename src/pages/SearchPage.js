@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
+import { useSortContext } from '../context/actions/sort';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const SearchPage = () => {
   const { loading, searchResults } = useArticlesContext();
+  const { filtered } = useSortContext();
 
   return !loading ? (
     <Wrapper>
       {searchResults.length > 0 ? (
         <>
           <PageHero title="Search Results" isSort />
-          <ArticleGrid articles={searchResults} />
+          <ArticleGrid articles={filtered} />
         </>
       ) : (
         <div className="error">
