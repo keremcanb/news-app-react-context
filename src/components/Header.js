@@ -5,25 +5,30 @@ import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
+import { useSortContext } from '../context/actions/sort';
 
-const Header = ({ toggleSidebar }) => (
-  <Wrapper>
-    <nav className="nav-container">
-      <div className="nav-top">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-        <FaBars className="nav-toggle" onClick={toggleSidebar} />
-      </div>
-      <div className="nav-bottom">
-        <PageLinks styleClass="nav-links" />
-        <div className="searchbox">
-          <Route render={({ history }) => <SearchBox history={history} />} />
+const Header = () => {
+  const { openSidebar } = useSortContext();
+
+  return (
+    <Wrapper>
+      <nav className="nav-container">
+        <div className="nav-top">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+          <FaBars className="nav-toggle" onClick={openSidebar} />
         </div>
-      </div>
-    </nav>
-  </Wrapper>
-);
+        <div className="nav-bottom">
+          <PageLinks styleClass="nav-links" />
+          <div className="searchbox">
+            <Route render={({ history }) => <SearchBox history={history} />} />
+          </div>
+        </div>
+      </nav>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.header`
   height: 100px;

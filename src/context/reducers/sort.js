@@ -1,4 +1,4 @@
-import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES } from '../types';
+import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES, OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../types';
 
 const sort_reducer = (state, action) => {
   const { type, payload } = action;
@@ -21,6 +21,12 @@ const sort_reducer = (state, action) => {
       }
       return { ...state, filtered };
     }
+
+    case OPEN_SIDEBAR:
+      return { ...state, sidebar: true };
+
+    case CLOSE_SIDEBAR:
+      return { ...state, sidebar: false };
 
     default:
       return state;

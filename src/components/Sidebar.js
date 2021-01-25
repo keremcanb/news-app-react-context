@@ -1,23 +1,36 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import SearchBox from './SearchBox';
-import Links from '../constants/navlinks';
+import { links } from '../constants/navlinks';
+import { useSortContext } from '../context/actions/sort';
 
-const Sidebar = ({ isOpen, toggleSidebar }) => (
-  <SidebarContainer>
-    <aside className={`sidebar ${isOpen ? 'show-sidebar' : ''}`}>
-      <FaTimes className="close-btn" onClick={toggleSidebar} />
-      <div className="side-container" onClick={toggleSidebar}>
-        <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
-        <Route render={({ history }) => <SearchBox history={history} />} />
-      </div>
-    </aside>
-  </SidebarContainer>
-);
+const Sidebar = () => {
+  const { sidebar, closeSidebar } = useSortContext();
+
+  return (
+    <SidebarContainer>
+      <aside className={`sidebar ${sidebar ? 'show-sidebar' : ''}`}>
+        <FaTimes className="close-btn" onClick={closeSidebar} />
+        <div className="side-container">
+          <ul className="sidebar-links">
+            {links.map(({ id, url, text }) => (
+              <li key={id}>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Route render={({ history }) => <SearchBox history={history} onSubmit={closeSidebar} />} />
+        </div>
+      </aside>
+    </SidebarContainer>
+  );
+};
 
 const SidebarContainer = styled.aside`
   .sidebar {
