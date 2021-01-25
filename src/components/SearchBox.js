@@ -2,9 +2,12 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useArticlesContext } from '../context/actions/articles';
+import { useUtilsContext } from '../context/actions/utils';
 
 const SearchBox = ({ history }) => {
   const { searchArticles } = useArticlesContext();
+  const { closeSidebar } = useUtilsContext();
+
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
@@ -16,6 +19,7 @@ const SearchBox = ({ history }) => {
     history.push(`/search/${input}`);
     setInput('');
     setBarOpened(false);
+    closeSidebar();
   };
 
   return (

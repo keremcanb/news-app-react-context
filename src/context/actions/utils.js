@@ -1,9 +1,9 @@
 import { useEffect, useContext, useReducer, createContext } from 'react';
 import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES, OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../types';
 import { useArticlesContext } from './articles';
-import reducer from '../reducers/sort';
+import reducer from '../reducers/utils';
 
-const SortContext = createContext();
+const UtilsContext = createContext();
 
 const initialState = {
   articles: [],
@@ -12,7 +12,7 @@ const initialState = {
   sidebar: false
 };
 
-export const SortProvider = ({ children }) => {
+export const UtilsProvider = ({ children }) => {
   const { articles } = useArticlesContext();
   const [state, dispatch] = useReducer(reducer, initialState);
   const { sort } = state;
@@ -36,8 +36,10 @@ export const SortProvider = ({ children }) => {
   };
 
   return (
-    <SortContext.Provider value={{ ...state, updateSort, openSidebar, closeSidebar }}>{children}</SortContext.Provider>
+    <UtilsContext.Provider value={{ ...state, updateSort, openSidebar, closeSidebar }}>
+      {children}
+    </UtilsContext.Provider>
   );
 };
 
-export const useSortContext = () => useContext(SortContext);
+export const useUtilsContext = () => useContext(UtilsContext);

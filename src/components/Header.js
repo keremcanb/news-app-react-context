@@ -5,10 +5,10 @@ import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
-import { useSortContext } from '../context/actions/sort';
+import { useUtilsContext } from '../context/actions/utils';
 
 const Header = () => {
-  const { openSidebar } = useSortContext();
+  const { openSidebar } = useUtilsContext();
 
   return (
     <Wrapper>

@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import { links } from '../constants/navlinks';
-import { useSortContext } from '../context/actions/sort';
+import { useUtilsContext } from '../context/actions/utils';
 
 const Sidebar = () => {
-  const { sidebar, closeSidebar } = useSortContext();
+  const { sidebar, closeSidebar } = useUtilsContext();
 
   return (
     <SidebarContainer>
@@ -25,7 +25,9 @@ const Sidebar = () => {
               </li>
             ))}
           </ul>
-          <Route render={({ history }) => <SearchBox history={history} onSubmit={closeSidebar} />} />
+          <div className="searchbox">
+            <Route render={({ history }) => <SearchBox history={history} onSubmit={closeSidebar} />} />
+          </div>
         </div>
       </aside>
     </SidebarContainer>
@@ -33,6 +35,10 @@ const Sidebar = () => {
 };
 
 const SidebarContainer = styled.aside`
+  .searchbox {
+    display: flex;
+    justify-content: center;
+  }
   .sidebar {
     background: #09357b;
     position: fixed;

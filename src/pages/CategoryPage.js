@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticlesContext } from '../context/actions/articles';
-import { useSortContext } from '../context/actions/sort';
+import { useUtilsContext } from '../context/actions/utils';
 import { PageHero, Loader, ArticleGrid } from '../components';
 
 const CategoryPage = () => {
   const { articles, loading, getArticles } = useArticlesContext();
-  const { filtered } = useSortContext();
+  const { filtered } = useUtilsContext();
   const { id } = useParams();
 
   useEffect(() => {

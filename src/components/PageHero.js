@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useSortContext } from '../context/actions/sort';
+import { useUtilsContext } from '../context/actions/utils';
 import Button from './Button';
 
 const PageHero = ({ title, isBookmark, isSort }) => {
-  const { sort, updateSort } = useSortContext();
+  const { sort, updateSort } = useUtilsContext();
 
   return (
     <Wrapper>
