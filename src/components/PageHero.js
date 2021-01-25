@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useBookmarksContext } from '../context/actions/bookmarks';
+import { useSortContext } from '../context/actions/sort';
 import Button from './Button';
 
 const PageHero = ({ title, bookmark, sorting }) => {
-  const { sort, updateSort } = useBookmarksContext();
+  const { sort, updateSort } = useSortContext();
+  console.log(sort);
+  console.log(updateSort);
 
   return (
     <Wrapper>
@@ -20,7 +22,7 @@ const PageHero = ({ title, bookmark, sorting }) => {
         )}
 
         {sorting && (
-          <select name="sort" id="sort" className="sort-input" value={sort} onChange={updateSort}>
+          <select name="sort" id="sort" value={sort} onChange={updateSort}>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>

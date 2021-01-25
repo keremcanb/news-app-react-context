@@ -13,7 +13,6 @@ const SortContext = createContext();
 
 export const SortProvider = ({ children }) => {
   const { articles } = useArticlesContext();
-  console.log(articles);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { sort } = state;
 
