@@ -21,14 +21,6 @@ const ArticleCard = ({
     }
   };
 
-  const addBookmark = (item) => {
-    bookmarkItem(item);
-  };
-
-  const unBookmark = (item) => {
-    unBookmarkItem(item);
-  };
-
   return (
     <Wrapper>
       <article>
@@ -39,9 +31,9 @@ const ArticleCard = ({
           </Link>
           <div className="card-icon">
             {isBookmark(article) ? (
-              <FaBookmark onClick={() => unBookmark(article)} />
+              <FaBookmark onClick={() => unBookmarkItem(article)} />
             ) : (
-              <FaRegBookmark onClick={() => addBookmark(article)} />
+              <FaRegBookmark onClick={() => bookmarkItem(article)} />
             )}
           </div>
         </div>

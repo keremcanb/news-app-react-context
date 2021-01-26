@@ -21,14 +21,6 @@ const HomeCard = ({
     }
   };
 
-  const addBookmark = (item) => {
-    bookmarkItem(item);
-  };
-
-  const unBookmark = (item) => {
-    unBookmarkItem(item);
-  };
-
   return (
     <Wrapper>
       {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
@@ -39,9 +31,9 @@ const HomeCard = ({
         </Link>
         <div className="card-icon">
           {isBookmark(article) ? (
-            <FaBookmark onClick={() => unBookmark(article)} />
+            <FaBookmark onClick={() => unBookmarkItem(article)} />
           ) : (
-            <FaRegBookmark onClick={() => addBookmark(article)} />
+            <FaRegBookmark onClick={() => bookmarkItem(article)} />
           )}
         </div>
       </div>
