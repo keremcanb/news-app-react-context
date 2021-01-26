@@ -11,9 +11,14 @@ const Routes = () => (
       <Route path="/bookmarks">
         <Bookmarks />
       </Route>
-      <Route path="/search/:keyword">
-        <SearchResults />
-      </Route>
+      <Route
+        path="/search/:keyword"
+        render={({
+          match: {
+            params: { keyword }
+          }
+        }) => <SearchResults keyword={keyword} />}
+      />
       <Route path="/article/:section/:year/:month/:day/:id">
         <Article />
       </Route>

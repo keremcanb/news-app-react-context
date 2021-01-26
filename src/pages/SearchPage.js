@@ -8,7 +8,7 @@ const SearchPage = ({ keyword }) => {
 
   useEffect(() => {
     searchArticles(keyword);
-  }, []);
+  }, [keyword]);
 
   return !loading ? (
     <Wrapper>
