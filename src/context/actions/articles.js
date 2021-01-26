@@ -4,7 +4,7 @@ import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
 // const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
+const apiKey = '&show-fields=all&show-elements=all&type=article&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
 
 const ArticlesContext = createContext();
 
@@ -22,12 +22,10 @@ export const ArticlesProvider = ({ children }) => {
     type: SET_LOADING
   });
 
-  const getArticles = async (section) => {
+  const getArticles = async (section, size) => {
     try {
       setLoading();
-      const { data } = await axios.get(
-        `${section}?show-fields=all&show-elements=all&page-size=9&type=article&api-key=${apiKey}`
-      );
+      const { data } = await axios.get(`${section}?page-size=${size}${apiKey}`);
       dispatch({
         type: GET_ARTICLES,
         payload: data.response.results
@@ -40,7 +38,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticle = async (id) => {
     try {
       setLoading();
-      const { data } = await axios.get(`${id}?show-fields=all&show-elements=all&type=article&api-key=${apiKey}`);
+      const { data } = await axios.get(`${id}?type=article${apiKey}`);
       dispatch({
         type: GET_ARTICLE,
         payload: data.response.content
@@ -53,7 +51,7 @@ export const ArticlesProvider = ({ children }) => {
   const searchArticles = async (keyword) => {
     try {
       setLoading();
-      const { data } = await axios.get(`search?q=${keyword}&show-fields=all&show-elements=all&api-key=${apiKey}`);
+      const { data } = await axios.get(`search?q=${keyword}${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
         payload: data.response.results

@@ -2,25 +2,30 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
+import { useUtilsContext } from '../context/actions/utils';
 
 const SearchBox = () => {
+  const { closeSidebar } = useUtilsContext();
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
   const history = useHistory();
 
-  const handleSubmit = (e, keyword) => {
+  const onSubmitHandler = (e, keyword) => {
     e.preventDefault();
     e.currentTarget.reset();
     const url = `/search/${keyword}`;
     history.push(url);
+    setInput('');
+    setBarOpened(false);
+    closeSidebar();
   };
 
   return (
     <div className="App">
       <Form
-        onSubmit={(e) => handleSubmit(e, input)}
+        onSubmit={(e) => onSubmitHandler(e, input)}
         ref={formRef}
         barOpened={barOpened}
         onClick={() => {

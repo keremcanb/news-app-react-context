@@ -11,13 +11,13 @@ const CategoryPage = () => {
 
   useEffect(() => {
     if (id === 'sport') {
-      getArticles('sport');
+      getArticles('sport', '12');
     }
     if (id === 'culture') {
-      getArticles('culture');
+      getArticles('culture', '12');
     }
     if (id === 'lifeandstyle') {
-      getArticles('lifeandstyle');
+      getArticles('lifeandstyle', '12');
     }
   }, [id]);
 
