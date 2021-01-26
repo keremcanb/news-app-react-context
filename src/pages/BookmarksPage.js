@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useBookmarksContext } from '../context/actions/bookmarks';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
 const BookmarksPage = () => {
-  const { loading, bookmarkItems, getBookmarkItems } = useBookmarksContext();
-
-  useEffect(() => {
-    getBookmarkItems();
-  }, []);
+  const { loading, bookmarkItems } = useBookmarksContext();
 
   return !loading ? (
     <Wrapper>

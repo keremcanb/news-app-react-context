@@ -8,10 +8,8 @@ const sort_reducer = (state, action) => {
     case LOAD_ARTICLES: {
       return { ...state, articles: [...payload], filtered: [...payload] };
     }
-
     case UPDATE_SORT:
       return { ...state, sort: payload };
-
     case SORT_ARTICLES: {
       if (sort === 'newest') {
         filtered.sort((a, b) => b.webPublicationDate.localeCompare(a.webPublicationDate));
@@ -21,13 +19,10 @@ const sort_reducer = (state, action) => {
       }
       return { ...state, filtered };
     }
-
     case OPEN_SIDEBAR:
       return { ...state, sidebar: true };
-
     case CLOSE_SIDEBAR:
       return { ...state, sidebar: false };
-
     default:
       return state;
   }
