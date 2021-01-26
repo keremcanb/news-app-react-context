@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
-const SearchPage = ({ searchTerm }) => {
+const SearchPage = ({ keyword }) => {
   const { loading, searchResults, searchArticles } = useArticlesContext();
 
   useEffect(() => {
-    searchArticles(searchTerm);
-  }, [searchTerm]);
+    searchArticles(keyword);
+  }, []);
 
   return !loading ? (
     <Wrapper>

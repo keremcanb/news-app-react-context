@@ -3,21 +3,24 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
-const SearchBox = ({ handleSubmit }) => {
-  const [searchEntry, setSearchEntry] = useState('');
+const SearchBox = () => {
+  const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
   const history = useHistory();
 
-  const updateSearchInput = (e) => {
-    setSearchEntry(e.target.value);
+  const handleSubmit = (e, keyword) => {
+    e.preventDefault();
+    e.currentTarget.reset();
+    const url = `/search/${keyword}`;
+    history.push(url);
   };
 
   return (
     <div className="App">
       <Form
-        onSubmit={(e) => handleSubmit(e, history, searchEntry)}
+        onSubmit={(e) => handleSubmit(e, input)}
         ref={formRef}
         barOpened={barOpened}
         onClick={() => {
@@ -36,9 +39,9 @@ const SearchBox = ({ handleSubmit }) => {
           <FaSearch />
         </Button>
         <Input
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
           ref={inputFocus}
-          onChange={updateSearchInput}
-          value={searchEntry}
           barOpened={barOpened}
           placeholder="Search all news"
         />

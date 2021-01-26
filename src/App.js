@@ -11,16 +11,9 @@ const App = () => {
     getBookmarkItems();
   }, []);
 
-  const handleSubmit = (e, history, searchInput) => {
-    e.preventDefault();
-    e.currentTarget.reset();
-    const url = `/search/${searchInput}`;
-    history.push(url);
-  };
-
   return (
     <Router forceRefresh>
-      <Route render={() => <Header handleSubmit={handleSubmit} />} />
+      <Header />
       <Sidebar />
       <main>
         <Switch>
@@ -31,8 +24,12 @@ const App = () => {
             <Bookmarks />
           </Route>
           <Route
-            path="/search/:searchInput"
-            render={({ match }) => <SearchResults searchTerm={match.params.searchInput} />}
+            path="/search/:keyword"
+            render={({
+              match: {
+                params: { keyword }
+              }
+            }) => <SearchResults keyword={keyword} />}
           />
           <Route path="/article/:section/:year/:month/:day/:id">
             <Article />
