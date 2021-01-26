@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
 import { useUtilsContext } from '../context/actions/utils';
 
-const Header = ({ history, handleSubmit }) => {
+const Header = ({ handleSubmit }) => {
   const { openSidebar } = useUtilsContext();
 
   return (
@@ -22,7 +22,7 @@ const Header = ({ history, handleSubmit }) => {
         <div className="nav-bottom">
           <PageLinks styleClass="nav-links" />
           <div className="searchbox">
-            <SearchBox history={history} handleSubmit={handleSubmit} />
+            <SearchBox handleSubmit={handleSubmit} />
           </div>
         </div>
       </nav>

@@ -1,24 +1,24 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 
-const SearchBox = ({ handleSubmit, history }) => {
+const SearchBox = ({ handleSubmit }) => {
   const [searchEntry, setSearchEntry] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
+  const history = useHistory();
 
   const updateSearchInput = (e) => {
     setSearchEntry(e.target.value);
   };
 
-  const onFormSubmit = (e) => {
-    handleSubmit(e, history, searchEntry);
-  };
-
   return (
     <div className="App">
       <Form
+        onSubmit={(e) => handleSubmit(e, history, searchEntry)}
+        ref={formRef}
         barOpened={barOpened}
         onClick={() => {
           setBarOpened(true);
@@ -31,8 +31,6 @@ const SearchBox = ({ handleSubmit, history }) => {
         onBlur={() => {
           setBarOpened(false);
         }}
-        onSubmit={onFormSubmit}
-        ref={formRef}
       >
         <Button type="submit">
           <FaSearch />

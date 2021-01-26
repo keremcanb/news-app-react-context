@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <Router forceRefresh>
-      <Route render={(props) => <Header handleSubmit={handleSubmit} history={props.history} />} />
+      <Route render={() => <Header handleSubmit={handleSubmit} />} />
       <Sidebar />
       <main>
         <Switch>
