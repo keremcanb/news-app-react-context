@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader } from '../components';
 
-const SearchPage = () => {
-  const { loading, searchResults } = useArticlesContext();
+const SearchPage = ({ searchTerm }) => {
+  const { loading, searchResults, searchArticles } = useArticlesContext();
+
+  useEffect(() => {
+    searchArticles(searchTerm);
+  }, [searchTerm]);
 
   return !loading ? (
     <Wrapper>

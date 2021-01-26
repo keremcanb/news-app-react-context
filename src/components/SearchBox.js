@@ -1,25 +1,19 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import { useArticlesContext } from '../context/actions/articles';
-import { useUtilsContext } from '../context/actions/utils';
 
-const SearchBox = ({ history }) => {
-  const { searchArticles } = useArticlesContext();
-  const { closeSidebar } = useUtilsContext();
-
-  const [input, setInput] = useState('');
+const SearchBox = ({ handleSubmit, history }) => {
+  const [searchEntry, setSearchEntry] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
 
+  const updateSearchInput = (e) => {
+    setSearchEntry(e.target.value);
+  };
+
   const onFormSubmit = (e) => {
-    e.preventDefault();
-    searchArticles(input);
-    history.push(`/search/${input}`);
-    setInput('');
-    setBarOpened(false);
-    closeSidebar();
+    handleSubmit(e, history, searchEntry);
   };
 
   return (
@@ -44,9 +38,9 @@ const SearchBox = ({ history }) => {
           <FaSearch />
         </Button>
         <Input
-          onChange={(e) => setInput(e.target.value)}
           ref={inputFocus}
-          value={input}
+          onChange={updateSearchInput}
+          value={searchEntry}
           barOpened={barOpened}
           placeholder="Search all news"
         />

@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
 import { useUtilsContext } from '../context/actions/utils';
 
-const Header = () => {
+const Header = ({ history, handleSubmit }) => {
   const { openSidebar } = useUtilsContext();
 
   return (
@@ -22,7 +22,7 @@ const Header = () => {
         <div className="nav-bottom">
           <PageLinks styleClass="nav-links" />
           <div className="searchbox">
-            <Route render={({ history }) => <SearchBox history={history} />} />
+            <SearchBox history={history} handleSubmit={handleSubmit} />
           </div>
         </div>
       </nav>

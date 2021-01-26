@@ -8,5 +8,6 @@ import HomeGrid from './HomeGrid';
 import HomeCard from './HomeCard';
 import Loader from './Loader';
 import Button from './Button';
+import SearchBox from './SearchBox';
 
-export { Header, Sidebar, Footer, PageHero, ArticleGrid, ArticleCard, Loader, Button, HomeGrid, HomeCard };
+export { Header, Sidebar, Footer, PageHero, ArticleGrid, ArticleCard, Loader, Button, HomeGrid, HomeCard, SearchBox };

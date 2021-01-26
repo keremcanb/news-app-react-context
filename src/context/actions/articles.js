@@ -3,8 +3,8 @@ import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../type
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
-const apiKey = process.env.REACT_APP_API_KEY;
-// const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
+// const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = 'e85abcee-d943-45e2-815f-c806628ad5d7';
 
 const ArticlesContext = createContext();
 
