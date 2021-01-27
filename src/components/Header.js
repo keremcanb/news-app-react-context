@@ -64,7 +64,7 @@ const Wrapper = styled.header`
     }
   }
   @media screen and (min-width: 1200px) {
-    height: 143px;
+    height: 144px;
     .nav-container {
       display: flex;
       flex-direction: column;

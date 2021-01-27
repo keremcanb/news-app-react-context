@@ -93,6 +93,9 @@ const Wrapper = styled.section`
       line-height: 2rem;
     }
   }
+  h1 {
+    margin-bottom: 1rem;
+  }
   hr {
     margin: 1rem 0;
   }
@@ -103,6 +106,8 @@ const Wrapper = styled.section`
     margin-right: auto;
     width: 30rem;
     height: 20rem;
+  }
+  @media (min-width: 740px) {
   }
   @media (min-width: 1200px) {
     .article-hero {
@@ -121,9 +126,7 @@ const Wrapper = styled.section`
       padding: 0 1rem;
       margin-top: 0;
     }
-    h1 {
-      margin-bottom: 1rem;
-    }
+
     figcaption {
       padding: 0.5rem 1.5rem;
     }

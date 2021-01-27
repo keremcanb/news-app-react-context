@@ -81,8 +81,9 @@ const Input = styled.input`
   width: 100%;
   border: none;
   color: white;
-  padding: 0.9rem;
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-bottom: 3px solid #fff;
+  padding: 0.9rem;
   &:focus,
   &:active {
     outline: none;

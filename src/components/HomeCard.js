@@ -129,8 +129,8 @@ const Wrapper = styled.article`
       grid-column-end: span 3;
       h2 {
         font-weight: normal;
-        line-height: 1.8rem;
-        font-size: 1.3rem;
+        line-height: 1.6rem;
+        font-size: 1.2rem;
       }
       h3 {
         display: none;
