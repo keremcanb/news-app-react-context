@@ -17,7 +17,7 @@ const ArticleCard = ({
 
   const isBookmark = (item) => {
     if (bookmarkItems !== null) {
-      return bookmarkItems.findIndex((bookmark) => bookmark.webTitle === item.webTitle) > -1;
+      return bookmarkItems.findIndex((bookmark) => bookmark.id === item.id) > -1;
     }
   };
 

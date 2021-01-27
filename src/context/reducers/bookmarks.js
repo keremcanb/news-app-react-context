@@ -17,7 +17,7 @@ const bookmarks_reducer = (state, action) => {
       localStorage.setItem('bookmarks', JSON.stringify(unbookmarkItems));
       return {
         ...state,
-        bookmarkItems: state.bookmarkItems.filter((item) => item.webTitle !== payload.webTitle)
+        bookmarkItems: state.bookmarkItems.filter((item) => item.id !== payload.id)
       };
     }
     case GET_BOOKMARK_ITEMS:

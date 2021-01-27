@@ -17,7 +17,6 @@ const HomePage = () => {
         <>
           <PageHero title="Top stories" isSort isBookmark />
           <HomeGrid articles={filtered} />
-          <PageHero title="Sports" />
         </>
       ) : (
         <Loader />

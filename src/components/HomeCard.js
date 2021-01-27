@@ -17,7 +17,7 @@ const HomeCard = ({
 
   const isBookmark = (item) => {
     if (bookmarkItems !== null) {
-      return bookmarkItems.findIndex((bookmark) => bookmark.webTitle === item.webTitle) > -1;
+      return bookmarkItems.findIndex((bookmark) => bookmark.id === item.id) > -1;
     }
   };
 
@@ -128,7 +128,6 @@ const Wrapper = styled.article`
     &:nth-child(-n + 5):not(:first-child) {
       grid-column-end: span 3;
       h2 {
-        font-weight: normal;
         line-height: 1.6rem;
         font-size: 1.2rem;
       }
@@ -165,9 +164,6 @@ const Wrapper = styled.article`
       .card-heading {
         top: 15rem;
         height: 145px;
-      }
-      h2 {
-        font-weight: normal;
       }
       h3 {
         font-size: 0.9rem;
