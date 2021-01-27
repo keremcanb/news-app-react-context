@@ -92,6 +92,9 @@ const Wrapper = styled.div`
       height: 145px;
       top: 14.1rem;
     }
+    h2 {
+      line-height: 2rem;
+    }
   }
 `;
 

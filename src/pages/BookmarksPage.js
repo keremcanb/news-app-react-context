@@ -9,7 +9,7 @@ const BookmarksPage = () => {
     <>
       {bookmarkItems.length > 0 ? (
         <>
-          <PageHero title="All Bookmarks" />
+          <PageHero title="All Bookmarks" isSort />
           <ArticleGrid articles={bookmarkItems} />
         </>
       ) : (

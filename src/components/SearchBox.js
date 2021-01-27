@@ -60,7 +60,7 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${(props) => (props.barOpened ? '13rem' : '2rem')};
+  width: ${(props) => (props.barOpened ? '15rem' : '2rem')};
   cursor: pointer;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 `;

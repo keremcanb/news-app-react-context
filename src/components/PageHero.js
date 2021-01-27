@@ -56,7 +56,7 @@ const Wrapper = styled.section`
     outline: 0;
     cursor: pointer;
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 700px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

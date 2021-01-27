@@ -13,7 +13,7 @@ const SearchPage = ({ keyword }) => {
     <>
       {searchResults.length > 0 ? (
         <>
-          <PageHero title="Search Results" />
+          <PageHero title="Search results" isBookmark isSort />
           <ArticleGrid articles={searchResults} />
         </>
       ) : (

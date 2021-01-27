@@ -105,6 +105,7 @@ const Wrapper = styled.article`
     h3 {
       font-family: 'Open Sans', sans-serif;
       font-weight: normal;
+      margin-top: 0.6rem;
     }
     &:first-child {
       grid-column: 1 / 7;
@@ -116,9 +117,21 @@ const Wrapper = styled.article`
         top: 19.5rem;
         height: 150px;
       }
+      h2 {
+        font-size: 1.8rem;
+      }
+      h3 {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
     }
     &:nth-child(-n + 5):not(:first-child) {
       grid-column-end: span 3;
+      h2 {
+        font-weight: normal;
+        line-height: 1.8rem;
+        font-size: 1.3rem;
+      }
       h3 {
         display: none;
       }
@@ -152,6 +165,12 @@ const Wrapper = styled.article`
       .card-heading {
         top: 15rem;
         height: 145px;
+      }
+      h2 {
+        font-weight: normal;
+      }
+      h3 {
+        font-size: 0.9rem;
       }
     }
     &:nth-child(2) {

@@ -42,7 +42,9 @@ const ArticlePage = () => {
                   </button>
                 )}
               </div>
-              <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
+              <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
+                {webPublicationDate}
+              </Moment>
               <h1>{webTitle}</h1>
               {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
             </div>
@@ -64,6 +66,9 @@ const ArticlePage = () => {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
+  .date {
+    margin: 1rem 0;
+  }
   figure {
     img {
       width: 100%;
@@ -111,16 +116,16 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    h1 {
-      margin-top: 1rem;
-    }
     img {
       justify-self: end;
       padding: 0 1rem;
       margin-top: 0;
     }
+    h1 {
+      margin-bottom: 1rem;
+    }
     figcaption {
-      padding: 0.5rem 3.5rem;
+      padding: 0.5rem 1.5rem;
     }
   }
 `;
