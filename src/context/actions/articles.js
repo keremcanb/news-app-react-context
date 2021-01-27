@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, createContext } from 'react';
-import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLES_SPORTS, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
@@ -12,7 +12,8 @@ const initialState = {
   loading: true,
   articles: [],
   article: {},
-  searchResults: []
+  searchResults: [],
+  articlesSports: []
 };
 
 export const ArticlesProvider = ({ children }) => {
@@ -28,6 +29,19 @@ export const ArticlesProvider = ({ children }) => {
       const { data } = await axios.get(`${section}?page-size=${size}${apiKey}`);
       dispatch({
         type: GET_ARTICLES,
+        payload: data.response.results
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getArticlesSports = async () => {
+    try {
+      setLoading();
+      const { data } = await axios.get(`sport?page-size=3${apiKey}`);
+      dispatch({
+        type: GET_ARTICLES_SPORTS,
         payload: data.response.results
       });
     } catch (err) {
@@ -62,7 +76,7 @@ export const ArticlesProvider = ({ children }) => {
   };
 
   return (
-    <ArticlesContext.Provider value={{ ...state, getArticles, getArticle, searchArticles }}>
+    <ArticlesContext.Provider value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports }}>
       {children}
     </ArticlesContext.Provider>
   );

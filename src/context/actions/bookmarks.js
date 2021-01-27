@@ -16,6 +16,16 @@ export const BookmarksProvider = ({ children }) => {
     type: SET_LOADING
   });
 
+  const getBookmarkItems = () => {
+    setLoading();
+    let bookmarkItems = localStorage.getItem('bookmarks');
+    bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
+    dispatch({
+      type: GET_BOOKMARK_ITEMS,
+      payload: bookmarkItems
+    });
+  };
+
   const bookmarkItem = (item) => {
     dispatch({
       type: BOOKMARK_ITEM,
@@ -27,15 +37,6 @@ export const BookmarksProvider = ({ children }) => {
     dispatch({
       type: UNBOOKMARK_ITEM,
       payload: item
-    });
-  };
-
-  const getBookmarkItems = () => {
-    let bookmarkItems = localStorage.getItem('bookmarks');
-    bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
-    dispatch({
-      type: GET_BOOKMARK_ITEMS,
-      payload: bookmarkItems
     });
   };
 

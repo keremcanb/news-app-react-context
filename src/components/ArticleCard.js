@@ -23,26 +23,24 @@ const ArticleCard = ({
 
   return (
     <Wrapper>
-      <article>
-        {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
-        <div className="card-heading">
-          <Link to={`/article/${id}`}>
-            <h2>{webTitle}</h2>
-          </Link>
-          <div className="card-icon">
-            {isBookmark(article) ? (
-              <FaBookmark onClick={() => unBookmarkItem(article)} />
-            ) : (
-              <FaRegBookmark onClick={() => bookmarkItem(article)} />
-            )}
-          </div>
+      {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
+      <div className="card-heading">
+        <Link to={`/article/${id}`}>
+          <h2>{webTitle}</h2>
+        </Link>
+        <div className="card-icon">
+          {isBookmark(article) ? (
+            <FaBookmark onClick={() => unBookmarkItem(article)} />
+          ) : (
+            <FaRegBookmark onClick={() => bookmarkItem(article)} />
+          )}
         </div>
-      </article>
+      </div>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   position: relative;
   overflow: hidden;
   box-shadow: 5px 5px 5px #aaaaaa;

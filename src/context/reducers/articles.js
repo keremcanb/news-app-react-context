@@ -1,4 +1,4 @@
-import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES } from '../types';
+import { SET_LOADING, GET_ARTICLES, GET_ARTICLE, SEARCH_ARTICLES, GET_ARTICLES_SPORTS } from '../types';
 
 const articles_reducer = (state, action) => {
   const { type, payload } = action;
@@ -8,6 +8,8 @@ const articles_reducer = (state, action) => {
       return { ...state, loading: true };
     case GET_ARTICLES:
       return { ...state, articles: payload, loading: false };
+    case GET_ARTICLES_SPORTS:
+      return { ...state, articlesSports: payload, loading: false };
     case GET_ARTICLE:
       return { ...state, article: payload, loading: false };
     case SEARCH_ARTICLES:
