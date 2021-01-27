@@ -31,12 +31,12 @@ const ArticlePage = () => {
             <div className="hero-left">
               <div>
                 {isBookmark(article) ? (
-                  <button onClick={() => unBookmarkItem(article)} type="submit">
+                  <button className="button" onClick={() => unBookmarkItem(article)} type="submit">
                     <i className="fa fa-bookmark" aria-hidden="true" />
                     Remove Bookmark
                   </button>
                 ) : (
-                  <button onClick={() => bookmarkItem(article)} type="submit">
+                  <button className="button" onClick={() => bookmarkItem(article)} type="submit">
                     <i className="fa fa-bookmark-o" aria-hidden="true" />
                     Add Bookmark
                   </button>

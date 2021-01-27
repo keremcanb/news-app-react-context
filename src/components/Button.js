@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({ text }) => (
-  <button type="submit">
+  <button className="button" type="submit">
     <i className="fa fa-bookmark" aria-hidden="true" />
     {text}
   </button>

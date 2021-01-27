@@ -55,6 +55,7 @@ const Wrapper = styled.section`
     padding: 0.5rem;
     outline: 0;
     cursor: pointer;
+    margin-top: 1rem;
   }
   @media screen and (min-width: 700px) {
     flex-direction: row;
@@ -65,6 +66,7 @@ const Wrapper = styled.section`
     }
     select {
       margin-left: 2rem;
+      margin-top: 0;
     }
     flex-direction: row;
   }

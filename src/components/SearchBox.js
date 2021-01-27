@@ -23,35 +23,33 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="App">
-      <Form
-        onSubmit={(e) => onSubmitHandler(e, input)}
-        ref={formRef}
+    <Form
+      onSubmit={(e) => onSubmitHandler(e, input)}
+      ref={formRef}
+      barOpened={barOpened}
+      onClick={() => {
+        setBarOpened(true);
+        inputFocus.current.focus();
+      }}
+      onFocus={() => {
+        setBarOpened(true);
+        inputFocus.current.focus();
+      }}
+      onBlur={() => {
+        setBarOpened(false);
+      }}
+    >
+      <Button type="submit">
+        <FaSearch />
+      </Button>
+      <Input
+        onChange={(e) => setInput(e.target.value)}
+        value={input}
+        ref={inputFocus}
         barOpened={barOpened}
-        onClick={() => {
-          setBarOpened(true);
-          inputFocus.current.focus();
-        }}
-        onFocus={() => {
-          setBarOpened(true);
-          inputFocus.current.focus();
-        }}
-        onBlur={() => {
-          setBarOpened(false);
-        }}
-      >
-        <Button type="submit">
-          <FaSearch />
-        </Button>
-        <Input
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-          ref={inputFocus}
-          barOpened={barOpened}
-          placeholder="Search all news"
-        />
-      </Form>
-    </div>
+        placeholder="Search all news"
+      />
+    </Form>
   );
 };
 
@@ -60,7 +58,7 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${(props) => (props.barOpened ? '15rem' : '2rem')};
+  width: ${(props) => (props.barOpened ? '18rem' : '2rem')};
   cursor: pointer;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
