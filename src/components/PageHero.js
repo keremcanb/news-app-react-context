@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useUtilsContext } from '../context/actions/utils';
 import Button from './Button';
 
-const PageHero = ({ title, isBookmark, isSort }) => {
+const PageHero = ({ title, isBookmark, isSort, isLink }) => {
   const { sort, updateSort } = useUtilsContext();
 
   return (
@@ -23,6 +23,13 @@ const PageHero = ({ title, isBookmark, isSort }) => {
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
+        )}
+        {isLink && (
+          <ul>
+            <Link to="/category/sport">
+              <li>See all</li>
+            </Link>
+          </ul>
         )}
       </div>
     </Wrapper>
@@ -55,6 +62,12 @@ const Wrapper = styled.section`
     padding: 0.5rem;
     outline: 0;
     cursor: pointer;
+  }
+  li {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: #2a9af3;
+    font-weight: bold;
   }
   @media screen and (min-width: 700px) {
     flex-direction: row;

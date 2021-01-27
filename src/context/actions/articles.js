@@ -65,7 +65,7 @@ export const ArticlesProvider = ({ children }) => {
   const searchArticles = async (keyword) => {
     try {
       setLoading();
-      const { data } = await axios.get(`search?q=${keyword}${apiKey}`);
+      const { data } = await axios.get(`search?q=${keyword}&page-size=12${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
         payload: data.response.results
