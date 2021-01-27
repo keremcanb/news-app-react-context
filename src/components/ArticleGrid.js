@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ArticleCard from './ArticleCard';
 
 const ArticleGrid = ({ articles }) => (
-  <Wrapper>
+  <Wrapper className="section-center">
     {articles.map((article) => (
       <ArticleCard key={article.id} article={article} />
     ))}
@@ -11,9 +11,6 @@ const ArticleGrid = ({ articles }) => (
 );
 
 const Wrapper = styled.section`
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
   display: grid;
   justify-items: center;
   @media screen and (min-width: 576px) {

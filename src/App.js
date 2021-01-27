@@ -12,7 +12,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <Router forceRefresh>
       <Header />
       <Sidebar />
       <Routes />

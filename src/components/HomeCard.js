@@ -27,7 +27,7 @@ const HomeCard = ({
       <div className="card-heading">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>
-          <h3>{trailText}</h3>
+          <h3 dangerouslySetInnerHTML={{ __html: trailText }} />
         </Link>
         <div className="card-icon">
           {isBookmark(article) ? (
@@ -102,14 +102,9 @@ const Wrapper = styled.article`
       width: 100%;
       height: 100%;
     }
-    h1 {
-      font-size: 5rem;
-    }
     h3 {
       font-family: 'Open Sans', sans-serif;
       font-weight: normal;
-      margin-top: 0.2rem;
-      font-size: 0.9rem;
     }
     &:first-child {
       grid-column: 1 / 7;
@@ -153,7 +148,7 @@ const Wrapper = styled.article`
     &:nth-child(7),
     &:nth-child(8) {
       width: 370px;
-      height: 370px;
+      height: 380px;
       .card-heading {
         top: 15rem;
         height: 145px;

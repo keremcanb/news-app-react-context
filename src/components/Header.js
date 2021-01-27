@@ -12,7 +12,7 @@ const Header = ({ handleSubmit }) => {
 
   return (
     <Wrapper>
-      <nav className="nav-container">
+      <nav className="section-center">
         <div className="nav-top">
           <Link to="/">
             <img src={logo} alt="logo" />
@@ -33,11 +33,6 @@ const Header = ({ handleSubmit }) => {
 const Wrapper = styled.header`
   height: 100px;
   background: #09357b;
-  .nav-container {
-    width: 90vw;
-    margin: 0 auto;
-    max-width: 1170px;
-  }
   .nav-top {
     display: flex;
     align-items: center;
@@ -69,7 +64,7 @@ const Wrapper = styled.header`
     }
   }
   @media screen and (min-width: 1200px) {
-    height: 140px;
+    height: 143px;
     .nav-container {
       display: flex;
       flex-direction: column;

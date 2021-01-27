@@ -26,7 +26,7 @@ const ArticlePage = () => {
   return (
     <>
       {!loading ? (
-        <Wrapper>
+        <Wrapper className="section-center">
           <div className="article-hero">
             <div className="hero-left">
               <div>
@@ -44,7 +44,7 @@ const ArticlePage = () => {
               </div>
               <Moment format="Do MMMM YYYY, h:mm:ss a">{webPublicationDate}</Moment>
               <h1>{webTitle}</h1>
-              {fields && <div dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+              {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
             </div>
             <div className="hero-right" />
           </div>
@@ -62,11 +62,14 @@ const ArticlePage = () => {
 };
 
 const Wrapper = styled.section`
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
   display: flex;
   flex-direction: column;
+  figure {
+    img {
+      width: 100%;
+      height: 70%;
+    }
+  }
   .article-hero {
     margin-top: 5rem;
   }
@@ -85,11 +88,6 @@ const Wrapper = styled.section`
       line-height: 2rem;
     }
   }
-  h1 {
-    margin: 1rem 0;
-    line-height: 3rem;
-    font-size: 3rem;
-  }
   hr {
     margin: 1rem 0;
   }
@@ -100,23 +98,6 @@ const Wrapper = styled.section`
     margin-right: auto;
     width: 30rem;
     height: 20rem;
-  }
-  button {
-    background-color: #09357b;
-    color: white;
-    font-size: 0.8rem;
-    padding: 0.1rem;
-    border-radius: 0.2rem;
-    text-transform: uppercase;
-    width: 10rem;
-    height: 2rem;
-    cursor: pointer;
-    border: none;
-    margin-bottom: 1rem;
-    outline: 0;
-    i {
-      margin-right: 0.5rem;
-    }
   }
   @media (min-width: 1200px) {
     .article-hero {
@@ -130,8 +111,12 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
+    h1 {
+      margin-top: 1rem;
+    }
     img {
       justify-self: end;
+      padding: 0 1rem;
       margin-top: 0;
     }
     figcaption {

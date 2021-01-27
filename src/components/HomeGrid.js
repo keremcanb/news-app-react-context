@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HomeCard from './HomeCard';
 
 const HomeGrid = ({ articles }) => (
-  <Wrapper>
+  <Wrapper className="section-center">
     {articles.map((article) => (
       <HomeCard key={article.id} article={article} />
     ))}
@@ -11,9 +11,6 @@ const HomeGrid = ({ articles }) => (
 );
 
 const Wrapper = styled.section`
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
   display: grid;
   justify-items: center;
   column-gap: 2rem;
