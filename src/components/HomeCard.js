@@ -23,7 +23,7 @@ const HomeCard = ({
 
   return (
     <Wrapper>
-      {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="temp" />}
+      {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="placeholder" />}
       <div className="card-heading">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>

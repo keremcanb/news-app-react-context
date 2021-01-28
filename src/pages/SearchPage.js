@@ -12,7 +12,7 @@ const SearchPage = ({ keyword }) => {
   if (loading) {
     return <Loader />;
   }
-  if (!searchResults.length > 0) {
+  if (searchResults.length < 0) {
     return <Error text="No Results Found" />;
   }
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Button = ({ text, onClick }) => (
+const Button = ({ text, icon, onClick }) => (
   <button className="button" type="submit" onClick={onClick}>
-    <i className="fa fa-bookmark" aria-hidden="true" />
+    <i className={icon} aria-hidden="true" />
     {text}
   </button>
 );
