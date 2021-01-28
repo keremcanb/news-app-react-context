@@ -31,15 +31,9 @@ const ArticlePage = () => {
             <div className="hero-left">
               <div>
                 {isBookmark(article) ? (
-                  <button className="button" onClick={() => unBookmarkItem(article)} type="submit">
-                    <i className="fa fa-bookmark" aria-hidden="true" />
-                    Remove Bookmark
-                  </button>
+                  <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
                 ) : (
-                  <button className="button" onClick={() => bookmarkItem(article)} type="submit">
-                    <i className="fa fa-bookmark-o" aria-hidden="true" />
-                    Add Bookmark
-                  </button>
+                  <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
                 )}
               </div>
               <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
