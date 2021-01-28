@@ -9,19 +9,17 @@ const SearchPage = ({ keyword }) => {
     searchArticles(keyword);
   }, [keyword]);
 
-  return !loading ? (
+  if (loading) {
+    return <Loader />;
+  }
+  if (!searchResults.length > 0) {
+    return <Error text="No Results Found" />;
+  }
+  return (
     <>
-      {searchResults.length > 0 ? (
-        <>
-          <PageHero title="Search results" isBookmark />
-          <ArticleGrid articles={searchResults} />
-        </>
-      ) : (
-        <Error text="No Results Found" />
-      )}
+      <PageHero title="Search results" isBookmark />
+      <ArticleGrid articles={searchResults} />
     </>
-  ) : (
-    <Loader />
   );
 };
 

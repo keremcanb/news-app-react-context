@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Moment from 'react-moment';
 import { useArticlesContext } from '../context/actions/articles';
 import { useBookmarksContext } from '../context/actions/bookmarks';
-import { Loader } from '../components';
+import { Loader, Button } from '../components';
 
 const ArticlePage = () => {
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
