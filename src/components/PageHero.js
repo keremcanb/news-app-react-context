@@ -15,7 +15,7 @@ const PageHero = ({ title, isBookmark, isSort, isLink }) => {
       <div className="input-group">
         {isBookmark && (
           <Link to="/bookmarks">
-            <Button text="View Bookmarks" />
+            <Button text="View Bookmarks" icon="fa fa-bookmark" />
           </Link>
         )}
         {isSort && (
