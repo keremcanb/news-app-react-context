@@ -14,9 +14,7 @@ const SearchBox = () => {
 
   const onSubmitHandler = (e, keyword) => {
     e.preventDefault();
-    e.currentTarget.reset();
-    const url = `/search/${keyword}`;
-    history.push(url);
+    history.push(`/search/${keyword}`);
     setInput('');
     setBarOpened(false);
     closeSidebar();
