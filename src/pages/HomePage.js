@@ -8,7 +8,7 @@ const HomePage = () => {
   const { filtered } = useUtilsContext();
 
   useEffect(() => {
-    getArticles('world', '8');
+    getArticles('world', 8);
     getArticlesSports();
   }, []);
 
