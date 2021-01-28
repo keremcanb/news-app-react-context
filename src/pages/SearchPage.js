@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useArticlesContext } from '../context/actions/articles';
-import { PageHero, ArticleGrid, Loader } from '../components';
+import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
 const SearchPage = ({ keyword }) => {
   const { loading, searchResults, searchArticles } = useArticlesContext();
@@ -17,9 +17,7 @@ const SearchPage = ({ keyword }) => {
           <ArticleGrid articles={searchResults} />
         </>
       ) : (
-        <div className="section section-center text-center">
-          <h1>No Results Found</h1>
-        </div>
+        <Error text="No Results Found" />
       )}
     </>
   ) : (

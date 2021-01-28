@@ -107,8 +107,6 @@ const Wrapper = styled.section`
     width: 30rem;
     height: 20rem;
   }
-  @media (min-width: 740px) {
-  }
   @media (min-width: 1200px) {
     .article-hero {
       display: grid;

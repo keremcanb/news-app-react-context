@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBookmarksContext } from '../context/actions/bookmarks';
-import { PageHero, ArticleGrid, Loader } from '../components';
+import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
 const BookmarksPage = () => {
   const { loading, bookmarkItems } = useBookmarksContext();
@@ -13,9 +13,7 @@ const BookmarksPage = () => {
           <ArticleGrid articles={bookmarkItems} />
         </>
       ) : (
-        <div className="section section-center text-center">
-          <h1>No Bookmarks Found</h1>
-        </div>
+        <Error text="No Bookmarks Found" />
       )}
     </>
   ) : (
