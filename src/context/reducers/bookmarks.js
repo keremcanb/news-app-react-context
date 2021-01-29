@@ -2,22 +2,23 @@ import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from 
 
 const bookmarks_reducer = (state, action) => {
   const { type, payload } = action;
+  const { bookmarkItems } = state;
 
   switch (type) {
     case SET_LOADING:
       return { ...state, loading: true };
     case BOOKMARK_ITEM:
-      localStorage.setItem('bookmarks', JSON.stringify([payload, ...state.bookmarkItems]));
+      localStorage.setItem('bookmarks', JSON.stringify([payload, ...bookmarkItems]));
       return {
         ...state,
-        bookmarkItems: [payload, ...state.bookmarkItems]
+        bookmarkItems: [payload, ...bookmarkItems]
       };
     case UNBOOKMARK_ITEM: {
-      const unbookmarkItems = state.bookmarkItems.filter((item) => item !== payload);
+      const unbookmarkItems = bookmarkItems.filter((item) => item !== payload);
       localStorage.setItem('bookmarks', JSON.stringify(unbookmarkItems));
       return {
         ...state,
-        bookmarkItems: state.bookmarkItems.filter((item) => item.id !== payload.id)
+        bookmarkItems: bookmarkItems.filter((item) => item.id !== payload.id)
       };
     }
     case GET_BOOKMARK_ITEMS:

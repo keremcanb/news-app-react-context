@@ -5,14 +5,8 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import { useBookmarksContext } from '../context/actions/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
-const HomeCard = ({
-  article,
-  article: {
-    id,
-    webTitle,
-    fields: { thumbnail, trailText }
-  }
-}) => {
+const HomeCard = ({ article }) => {
+  const { id, webTitle, fields } = article;
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
 
   const isBookmark = (item) => {
@@ -23,11 +17,11 @@ const HomeCard = ({
 
   return (
     <Wrapper>
-      {thumbnail ? <img src={thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="placeholder" />}
+      {fields ? <img src={fields.thumbnail} alt="thumbnail" /> : <img src={placeholder} alt="placeholder" />}
       <div className="card-heading">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>
-          <h3 dangerouslySetInnerHTML={{ __html: trailText }} />
+          {fields && <h3 dangerouslySetInnerHTML={{ __html: fields.trailText }} />}
         </Link>
         <div className="card-icon">
           {isBookmark(article) ? (
