@@ -118,7 +118,6 @@ const Wrapper = styled.section`
       padding: 0 1rem;
       margin-top: 0;
     }
-
     figcaption {
       padding: 0.5rem 1.5rem;
     }

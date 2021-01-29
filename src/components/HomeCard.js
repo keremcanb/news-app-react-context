@@ -168,6 +168,7 @@ const Wrapper = styled.article`
       h3 {
         font-size: 0.9rem;
       }
+      border-bottom: 3px solid #f50057;
     }
     &:nth-child(2) {
       border-bottom: 3px solid #f50057;
@@ -180,11 +181,6 @@ const Wrapper = styled.article`
     }
     &:nth-child(5) {
       border-bottom: 3px solid #388e3c;
-    }
-    &:nth-child(6),
-    &:nth-child(7),
-    &:nth-child(8) {
-      border-bottom: 3px solid #f50057;
     }
     &:nth-child(9) {
       display: none;

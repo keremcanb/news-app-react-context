@@ -18,7 +18,6 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
   }
   @media screen and (min-width: 1200px) {
-    width: 95vw;
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 `;
