@@ -13,9 +13,9 @@ const ArticleGrid = ({ articles }) => (
 const Wrapper = styled.section`
   display: grid;
   justify-items: center;
+  column-gap: 2rem;
   @media screen and (min-width: 576px) {
     grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
-    column-gap: 2rem;
   }
 `;
 

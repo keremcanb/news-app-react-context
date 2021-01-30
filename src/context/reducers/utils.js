@@ -1,6 +1,6 @@
 import { LOAD_ARTICLES, UPDATE_SORT, SORT_ARTICLES, OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../types';
 
-const sort_reducer = (state, action) => {
+const utils_reducer = (state, action) => {
   const { type, payload } = action;
   const { sort, filtered } = state;
 
@@ -28,4 +28,4 @@ const sort_reducer = (state, action) => {
   }
 };
 
-export default sort_reducer;
+export default utils_reducer;

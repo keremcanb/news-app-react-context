@@ -49,7 +49,6 @@ const Wrapper = styled.section`
   .input-group {
     margin: 2rem 0 1.5rem 0;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     align-content: center;
     flex-direction: column;
@@ -62,6 +61,7 @@ const Wrapper = styled.section`
     padding: 0.5rem;
     outline: 0;
     cursor: pointer;
+    margin-top: 1rem;
   }
   li {
     text-decoration: underline;
