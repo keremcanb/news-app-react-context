@@ -136,6 +136,7 @@ const Wrapper = styled.article`
       .card-heading {
         top: 10.5rem;
         height: 115px;
+        width: 100%;
       }
     }
     &:nth-child(4),

@@ -111,7 +111,7 @@ const Wrapper = styled.section`
     }
     .article-body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
     img {
       justify-self: end;
