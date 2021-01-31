@@ -149,6 +149,7 @@ const Wrapper = styled.article`
       .card-heading {
         top: 0;
         height: 150px;
+        width: 100%;
       }
     }
     &:nth-child(6),
