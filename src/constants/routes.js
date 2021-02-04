@@ -14,7 +14,7 @@ const Routes = () => (
       <Route path="/category/:section">
         <Category />
       </Route>
-      <Route path="/article/:section/:year/:month/:day/:id">
+      <Route path="/article/:section/:year/:month/:day/:title">
         <Article />
       </Route>
       <Route path="/search/:keyword" render={({ match }) => <SearchResults keyword={match.params.keyword} />} />

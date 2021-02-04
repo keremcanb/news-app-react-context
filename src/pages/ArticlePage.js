@@ -10,11 +10,11 @@ const ArticlePage = () => {
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
   const { loading, article, getArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
-  const { section, year, month, day, id } = useParams();
-  const selectedArticle = `${section}/${year}/${month}/${day}/${id}`;
+  const { section, year, month, day, title } = useParams();
+  const id = `${section}/${year}/${month}/${day}/${title}`;
 
   useEffect(() => {
-    getArticle(selectedArticle);
+    getArticle(id);
   }, []);
 
   const isBookmark = (item) => {
