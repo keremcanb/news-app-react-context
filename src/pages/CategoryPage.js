@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticlesContext } from '../context/actions/articles';
@@ -7,29 +8,29 @@ import { PageHero, Loader, ArticleGrid } from '../components';
 const CategoryPage = () => {
   const { articles, loading, getArticles } = useArticlesContext();
   const { filtered } = useUtilsContext();
-  const { id } = useParams();
+  const { section } = useParams();
 
   useEffect(() => {
-    if (id === 'sport') {
-      getArticles('sport', 12);
+    switch (section) {
+      case 'sport':
+        getArticles('sport', 12);
+        break;
+      case 'culture':
+        getArticles('culture', 12);
+        break;
+      case 'lifeandstyle':
+        getArticles('lifeandstyle', 12);
     }
-    if (id === 'culture') {
-      getArticles('culture', 12);
-    }
-    if (id === 'lifeandstyle') {
-      getArticles('lifeandstyle', 12);
-    }
-  }, [id]);
+  }, [section]);
 
   const titleHandler = () => {
-    if (id === 'sport') {
-      return 'Sports';
-    }
-    if (id === 'culture') {
-      return 'Culture';
-    }
-    if (id === 'lifeandstyle') {
-      return 'Lifestyle';
+    switch (section) {
+      case 'sport':
+        return 'Sports';
+      case 'culture':
+        return 'Culture';
+      case 'lifeandstyle':
+        return 'Lifestyle';
     }
   };
 
