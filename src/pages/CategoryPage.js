@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticlesContext } from '../context/actions/articles';
 import { useUtilsContext } from '../context/actions/utils';
-import { PageHero, Loader, ArticleGrid, Buttons } from '../components';
+import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
   const { page, articles, loading, getArticles } = useArticlesContext();
@@ -39,7 +39,7 @@ const CategoryPage = () => {
       {articles && !loading ? (
         <>
           <PageHero title={titleHandler()} isSort />
-          <Buttons />
+          <Pagination />
           <ArticleGrid articles={filtered} />
         </>
       ) : (

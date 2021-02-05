@@ -5,7 +5,7 @@ import {
   GET_ARTICLES_SPORTS,
   GET_ARTICLE,
   SEARCH_ARTICLES,
-  HANDLE_PAGE,
+  HANDLE_PAGINATION,
   HANDLE_SEARCH
 } from '../types';
 import reducer from '../reducers/articles';
@@ -13,7 +13,7 @@ import axios from '../../constants/axios';
 
 // const apiKey = process.env.REACT_APP_API_KEY;
 const apiKey =
-  '&show-fields=all&show-elements=all&type=article&page-size=12&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
+  '&show-fields=all&show-elements=all&type=article&page-size=3&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
 
 const ArticlesContext = createContext();
 
@@ -87,13 +87,13 @@ export const ArticlesProvider = ({ children }) => {
     dispatch({ type: HANDLE_SEARCH, payload: query });
   };
 
-  const handlePage = (value) => {
-    dispatch({ type: HANDLE_PAGE, payload: value });
+  const paginationHandler = (value) => {
+    dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
   return (
     <ArticlesContext.Provider
-      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports, handleSearch, handlePage }}
+      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports, handleSearch, paginationHandler }}
     >
       {children}
     </ArticlesContext.Provider>

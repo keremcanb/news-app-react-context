@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { useUtilsContext } from '../context/actions/utils';
-import { useArticlesContext } from '../context/actions/articles';
+// import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = () => {
   // const { query, handleSearch } = useArticlesContext();

@@ -2,18 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 
-const Buttons = () => {
-  const { loading, page, pages, handlePage } = useArticlesContext();
+const Pagination = () => {
+  const { loading, page, pages, paginationHandler } = useArticlesContext();
 
   return (
     <Wrapper>
-      <button disabled={loading} onClick={() => handlePage('dec')} type="submit">
+      <button disabled={loading} onClick={() => paginationHandler('dec')} type="submit">
         prev
       </button>
       <p>
-        {page} of {pages}
+        Page {page} of {pages}
       </p>
-      <button disabled={loading} onClick={() => handlePage('inc')} type="submit">
+      <button disabled={loading} onClick={() => paginationHandler('inc')} type="submit">
         next
       </button>
     </Wrapper>
@@ -50,4 +50,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Buttons;
+export default Pagination;
