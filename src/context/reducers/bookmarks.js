@@ -28,7 +28,7 @@ const bookmarks_reducer = (state, action) => {
         loading: false
       };
     default:
-      return state;
+      throw new Error(`no mathching "${type}" action type`);
   }
 };
 

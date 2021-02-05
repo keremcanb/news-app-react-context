@@ -24,7 +24,7 @@ const utils_reducer = (state, action) => {
     case CLOSE_SIDEBAR:
       return { ...state, sidebar: false };
     default:
-      return state;
+      throw new Error(`no mathching "${type}" action type`);
   }
 };
 

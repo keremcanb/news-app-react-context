@@ -3,25 +3,25 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticlesContext } from '../context/actions/articles';
 import { useUtilsContext } from '../context/actions/utils';
-import { PageHero, Loader, ArticleGrid } from '../components';
+import { PageHero, Loader, ArticleGrid, Buttons } from '../components';
 
 const CategoryPage = () => {
-  const { articles, loading, getArticles } = useArticlesContext();
+  const { page, articles, loading, getArticles } = useArticlesContext();
   const { filtered } = useUtilsContext();
   const { section } = useParams();
 
   useEffect(() => {
     switch (section) {
       case 'sport':
-        getArticles('sport', 12);
+        getArticles('sport', page);
         break;
       case 'culture':
-        getArticles('culture', 12);
+        getArticles('culture', page);
         break;
       case 'lifeandstyle':
-        getArticles('lifeandstyle', 12);
+        getArticles('lifeandstyle', page);
     }
-  }, [section]);
+  }, [section, page]);
 
   const titleHandler = () => {
     switch (section) {
@@ -39,6 +39,7 @@ const CategoryPage = () => {
       {articles && !loading ? (
         <>
           <PageHero title={titleHandler()} isSort />
+          <Buttons />
           <ArticleGrid articles={filtered} />
         </>
       ) : (

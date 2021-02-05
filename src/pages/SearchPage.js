@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
-const SearchPage = ({ keyword }) => {
+const SearchPage = ({ query }) => {
   const { loading, searchResults, searchArticles } = useArticlesContext();
 
   useEffect(() => {
-    searchArticles(keyword);
-  }, [keyword]);
+    searchArticles(query);
+  }, [query]);
 
   if (loading) {
     return <Loader />;

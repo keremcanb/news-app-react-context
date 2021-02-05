@@ -12,12 +12,8 @@ const initialState = {
 export const BookmarksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setLoading = () => ({
-    type: SET_LOADING
-  });
-
   const getBookmarkItems = () => {
-    setLoading();
+    dispatch({ type: SET_LOADING });
     let bookmarkItems = localStorage.getItem('bookmarks');
     bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
     dispatch({
@@ -41,7 +37,7 @@ export const BookmarksProvider = ({ children }) => {
   };
 
   return (
-    <BookmarksContext.Provider value={{ ...state, setLoading, bookmarkItem, unBookmarkItem, getBookmarkItems }}>
+    <BookmarksContext.Provider value={{ ...state, bookmarkItem, unBookmarkItem, getBookmarkItems }}>
       {children}
     </BookmarksContext.Provider>
   );

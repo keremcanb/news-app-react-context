@@ -8,6 +8,7 @@ import HomeGrid from './HomeGrid';
 import HomeCard from './HomeCard';
 import Loader from './Loader';
 import Button from './Button';
+import Buttons from './Buttons';
 import SearchBox from './SearchBox';
 import Error from './Error';
 
@@ -20,6 +21,7 @@ export {
   ArticleCard,
   Loader,
   Button,
+  Buttons,
   HomeGrid,
   HomeCard,
   SearchBox,
