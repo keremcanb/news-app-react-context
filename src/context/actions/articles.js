@@ -19,13 +19,9 @@ const initialState = {
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setLoading = () => ({
-    type: SET_LOADING
-  });
-
   const getArticles = async (section, size) => {
+    dispatch({ type: SET_LOADING });
     try {
-      setLoading();
       const { data } = await axios.get(`${section}?page-size=${size}${apiKey}`);
       dispatch({
         type: GET_ARTICLES,
@@ -37,8 +33,8 @@ export const ArticlesProvider = ({ children }) => {
   };
 
   const getArticlesSports = async () => {
+    dispatch({ type: SET_LOADING });
     try {
-      setLoading();
       const { data } = await axios.get(`sport?page-size=3${apiKey}`);
       dispatch({
         type: GET_ARTICLES_SPORTS,
@@ -50,8 +46,8 @@ export const ArticlesProvider = ({ children }) => {
   };
 
   const getArticle = async (id) => {
+    dispatch({ type: SET_LOADING });
     try {
-      setLoading();
       const { data } = await axios.get(`${id}?type=article${apiKey}`);
       dispatch({
         type: GET_ARTICLE,
@@ -63,8 +59,8 @@ export const ArticlesProvider = ({ children }) => {
   };
 
   const searchArticles = async (keyword) => {
+    dispatch({ type: SET_LOADING });
     try {
-      setLoading();
       const { data } = await axios.get(`search?q=${keyword}&page-size=12${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
