@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Home, Category, Article, Bookmarks, SearchResults } from '../pages';
+import { Home, Category, Article, Bookmarks, Search } from '../pages';
 
 const Routes = () => (
   <main>
@@ -17,7 +17,7 @@ const Routes = () => (
       <Route path="/article/:section/:year/:month/:day/:title">
         <Article />
       </Route>
-      <Route path="/search/:query" render={({ match }) => <SearchResults query={match.params.query} />} />
+      <Route path="/search/:query" render={({ match }) => <Search query={match.params.query} />} />
     </Switch>
   </main>
 );

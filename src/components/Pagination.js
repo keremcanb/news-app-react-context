@@ -6,24 +6,21 @@ const Pagination = () => {
   const { loading, page, pages, paginationHandler } = useArticlesContext();
 
   return (
-    <Wrapper>
+    <Wrapper className="section-center">
       <button disabled={loading} onClick={() => paginationHandler('dec')} type="submit">
-        prev
+        Prev
       </button>
       <p>
         Page {page} of {pages}
       </p>
       <button disabled={loading} onClick={() => paginationHandler('inc')} type="submit">
-        next
+        Next
       </button>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 90vw;
-  max-width: 1170px;
-  margin: 0 auto;
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
