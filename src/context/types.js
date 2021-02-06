@@ -4,6 +4,7 @@ export const LOAD_ARTICLES = 'LOAD_ARTICLES';
 export const UPDATE_SORT = 'UPDATE_SORT';
 export const SORT_ARTICLES = 'SORT_ARTICLES';
 export const HANDLE_PAGINATION = 'HANDLE_PAGINATION';
+export const HANDLE_SEARCH = 'HANDLE_SEARCH';
 
 export const OPEN_SIDEBAR = 'OPEN_SIDEBAR';
 export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';

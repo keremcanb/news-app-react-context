@@ -11,13 +11,15 @@ const Routes = () => (
       <Route path="/bookmarks">
         <Bookmarks />
       </Route>
+      <Route path="/search">
+        <Search />
+      </Route>
       <Route path="/category/:section">
         <Category />
       </Route>
       <Route path="/article/:section/:year/:month/:day/:title">
         <Article />
       </Route>
-      <Route path="/search/:query" render={({ match }) => <Search query={match.params.query} />} />
     </Switch>
   </main>
 );

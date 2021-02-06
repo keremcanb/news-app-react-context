@@ -3,24 +3,34 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { useUtilsContext } from '../context/actions/utils';
+import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = () => {
+  const { query, searchHandler } = useArticlesContext();
   const { closeSidebar } = useUtilsContext();
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
   const history = useHistory();
-  const onSubmitHandler = (e, query) => {
+  console.log(query);
+
+  const onChangeHandler = (e) => {
+    searchHandler(e.target.value);
+    history.push(`/search`);
+  };
+
+  const onSubmitHandler = (e) => {
     e.preventDefault();
-    history.push(`/search/${query}`);
+    history.push(`/search`);
     setInput('');
     setBarOpened(false);
     closeSidebar();
   };
+
   return (
     <Form
-      onSubmit={(e) => onSubmitHandler(e, input)}
+      onSubmit={(e) => e.preventDefault()}
       ref={formRef}
       barOpened={barOpened}
       onClick={() => {
@@ -39,8 +49,8 @@ const SearchBox = () => {
         <FaSearch />
       </Button>
       <Input
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
+        onChange={(e) => onChangeHandler(e)}
+        value={query}
         ref={inputFocus}
         barOpened={barOpened}
         placeholder="Search all news"

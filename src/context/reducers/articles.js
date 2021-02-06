@@ -4,7 +4,8 @@ import {
   GET_ARTICLE,
   SEARCH_ARTICLES,
   GET_ARTICLES_SPORTS,
-  HANDLE_PAGINATION
+  HANDLE_PAGINATION,
+  HANDLE_SEARCH
 } from '../types';
 
 const articles_reducer = (state, action) => {
@@ -15,13 +16,15 @@ const articles_reducer = (state, action) => {
     case SET_LOADING:
       return { ...state, loading: true };
     case GET_ARTICLES:
-      return { ...state, articles: payload.articles, loading: false, pages: payload.pages };
+      return { ...state, articles: payload.articles, pages: payload.pages, loading: false };
     case GET_ARTICLES_SPORTS:
       return { ...state, articlesSports: payload, loading: false };
     case GET_ARTICLE:
       return { ...state, article: payload, loading: false };
     case SEARCH_ARTICLES:
-      return { ...state, searchResults: payload, loading: false };
+      return { ...state, searchResults: payload.searchResults, pages: payload.pages, loading: false };
+    case HANDLE_SEARCH:
+      return { ...state, query: action.payload, page: 1 };
     case HANDLE_PAGINATION:
       if (payload === 'inc') {
         let nextPage = page + 1;

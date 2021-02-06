@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useArticlesContext } from '../context/actions/articles';
-import { PageHero, ArticleGrid, Loader, Error } from '../components';
+import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
-const SearchPage = ({ query }) => {
-  const { loading, searchResults, searchArticles } = useArticlesContext();
-
-  useEffect(() => {
-    searchArticles(query);
-  }, [query]);
+const SearchPage = () => {
+  const { loading, searchResults } = useArticlesContext();
+  console.log(searchResults);
 
   if (loading) {
     return <Loader />;
@@ -18,6 +15,7 @@ const SearchPage = ({ query }) => {
   return (
     <>
       <PageHero title="Search results" isBookmark />
+      <Pagination />
       <ArticleGrid articles={searchResults} />
     </>
   );
