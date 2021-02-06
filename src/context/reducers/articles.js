@@ -4,8 +4,7 @@ import {
   GET_ARTICLE,
   SEARCH_ARTICLES,
   GET_ARTICLES_SPORTS,
-  HANDLE_PAGINATION,
-  HANDLE_SEARCH
+  HANDLE_PAGINATION
 } from '../types';
 
 const articles_reducer = (state, action) => {
@@ -23,8 +22,6 @@ const articles_reducer = (state, action) => {
       return { ...state, article: payload, loading: false };
     case SEARCH_ARTICLES:
       return { ...state, searchResults: payload, loading: false };
-    case HANDLE_SEARCH:
-      return { ...state, query: payload, page: 0 };
     case HANDLE_PAGINATION:
       if (payload === 'inc') {
         let nextPage = page + 1;

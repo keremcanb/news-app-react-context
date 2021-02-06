@@ -3,17 +3,8 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { useUtilsContext } from '../context/actions/utils';
-// import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = () => {
-  // const { query, handleSearch } = useArticlesContext();
-
-  // return (
-  //   <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-  //     <input type="text" className="form-input" value={query} onChange={(e) => handleSearch(e.target.value)} />
-  //   </form>
-  // );
-
   const { closeSidebar } = useUtilsContext();
   const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
@@ -57,27 +48,6 @@ const SearchBox = () => {
     </Form>
   );
 };
-
-// .search-form {
-//   width: 90vw;
-//   max-width: var(--max-width);
-//   margin: 0 auto;
-//   margin-top: 5rem;
-//   margin-bottom: 3rem;
-// }
-// .form-input {
-//   width: 100%;
-//   border: none;
-//   border-bottom: 3px solid var(--clr-grey-8);
-//   max-width: 600px;
-//   background: transparent;
-//   padding: 1rem;
-//   font-size: 1rem;
-//   color: var(--clr-grey-3);
-//   text-transform: uppercase;
-//   letter-spacing: var(--spacing);
-//   margin-top: 1rem;
-// }
 
 const Form = styled.form`
   position: relative;

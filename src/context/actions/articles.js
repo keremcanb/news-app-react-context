@@ -5,8 +5,7 @@ import {
   GET_ARTICLES_SPORTS,
   GET_ARTICLE,
   SEARCH_ARTICLES,
-  HANDLE_PAGINATION,
-  HANDLE_SEARCH
+  HANDLE_PAGINATION
 } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
@@ -23,7 +22,6 @@ const initialState = {
   article: {},
   searchResults: [],
   articlesSports: [],
-  query: '',
   page: 1,
   pages: 0
 };
@@ -83,17 +81,13 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const handleSearch = (query) => {
-    dispatch({ type: HANDLE_SEARCH, payload: query });
-  };
-
   const paginationHandler = (value) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
   return (
     <ArticlesContext.Provider
-      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports, handleSearch, paginationHandler }}
+      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports, paginationHandler }}
     >
       {children}
     </ArticlesContext.Provider>
