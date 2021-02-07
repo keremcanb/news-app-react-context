@@ -4,11 +4,11 @@ import { useUtilsContext } from '../context/actions/utils';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const { loading, articles, articlesSports, getArticles, getArticlesSports } = useArticlesContext();
+  const { loading, articles, articlesSports, getArticles, getArticlesSports, page } = useArticlesContext();
   const { filtered } = useUtilsContext();
 
   useEffect(() => {
-    getArticles('world', 8);
+    getArticles('world', 8, page);
     getArticlesSports();
   }, []);
 

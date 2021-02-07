@@ -19,9 +19,9 @@ const ArticlesContext = createContext();
 const initialState = {
   loading: true,
   articles: [],
-  article: {},
   searchResults: [],
   articlesSports: [],
+  article: {},
   query: '',
   page: 1,
   pages: 0
@@ -30,10 +30,10 @@ const initialState = {
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getArticles = async (section, page) => {
+  const getArticles = async (section, pageSize, page) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${section}?page=${page}${apiKey}`);
+      const { data } = await axios.get(`${section}?page-size=${pageSize}&page=${page}${apiKey}`);
       dispatch({
         type: GET_ARTICLES,
         payload: { articles: data.response.results, pages: data.response.pages }

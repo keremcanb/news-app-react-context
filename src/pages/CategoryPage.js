@@ -13,13 +13,13 @@ const CategoryPage = () => {
   useEffect(() => {
     switch (section) {
       case 'sport':
-        getArticles('sport', page);
+        getArticles('sport', 12, page);
         break;
       case 'culture':
-        getArticles('culture', page);
+        getArticles('culture', 12, page);
         break;
       case 'lifeandstyle':
-        getArticles('lifeandstyle', page);
+        getArticles('lifeandstyle', 12, page);
     }
   }, [section, page]);
 
