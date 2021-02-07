@@ -20,6 +20,7 @@ const SearchPage = () => {
       <PageHero title="Search results" isBookmark />
       <Pagination />
       <ArticleGrid articles={searchResults} />
+      <Pagination />
     </>
   );
 };
