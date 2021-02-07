@@ -31,8 +31,12 @@ const Header = ({ handleSubmit }) => {
 };
 
 const Wrapper = styled.header`
-  height: 100px;
+  height: 144px;
   background: #09357b;
+  .searchbox {
+    display: flex;
+    justify-content: flex-end;
+  }
   .nav-top {
     display: flex;
     align-items: center;
@@ -42,7 +46,6 @@ const Wrapper = styled.header`
     width: 175px;
   }
   .nav-toggle {
-    margin-top: 1rem;
     background: transparent;
     border: transparent;
     color: #fff;
@@ -58,13 +61,7 @@ const Wrapper = styled.header`
   .nav-links {
     display: none;
   }
-  @media (max-width: 1200px) {
-    .searchbox {
-      display: none;
-    }
-  }
   @media screen and (min-width: 1200px) {
-    height: 144px;
     .nav-container {
       display: flex;
       flex-direction: column;

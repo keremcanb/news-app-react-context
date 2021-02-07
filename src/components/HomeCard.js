@@ -110,6 +110,7 @@ const Wrapper = styled.article`
       .card-heading {
         top: 19.5rem;
         height: 150px;
+        width: 570px;
       }
       h2 {
         font-size: 1.8rem;

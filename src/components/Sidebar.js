@@ -25,9 +25,6 @@ const Sidebar = () => {
               </li>
             ))}
           </ul>
-          <div className="searchbox">
-            <Route render={({ history }) => <SearchBox history={history} onSubmit={closeSidebar} />} />
-          </div>
         </div>
       </aside>
     </SidebarContainer>
@@ -35,10 +32,6 @@ const Sidebar = () => {
 };
 
 const SidebarContainer = styled.aside`
-  .searchbox {
-    display: flex;
-    justify-content: center;
-  }
   .sidebar {
     background: #09357b;
     position: fixed;

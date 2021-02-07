@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, createContext } from 'react';
+import React, { useContext, useReducer, useEffect, createContext } from 'react';
 import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 import reducer from '../reducers/bookmarks';
 
@@ -35,6 +35,10 @@ export const BookmarksProvider = ({ children }) => {
       payload: item
     });
   };
+
+  useEffect(() => {
+    getBookmarkItems();
+  }, []);
 
   return (
     <BookmarksContext.Provider value={{ ...state, bookmarkItem, unBookmarkItem, getBookmarkItems }}>

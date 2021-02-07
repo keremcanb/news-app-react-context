@@ -75,7 +75,7 @@ const Wrapper = styled.section`
   .article-body {
     margin-bottom: 2rem;
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
   }
   .hero-left {
