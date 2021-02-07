@@ -38,7 +38,7 @@ const CategoryPage = () => {
     <>
       {articles && !isLoading ? (
         <>
-          <PageHero title={titleHandler()} isSort />
+          <PageHero title={titleHandler()} isBookmark isSort />
           <Pagination />
           <ArticleGrid articles={filtered} />
           <Pagination />

@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       {articles && !isLoading ? (
         <>
-          <PageHero title="Top stories" isSort isBookmark />
+          <PageHero title="Top stories" isBookmark isSort />
           <HomeGrid articles={filtered} />
           <PageHero title="Sports" isLink />
           <ArticleGrid articles={articlesMinor} />

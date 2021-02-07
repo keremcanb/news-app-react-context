@@ -6,7 +6,11 @@ const SearchPage = () => {
   const { isLoading, searchResults, query, page, searchArticles } = useArticlesContext();
 
   useEffect(() => {
-    searchArticles(query, 6, page);
+    const delayDebounceFn = setTimeout(() => {
+      searchArticles(query, 6, page);
+    }, 1000);
+
+    return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
 
   if (isLoading) {
