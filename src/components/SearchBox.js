@@ -2,12 +2,10 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
-// import { useUtilsContext } from '../context/actions/utils';
 import { useArticlesContext } from '../context/actions/articles';
 
 const SearchBox = () => {
   const { query, searchHandler } = useArticlesContext();
-  // const { closeSidebar } = useUtilsContext();
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
@@ -16,8 +14,6 @@ const SearchBox = () => {
   const onChangeHandler = (e) => {
     searchHandler(e.target.value);
     history.push(`/search`);
-    // setBarOpened(false);
-    // closeSidebar();
   };
 
   return (
