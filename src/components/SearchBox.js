@@ -8,24 +8,16 @@ import { useArticlesContext } from '../context/actions/articles';
 const SearchBox = () => {
   const { query, searchHandler } = useArticlesContext();
   const { closeSidebar } = useUtilsContext();
-  const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
   const formRef = useRef();
   const inputFocus = useRef();
   const history = useHistory();
-  console.log(query);
 
   const onChangeHandler = (e) => {
     searchHandler(e.target.value);
     history.push(`/search`);
-  };
-
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    history.push(`/search`);
-    setInput('');
-    setBarOpened(false);
-    closeSidebar();
+    // setBarOpened(false);
+    // closeSidebar();
   };
 
   return (

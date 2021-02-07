@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect, createContext } from 'react';
+import React, { useContext, useReducer, createContext } from 'react';
 import {
   SET_LOADING,
   GET_ARTICLES,
@@ -12,7 +12,7 @@ import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
 // const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = '&show-fields=all&show-elements=all&type=article&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
+const apiKey = '&show-fields=all&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
 
 const ArticlesContext = createContext();
 
@@ -72,7 +72,7 @@ export const ArticlesProvider = ({ children }) => {
   const searchArticles = async (query, page) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`search?q=${query}?page=${page}${apiKey}`);
+      const { data } = await axios.get(`search?q=${query}&page=${page}${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
         payload: { searchResults: data.response.results, pages: data.response.pages }
@@ -85,10 +85,6 @@ export const ArticlesProvider = ({ children }) => {
   const searchHandler = (query) => {
     dispatch({ type: HANDLE_SEARCH, payload: query });
   };
-
-  useEffect(() => {
-    searchArticles(state.query, state.page);
-  }, [state.query, state.page]);
 
   const paginationHandler = (value) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
