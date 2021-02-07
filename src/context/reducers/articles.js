@@ -29,13 +29,13 @@ const articles_reducer = (state, action) => {
       if (payload === 'inc') {
         let nextPage = page + 1;
         if (nextPage > pages - 1) {
-          nextPage = 0;
+          nextPage = 1;
         }
         return { ...state, page: nextPage };
       }
       if (payload === 'dec') {
         let prevPage = page - 1;
-        if (prevPage < 0) {
+        if (prevPage < 1) {
           prevPage = pages - 1;
         }
         return { ...state, page: prevPage };

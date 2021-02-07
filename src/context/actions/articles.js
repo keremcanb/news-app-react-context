@@ -11,8 +11,8 @@ import {
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
-// const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = '&type=article&show-fields=all&show-elements=all&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
+const apiKey = process.env.REACT_APP_API_KEY;
+const fields = 'type=article&liveBloggingNow=false&show-fields=all&show-elements=all';
 
 const ArticlesContext = createContext();
 
@@ -33,7 +33,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticles = async (section, pageSize, page) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${section}?page-size=${pageSize}&page=${page}${apiKey}`);
+      const { data } = await axios.get(`${section}?page-size=${pageSize}&page=${page}&${fields}&api-key=${apiKey}`);
       dispatch({
         type: GET_ARTICLES,
         payload: { articles: data.response.results, pages: data.response.pages }
@@ -46,7 +46,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticlesMinor = async (section, pageSize) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${section}?page-size=${pageSize}${apiKey}`);
+      const { data } = await axios.get(`${section}?page-size=${pageSize}&${fields}&api-key=${apiKey}`);
       dispatch({
         type: GET_ARTICLES_MINOR,
         payload: data.response.results
@@ -59,7 +59,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticle = async (id) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${id}?${apiKey}`);
+      const { data } = await axios.get(`${id}?${fields}&api-key=${apiKey}`);
       dispatch({
         type: GET_ARTICLE,
         payload: data.response.content
@@ -72,7 +72,7 @@ export const ArticlesProvider = ({ children }) => {
   const searchArticles = async (query, page) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`search?q=${query}&page-size=12&page=${page}${apiKey}`);
+      const { data } = await axios.get(`search?q=${query}&page-size=12&page=${page}&${fields}&api-key=${apiKey}`);
       dispatch({
         type: SEARCH_ARTICLES,
         payload: { searchResults: data.response.results, pages: data.response.pages }
