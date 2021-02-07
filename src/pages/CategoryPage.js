@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticlesContext } from '../context/actions/articles';

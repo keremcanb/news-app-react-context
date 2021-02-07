@@ -8,7 +8,7 @@ import {
   HANDLE_SEARCH
 } from '../types';
 
-const articles_reducer = (state, action) => {
+const ArticlesReducer = (state, action) => {
   const { type, payload } = action;
   const { page, pages } = state;
 
@@ -46,4 +46,4 @@ const articles_reducer = (state, action) => {
   }
 };
 
-export default articles_reducer;
+export default ArticlesReducer;

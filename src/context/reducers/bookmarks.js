@@ -1,6 +1,6 @@
 import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 
-const bookmarks_reducer = (state, action) => {
+const BookmarksReducer = (state, action) => {
   const { type, payload } = action;
   const { bookmarkItems } = state;
 
@@ -32,4 +32,4 @@ const bookmarks_reducer = (state, action) => {
   }
 };
 
-export default bookmarks_reducer;
+export default BookmarksReducer;
