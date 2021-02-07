@@ -6,7 +6,7 @@ const SearchPage = () => {
   const { isLoading, searchResults, query, page, searchArticles } = useArticlesContext();
 
   useEffect(() => {
-    searchArticles(query, page);
+    searchArticles(query, 6, page);
   }, [query, page]);
 
   if (isLoading) {

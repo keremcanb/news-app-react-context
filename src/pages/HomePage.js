@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     getArticles('world', 8, page);
     getArticlesMinor('sport', 3);
-  }, []);
+  }, [page]);
 
   return (
     <>

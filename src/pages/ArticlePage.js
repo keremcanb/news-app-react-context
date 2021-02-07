@@ -15,7 +15,7 @@ const ArticlePage = () => {
 
   useEffect(() => {
     getArticle(id);
-  }, []);
+  }, [id]);
 
   const isBookmark = (item) => {
     if (bookmarkItems !== null) {

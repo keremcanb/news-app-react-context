@@ -69,10 +69,12 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const searchArticles = async (query, page) => {
+  const searchArticles = async (query, pageSize, page) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`search?q=${query}&page-size=12&page=${page}&${fields}&api-key=${apiKey}`);
+      const { data } = await axios.get(
+        `search?q=${query}&page-size=${pageSize}&page=${page}&${fields}&api-key=${apiKey}`
+      );
       dispatch({
         type: SEARCH_ARTICLES,
         payload: { searchResults: data.response.results, pages: data.response.pages }
