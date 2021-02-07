@@ -3,7 +3,7 @@ import {
   GET_ARTICLES,
   GET_ARTICLE,
   SEARCH_ARTICLES,
-  GET_ARTICLES_SPORTS,
+  GET_ARTICLES_MINOR,
   HANDLE_PAGINATION,
   HANDLE_SEARCH
 } from '../types';
@@ -14,15 +14,15 @@ const articles_reducer = (state, action) => {
 
   switch (type) {
     case SET_LOADING:
-      return { ...state, loading: true };
+      return { ...state, isLoading: true };
     case GET_ARTICLES:
-      return { ...state, articles: payload.articles, pages: payload.pages, loading: false };
-    case GET_ARTICLES_SPORTS:
-      return { ...state, articlesSports: payload, loading: false };
+      return { ...state, articles: payload.articles, pages: payload.pages, isLoading: false };
+    case GET_ARTICLES_MINOR:
+      return { ...state, articlesMinor: payload, isLoading: false };
     case GET_ARTICLE:
-      return { ...state, article: payload, loading: false };
+      return { ...state, article: payload, isLoading: false };
     case SEARCH_ARTICLES:
-      return { ...state, searchResults: payload.searchResults, pages: payload.pages, loading: false };
+      return { ...state, searchResults: payload.searchResults, pages: payload.pages, isLoading: false };
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 1 };
     case HANDLE_PAGINATION:

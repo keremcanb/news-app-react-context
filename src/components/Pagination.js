@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 
 const Pagination = () => {
-  const { loading, page, pages, paginationHandler } = useArticlesContext();
+  const { isLoading, page, pages, paginationHandler } = useArticlesContext();
 
   return (
     <Wrapper className="section-center">
-      <button disabled={loading} onClick={() => paginationHandler('dec')} type="submit">
+      <button disabled={isLoading} onClick={() => paginationHandler('dec')} type="submit">
         Prev
       </button>
       <p>
         Page {page} of {pages}
       </p>
-      <button disabled={loading} onClick={() => paginationHandler('inc')} type="submit">
+      <button disabled={isLoading} onClick={() => paginationHandler('inc')} type="submit">
         Next
       </button>
     </Wrapper>

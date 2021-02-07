@@ -4,22 +4,22 @@ import { useUtilsContext } from '../context/actions/utils';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const { loading, articles, articlesSports, getArticles, getArticlesSports, page } = useArticlesContext();
+  const { isLoading, articles, articlesMinor, getArticles, getArticlesMinor, page } = useArticlesContext();
   const { filtered } = useUtilsContext();
 
   useEffect(() => {
     getArticles('world', 8, page);
-    getArticlesSports();
+    getArticlesMinor('sport', 3);
   }, []);
 
   return (
     <>
-      {articles && !loading ? (
+      {articles && !isLoading ? (
         <>
           <PageHero title="Top stories" isSort isBookmark />
           <HomeGrid articles={filtered} />
           <PageHero title="Sports" isLink />
-          <ArticleGrid articles={articlesSports} />
+          <ArticleGrid articles={articlesMinor} />
         </>
       ) : (
         <Loader />

@@ -8,7 +8,7 @@ import { Loader, Button } from '../components';
 
 const ArticlePage = () => {
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
-  const { loading, article, getArticle } = useArticlesContext();
+  const { isLoading, article, getArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
   const { section, year, month, day, title } = useParams();
   const id = `${section}/${year}/${month}/${day}/${title}`;
@@ -25,7 +25,7 @@ const ArticlePage = () => {
 
   return (
     <>
-      {!loading ? (
+      {!isLoading ? (
         <Wrapper className="section-center">
           <div className="article-hero">
             <div className="hero-left">

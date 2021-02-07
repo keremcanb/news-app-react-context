@@ -6,7 +6,7 @@ const bookmarks_reducer = (state, action) => {
 
   switch (type) {
     case SET_LOADING:
-      return { ...state, loading: true };
+      return { ...state, isLoading: true };
     case BOOKMARK_ITEM:
       localStorage.setItem('bookmarks', JSON.stringify([payload, ...bookmarkItems]));
       return {
@@ -25,7 +25,7 @@ const bookmarks_reducer = (state, action) => {
       return {
         ...state,
         bookmarkItems: payload,
-        loading: false
+        isLoading: false
       };
     default:
       throw new Error(`no mathching "${type}" action type`);

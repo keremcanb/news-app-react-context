@@ -2,7 +2,7 @@ import React, { useContext, useReducer, createContext } from 'react';
 import {
   SET_LOADING,
   GET_ARTICLES,
-  GET_ARTICLES_SPORTS,
+  GET_ARTICLES_MINOR,
   GET_ARTICLE,
   SEARCH_ARTICLES,
   HANDLE_PAGINATION,
@@ -12,16 +12,16 @@ import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
 // const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = '&show-fields=all&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
+const apiKey = '&type=article&show-fields=all&show-elements=all&api-key=e85abcee-d943-45e2-815f-c806628ad5d7';
 
 const ArticlesContext = createContext();
 
 const initialState = {
-  loading: true,
   articles: [],
+  articlesMinor: [],
   searchResults: [],
-  articlesSports: [],
   article: {},
+  isLoading: true,
   query: '',
   page: 1,
   pages: 0
@@ -43,12 +43,12 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const getArticlesSports = async () => {
+  const getArticlesMinor = async (section, pageSize) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`sport?page-size=3${apiKey}`);
+      const { data } = await axios.get(`${section}?page-size=${pageSize}${apiKey}`);
       dispatch({
-        type: GET_ARTICLES_SPORTS,
+        type: GET_ARTICLES_MINOR,
         payload: data.response.results
       });
     } catch (err) {
@@ -59,7 +59,7 @@ export const ArticlesProvider = ({ children }) => {
   const getArticle = async (id) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${id}?type=article${apiKey}`);
+      const { data } = await axios.get(`${id}?${apiKey}`);
       dispatch({
         type: GET_ARTICLE,
         payload: data.response.content
@@ -92,7 +92,7 @@ export const ArticlesProvider = ({ children }) => {
 
   return (
     <ArticlesContext.Provider
-      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesSports, paginationHandler, searchHandler }}
+      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesMinor, paginationHandler, searchHandler }}
     >
       {children}
     </ArticlesContext.Provider>

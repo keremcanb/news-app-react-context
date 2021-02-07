@@ -6,7 +6,7 @@ import { useUtilsContext } from '../context/actions/utils';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
-  const { page, articles, loading, getArticles } = useArticlesContext();
+  const { page, articles, isLoading, getArticles } = useArticlesContext();
   const { filtered } = useUtilsContext();
   const { section } = useParams();
 
@@ -36,7 +36,7 @@ const CategoryPage = () => {
 
   return (
     <>
-      {articles && !loading ? (
+      {articles && !isLoading ? (
         <>
           <PageHero title={titleHandler()} isSort />
           <Pagination />

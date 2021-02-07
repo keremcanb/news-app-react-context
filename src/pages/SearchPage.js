@@ -3,13 +3,13 @@ import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
 const SearchPage = () => {
-  const { loading, searchResults, query, page, searchArticles } = useArticlesContext();
+  const { isLoading, searchResults, query, page, searchArticles } = useArticlesContext();
 
   useEffect(() => {
     searchArticles(query, page);
   }, [query, page]);
 
-  if (loading) {
+  if (isLoading) {
     return <Loader />;
   }
   if (searchResults.length < 0) {

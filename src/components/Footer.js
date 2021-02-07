@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 
 const Footer = () => {
-  const { loading } = useArticlesContext();
+  const { isLoading } = useArticlesContext();
 
-  return !loading && <Wrapper />;
+  return !isLoading && <Wrapper />;
 };
 
 const Wrapper = styled.footer`
