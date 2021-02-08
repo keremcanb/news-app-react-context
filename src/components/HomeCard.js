@@ -44,6 +44,7 @@ const Wrapper = styled.article`
   height: 22rem;
   img {
     height: 22rem;
+    width: 100%;
   }
   .card-heading {
     height: 8.7rem;
