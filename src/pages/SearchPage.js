@@ -8,7 +8,7 @@ const SearchPage = () => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       searchArticles(query, 6, page);
-    }, 500);
+    }, 1000);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
 

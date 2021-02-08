@@ -44,7 +44,6 @@ const Wrapper = styled.header`
   }
   img {
     width: 175px;
-    height: 88px;
   }
   .nav-toggle {
     background: transparent;
