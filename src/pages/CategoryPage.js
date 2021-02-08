@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useArticlesContext } from '../context/actions/articles';
+import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {

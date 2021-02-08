@@ -1,11 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import { links } from '../constants/navlinks';
-import { useSidebarContext } from '../context/actions/sidebar';
+import { useSidebarContext } from '../context/providers/sidebar';
 
 const Sidebar = () => {
   const { sidebar, closeSidebar } = useSidebarContext();

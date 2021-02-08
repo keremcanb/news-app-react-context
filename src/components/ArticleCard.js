@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
-import { useBookmarksContext } from '../context/actions/bookmarks';
+import { useBookmarksContext } from '../context/providers/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
 const ArticleCard = ({ article }) => {

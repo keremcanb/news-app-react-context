@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useArticlesContext } from '../context/actions/articles';
+import { useArticlesContext } from '../context/providers/articles';
 import Button from './Button';
 
 const PageHero = ({ title, isBookmark, isSort, isLink }) => {

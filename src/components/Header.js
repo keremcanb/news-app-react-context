@@ -5,7 +5,7 @@ import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
-import { useSidebarContext } from '../context/actions/sidebar';
+import { useSidebarContext } from '../context/providers/sidebar';
 
 const Header = ({ handleSubmit }) => {
   const { openSidebar } = useSidebarContext();

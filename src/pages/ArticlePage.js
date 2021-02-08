@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import { useArticlesContext } from '../context/actions/articles';
-import { useBookmarksContext } from '../context/actions/bookmarks';
+import { useArticlesContext } from '../context/providers/articles';
+import { useBookmarksContext } from '../context/providers/bookmarks';
 import { Loader, Button } from '../components';
 
 const ArticlePage = () => {

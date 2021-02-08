@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useArticlesContext } from '../context/actions/articles';
+import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
 const SearchPage = () => {

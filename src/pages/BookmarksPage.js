@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBookmarksContext } from '../context/actions/bookmarks';
+import { useBookmarksContext } from '../context/providers/bookmarks';
 import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
 const BookmarksPage = () => {

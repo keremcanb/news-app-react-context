@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useArticlesContext } from '../context/actions/articles';
+import { useArticlesContext } from '../context/providers/articles';
 
 const Pagination = () => {
   const { page, pages, loading, paginationHandler } = useArticlesContext();

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useArticlesContext } from '../context/actions/articles';
+import { useArticlesContext } from '../context/providers/articles';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
