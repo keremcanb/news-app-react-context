@@ -8,7 +8,7 @@ import { Loader, Button } from '../components';
 
 const ArticlePage = () => {
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
-  const { article, isLoading, fetchArticle } = useArticlesContext();
+  const { article, loading, fetchArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
   const { section, year, month, day, title } = useParams();
   const id = `${section}/${year}/${month}/${day}/${title}`;
@@ -23,7 +23,7 @@ const ArticlePage = () => {
     }
   };
 
-  if (isLoading) {
+  if (loading) {
     return <Loader />;
   }
   return (

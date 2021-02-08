@@ -24,7 +24,7 @@ const initialState = {
   searchResults: [],
   filtered: [],
   article: {},
-  isLoading: true,
+  loading: true,
   sort: 'newest',
   query: '',
   page: 1,

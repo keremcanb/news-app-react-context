@@ -5,7 +5,7 @@ import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
-  const { filtered, page, isLoading, fetchArticles } = useArticlesContext();
+  const { filtered, page, loading, fetchArticles } = useArticlesContext();
   const { section } = useParams();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const CategoryPage = () => {
     }
   };
 
-  if (isLoading) {
+  if (loading) {
     return <Loader />;
   }
   return (

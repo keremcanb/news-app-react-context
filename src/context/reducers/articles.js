@@ -21,12 +21,12 @@ const ArticlesReducer = (state, action) => {
         articles: payload.articles,
         filtered: payload.articles,
         pages: payload.pages,
-        isLoading: false
+        loading: false
       };
     case GET_ARTICLES_MINOR:
-      return { ...state, articlesMinor: payload, isLoading: false };
+      return { ...state, articlesMinor: payload, loading: false };
     case GET_ARTICLE:
-      return { ...state, article: payload, isLoading: false };
+      return { ...state, article: payload, loading: false };
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 1 };
     case SEARCH_ARTICLES:
@@ -35,7 +35,7 @@ const ArticlesReducer = (state, action) => {
         searchResults: payload.searchResults,
         filtered: payload.searchResults,
         pages: payload.pages,
-        isLoading: false
+        loading: false
       };
     case HANDLE_PAGINATION:
       if (payload === 'inc') {
@@ -65,7 +65,7 @@ const ArticlesReducer = (state, action) => {
       return { ...state, filtered };
     }
     case SET_LOADING:
-      return { ...state, isLoading: true };
+      return { ...state, loading: true };
     default:
       throw new Error(`no mathching "${type}" action type`);
   }

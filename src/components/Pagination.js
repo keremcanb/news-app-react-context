@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 
 const Pagination = () => {
-  const { page, pages, isLoading, paginationHandler } = useArticlesContext();
+  const { page, pages, loading, paginationHandler } = useArticlesContext();
 
   return (
     <Wrapper className="section-center">
-      <button aria-label="Previous Page" disabled={isLoading} onClick={() => paginationHandler('dec')} type="button">
+      <button aria-label="Previous Page" disabled={loading} onClick={() => paginationHandler('dec')} type="button">
         Prev
       </button>
       <p>
         Page {page} of {pages}
       </p>
-      <button aria-label="Next Page" disabled={isLoading} onClick={() => paginationHandler('inc')} type="button">
+      <button aria-label="Next Page" disabled={loading} onClick={() => paginationHandler('inc')} type="button">
         Next
       </button>
     </Wrapper>

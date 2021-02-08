@@ -3,9 +3,9 @@ import { useBookmarksContext } from '../context/actions/bookmarks';
 import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
 const BookmarksPage = () => {
-  const { isLoading, bookmarkItems } = useBookmarksContext();
+  const { loading, bookmarkItems } = useBookmarksContext();
 
-  if (isLoading) {
+  if (loading) {
     return <Loader />;
   }
   if (bookmarkItems.length < 1) {

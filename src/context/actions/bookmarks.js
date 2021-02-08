@@ -6,7 +6,7 @@ const BookmarksContext = createContext();
 
 const initialState = {
   bookmarkItems: [],
-  isLoading: true
+  loading: true
 };
 
 export const BookmarksProvider = ({ children }) => {
