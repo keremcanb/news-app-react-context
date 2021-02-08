@@ -33,7 +33,7 @@ const SearchBox = () => {
         setBarOpened(false);
       }}
     >
-      <Button type="submit">
+      <Button type="submit" aria-label="Search">
         <FaSearch />
       </Button>
       <Input

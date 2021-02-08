@@ -7,13 +7,13 @@ const Pagination = () => {
 
   return (
     <Wrapper className="section-center">
-      <button disabled={isLoading} onClick={() => paginationHandler('dec')} type="button">
+      <button aria-label="Previous Page" disabled={isLoading} onClick={() => paginationHandler('dec')} type="button">
         Prev
       </button>
       <p>
         Page {page} of {pages}
       </p>
-      <button disabled={isLoading} onClick={() => paginationHandler('inc')} type="button">
+      <button aria-label="Next Page" disabled={isLoading} onClick={() => paginationHandler('inc')} type="button">
         Next
       </button>
     </Wrapper>

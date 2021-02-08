@@ -13,7 +13,7 @@ const container = document.getElementById('root');
 
 serviceWorkerRegistration.register();
 
-reportWebVitals(console.log);
+reportWebVitals();
 
 ReactDOM.render(
   <ArticlesProvider>
