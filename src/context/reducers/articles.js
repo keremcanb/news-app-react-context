@@ -24,7 +24,7 @@ const ArticlesReducer = (state, action) => {
         loading: false
       };
     case GET_ARTICLES_MINOR:
-      return { ...state, articlesMinor: payload, loading: false };
+      return { ...state, sports: payload, loading: false };
     case GET_ARTICLE:
       return { ...state, article: payload, loading: false };
     case HANDLE_SEARCH:

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, createContext, useEffect } from 'react';
+import React, { useContext, useReducer, useEffect, createContext } from 'react';
 import {
   SET_LOADING,
   GET_ARTICLES,
@@ -20,7 +20,7 @@ const ArticlesContext = createContext();
 
 const initialState = {
   articles: [],
-  articlesMinor: [],
+  sports: [],
   searchResults: [],
   filtered: [],
   article: {},
@@ -28,7 +28,7 @@ const initialState = {
   sort: 'newest',
   query: '',
   page: 1,
-  pages: 0
+  pages: 1
 };
 
 export const ArticlesProvider = ({ children }) => {
@@ -47,7 +47,7 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const fetchArticlesMinor = async (section, pageSize) => {
+  const fetchSports = async (section, pageSize) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(`${section}?page-size=${pageSize}&${fields}&api-key=${apiKey}`);
@@ -112,7 +112,7 @@ export const ArticlesProvider = ({ children }) => {
         fetchArticles,
         fetchArticle,
         searchArticles,
-        fetchArticlesMinor,
+        fetchSports,
         paginationHandler,
         searchHandler,
         sortHandler
