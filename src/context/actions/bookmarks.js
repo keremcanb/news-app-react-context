@@ -3,7 +3,6 @@ import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from 
 import reducer from '../reducers/bookmarks';
 
 const BookmarksContext = createContext();
-
 const initialState = {
   bookmarkItems: [],
   loading: true

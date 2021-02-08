@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { debugContextDevtool } from 'react-context-devtool';
 import { ArticlesProvider } from './context/actions/articles';
 import { BookmarksProvider } from './context/actions/bookmarks';
-import { UtilsProvider } from './context/actions/sidebar';
+import { SidebarProvider } from './context/actions/sidebar';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
@@ -16,9 +16,9 @@ reportWebVitals();
 ReactDOM.render(
   <ArticlesProvider>
     <BookmarksProvider>
-      <UtilsProvider>
+      <SidebarProvider>
         <App />
-      </UtilsProvider>
+      </SidebarProvider>
     </BookmarksProvider>
   </ArticlesProvider>,
   container

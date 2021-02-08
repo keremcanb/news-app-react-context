@@ -15,9 +15,7 @@ import axios from '../../constants/axios';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const fields = 'type=article&liveBloggingNow=false&show-fields=all&show-elements=all';
-
 const ArticlesContext = createContext();
-
 const initialState = {
   articles: [],
   sports: [],

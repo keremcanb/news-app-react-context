@@ -3,12 +3,11 @@ import { OPEN_SIDEBAR, CLOSE_SIDEBAR } from '../types';
 import reducer from '../reducers/sidebar';
 
 const SidebarContext = createContext();
-
 const initialState = {
   sidebar: false
 };
 
-export const UtilsProvider = ({ children }) => {
+export const SidebarProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const openSidebar = () => {
