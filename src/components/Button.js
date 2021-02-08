@@ -1,8 +1,11 @@
 import React from 'react';
+import { FaBookmark } from 'react-icons/fa';
 
-const Button = ({ text, icon, onClick }) => (
+const Button = ({ text, onClick }) => (
   <button className="button" type="submit" onClick={onClick}>
-    <i className={icon} aria-hidden="true" />
+    <span className="icon">
+      <FaBookmark />
+    </span>
     {text}
   </button>
 );

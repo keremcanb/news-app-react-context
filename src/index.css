@@ -95,6 +95,6 @@ a {
   border: none;
   outline: 0;
 }
-.button > i {
+.button > .icon {
   margin-right: 0.5rem;
 }
