@@ -8,13 +8,13 @@ import { Loader, Button } from '../components';
 
 const ArticlePage = () => {
   const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
-  const { isLoading, article, getArticle } = useArticlesContext();
+  const { article, isLoading, fetchArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
   const { section, year, month, day, title } = useParams();
   const id = `${section}/${year}/${month}/${day}/${title}`;
 
   useEffect(() => {
-    getArticle(id);
+    fetchArticle(id);
   }, [id]);
 
   const isBookmark = (item) => {
@@ -23,37 +23,34 @@ const ArticlePage = () => {
     }
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
-    <>
-      {!isLoading ? (
-        <Wrapper className="section-center">
-          <div className="article-hero">
-            <div className="hero-left">
-              <div>
-                {isBookmark(article) ? (
-                  <Button text="Remove Bookmark" icon="fa fa-bookmark" onClick={() => unBookmarkItem(article)} />
-                ) : (
-                  <Button text="Add Bookmark" icon="fa fa-bookmark-o" onClick={() => bookmarkItem(article)} />
-                )}
-              </div>
-              <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
-                {webPublicationDate}
-              </Moment>
-              <h1>{webTitle}</h1>
-              {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
-            </div>
-            <div className="hero-right" />
+    <Wrapper className="section-center">
+      <div className="article-hero">
+        <div className="hero-left">
+          <div>
+            {isBookmark(article) ? (
+              <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
+            ) : (
+              <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
+            )}
           </div>
-          <hr />
-          <article className="article-body">
-            {fields && <p>{fields.bodyText}</p>}
-            {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
-          </article>
-        </Wrapper>
-      ) : (
-        <Loader />
-      )}
-    </>
+          <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
+            {webPublicationDate}
+          </Moment>
+          <h1>{webTitle}</h1>
+          {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+        </div>
+        <div className="hero-right" />
+      </div>
+      <hr />
+      <article className="article-body">
+        {fields && <p>{fields.bodyText}</p>}
+        {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
+      </article>
+    </Wrapper>
   );
 };
 

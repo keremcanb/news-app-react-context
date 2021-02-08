@@ -3,12 +3,12 @@ import { useArticlesContext } from '../context/actions/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
 const SearchPage = () => {
-  const { isLoading, searchResults, query, page, searchArticles } = useArticlesContext();
+  const { searchResults, query, page, isLoading, searchArticles } = useArticlesContext();
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       searchArticles(query, 6, page);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
 
@@ -20,7 +20,7 @@ const SearchPage = () => {
   }
   return (
     <>
-      <PageHero title="Search results" isBookmark />
+      <PageHero title="Search results" isBookmark isSort />
       <Pagination />
       <ArticleGrid articles={searchResults} />
       <Pagination />

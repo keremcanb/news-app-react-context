@@ -12,16 +12,6 @@ const initialState = {
 export const BookmarksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getBookmarkItems = () => {
-    dispatch({ type: SET_LOADING });
-    let bookmarkItems = localStorage.getItem('bookmarks');
-    bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
-    dispatch({
-      type: GET_BOOKMARK_ITEMS,
-      payload: bookmarkItems
-    });
-  };
-
   const bookmarkItem = (item) => {
     dispatch({
       type: BOOKMARK_ITEM,
@@ -33,6 +23,16 @@ export const BookmarksProvider = ({ children }) => {
     dispatch({
       type: UNBOOKMARK_ITEM,
       payload: item
+    });
+  };
+
+  const getBookmarkItems = () => {
+    dispatch({ type: SET_LOADING });
+    let bookmarkItems = localStorage.getItem('bookmarks');
+    bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
+    dispatch({
+      type: GET_BOOKMARK_ITEMS,
+      payload: bookmarkItems
     });
   };
 

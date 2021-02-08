@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
 import { links } from '../constants/navlinks';
-import { useUtilsContext } from '../context/actions/utils';
+import { useSidebarContext } from '../context/actions/sidebar';
 
 const Sidebar = () => {
-  const { sidebar, closeSidebar } = useUtilsContext();
+  const { sidebar, closeSidebar } = useSidebarContext();
 
   return (
     <SidebarContainer>

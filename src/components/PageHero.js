@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useUtilsContext } from '../context/actions/utils';
+import { useArticlesContext } from '../context/actions/articles';
 import Button from './Button';
 
 const PageHero = ({ title, isBookmark, isSort, isLink }) => {
-  const { sort, updateSort } = useUtilsContext();
+  const { sort, sortHandler } = useArticlesContext();
 
   return (
     <Wrapper className="section-center">
@@ -15,11 +15,11 @@ const PageHero = ({ title, isBookmark, isSort, isLink }) => {
       <div className="input-group">
         {isBookmark && (
           <Link to="/bookmarks">
-            <Button text="View Bookmarks" icon="fa fa-bookmark" />
+            <Button text="View Bookmarks" />
           </Link>
         )}
         {isSort && (
-          <select name="sort" id="sort" value={sort} onChange={updateSort}>
+          <select name="sort" id="sort" value={sort} onChange={sortHandler}>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>

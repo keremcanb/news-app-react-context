@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useArticlesContext } from '../context/actions/articles';
 
 const Pagination = () => {
-  const { isLoading, page, pages, paginationHandler } = useArticlesContext();
+  const { page, pages, isLoading, paginationHandler } = useArticlesContext();
 
   return (
     <Wrapper className="section-center">

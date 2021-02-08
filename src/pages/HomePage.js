@@ -1,28 +1,27 @@
 import React, { useEffect } from 'react';
 import { useArticlesContext } from '../context/actions/articles';
-import { useUtilsContext } from '../context/actions/utils';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const { isLoading, articles, articlesMinor, getArticles, getArticlesMinor, page } = useArticlesContext();
-  const { filtered } = useUtilsContext();
+  const { filtered, articlesMinor, page, isLoading, fetchArticles, fetchArticlesMinor } = useArticlesContext();
 
   useEffect(() => {
-    getArticles('world', 8, page);
-    getArticlesMinor('sport', 3);
+    fetchArticles('world', 8, page);
+    fetchArticlesMinor('sport', 3);
   }, [page]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
-      {articles && !isLoading ? (
+      {filtered && (
         <>
           <PageHero title="Top stories" isBookmark isSort />
           <HomeGrid articles={filtered} />
           <PageHero title="Sports" isLink />
           <ArticleGrid articles={articlesMinor} />
         </>
-      ) : (
-        <Loader />
       )}
     </>
   );

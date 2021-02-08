@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, createContext } from 'react';
+import React, { useContext, useReducer, createContext, useEffect } from 'react';
 import {
   SET_LOADING,
   GET_ARTICLES,
@@ -6,7 +6,9 @@ import {
   GET_ARTICLE,
   SEARCH_ARTICLES,
   HANDLE_PAGINATION,
-  HANDLE_SEARCH
+  HANDLE_SEARCH,
+  HANDLE_SORT,
+  SORT_ARTICLES
 } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
@@ -20,8 +22,10 @@ const initialState = {
   articles: [],
   articlesMinor: [],
   searchResults: [],
+  filtered: [],
   article: {},
   isLoading: true,
+  sort: 'newest',
   query: '',
   page: 1,
   pages: 0
@@ -30,7 +34,7 @@ const initialState = {
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getArticles = async (section, pageSize, page) => {
+  const fetchArticles = async (section, pageSize, page) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(`${section}?page-size=${pageSize}&page=${page}&${fields}&api-key=${apiKey}`);
@@ -43,7 +47,7 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const getArticlesMinor = async (section, pageSize) => {
+  const fetchArticlesMinor = async (section, pageSize) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(`${section}?page-size=${pageSize}&${fields}&api-key=${apiKey}`);
@@ -56,7 +60,7 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const getArticle = async (id) => {
+  const fetchArticle = async (id) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(`${id}?${fields}&api-key=${apiKey}`);
@@ -92,9 +96,27 @@ export const ArticlesProvider = ({ children }) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
+  const sortHandler = (e) => {
+    const { value } = e.target;
+    dispatch({ type: HANDLE_SORT, payload: value });
+  };
+
+  useEffect(() => {
+    dispatch({ type: SORT_ARTICLES });
+  }, [state.sort]);
+
   return (
     <ArticlesContext.Provider
-      value={{ ...state, getArticles, getArticle, searchArticles, getArticlesMinor, paginationHandler, searchHandler }}
+      value={{
+        ...state,
+        fetchArticles,
+        fetchArticle,
+        searchArticles,
+        fetchArticlesMinor,
+        paginationHandler,
+        searchHandler,
+        sortHandler
+      }}
     >
       {children}
     </ArticlesContext.Provider>

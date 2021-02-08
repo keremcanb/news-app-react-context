@@ -5,10 +5,10 @@ import { FaBars } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 import PageLinks from '../constants/navlinks';
-import { useUtilsContext } from '../context/actions/utils';
+import { useSidebarContext } from '../context/actions/sidebar';
 
 const Header = ({ handleSubmit }) => {
-  const { openSidebar } = useUtilsContext();
+  const { openSidebar } = useSidebarContext();
 
   return (
     <Wrapper>

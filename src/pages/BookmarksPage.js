@@ -8,7 +8,7 @@ const BookmarksPage = () => {
   if (isLoading) {
     return <Loader />;
   }
-  if (bookmarkItems.length < 0) {
+  if (bookmarkItems.length < 1) {
     return <Error text="No Bookmarks Found" />;
   }
   return (
