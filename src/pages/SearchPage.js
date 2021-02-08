@@ -9,7 +9,6 @@ const SearchPage = () => {
     const delayDebounceFn = setTimeout(() => {
       searchArticles(query, 6, page);
     }, 1000);
-
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
 
