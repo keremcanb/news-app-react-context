@@ -19,7 +19,7 @@ const ArticlesContext = createContext();
 const initialState = {
   articles: [],
   sports: [],
-  searchResults: [],
+  results: [],
   filtered: [],
   article: {},
   loading: true,
@@ -79,7 +79,7 @@ export const ArticlesProvider = ({ children }) => {
       );
       dispatch({
         type: SEARCH_ARTICLES,
-        payload: { searchResults: data.response.results, pages: data.response.pages }
+        payload: { results: data.response.results, pages: data.response.pages }
       });
     } catch (err) {
       console.log(err);

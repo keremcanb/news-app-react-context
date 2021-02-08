@@ -32,8 +32,8 @@ const ArticlesReducer = (state, action) => {
     case SEARCH_ARTICLES:
       return {
         ...state,
-        searchResults: payload.searchResults,
-        filtered: payload.searchResults,
+        results: payload.results,
+        filtered: payload.results,
         pages: payload.pages,
         loading: false
       };
