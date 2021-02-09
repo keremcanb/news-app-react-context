@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
+import FadeIn from 'react-lazyload-fadein';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import placeholder from '../assets/placeholder.png';
 
@@ -17,7 +18,15 @@ const ArticleCard = ({ article }) => {
 
   return (
     <Wrapper>
-      {fields.thumbnail ? <img src={fields.thumbnail} alt={webTitle} /> : <img src={placeholder} alt="placeholder" />}
+      <FadeIn>
+        {(onload) =>
+          fields.thumbnail ? (
+            <img src={fields.thumbnail} alt={webTitle} onLoad={onload} />
+          ) : (
+            <img src={placeholder} alt="placeholder" onLoad={onload} />
+          )
+        }
+      </FadeIn>
       <div className="card-heading">
         <Link to={`/article/${id}`}>
           <h2>{webTitle}</h2>

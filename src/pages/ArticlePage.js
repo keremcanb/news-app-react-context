@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Moment from 'react-moment';
+import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import { Loader, Button } from '../components';
@@ -27,30 +28,35 @@ const ArticlePage = () => {
     return <Loader />;
   }
   return (
-    <Wrapper className="section-center">
-      <div className="article-hero">
-        <div className="hero-left">
-          <div>
-            {isBookmark(article) ? (
-              <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
-            ) : (
-              <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
-            )}
+    <>
+      <Helmet>
+        <title>{webTitle}</title>
+      </Helmet>
+      <Wrapper className="section-center">
+        <div className="article-hero">
+          <div className="hero-left">
+            <div>
+              {isBookmark(article) ? (
+                <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
+              ) : (
+                <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
+              )}
+            </div>
+            <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
+              {webPublicationDate}
+            </Moment>
+            <h1>{webTitle}</h1>
+            {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
           </div>
-          <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
-            {webPublicationDate}
-          </Moment>
-          <h1>{webTitle}</h1>
-          {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+          <div className="hero-right" />
         </div>
-        <div className="hero-right" />
-      </div>
-      <hr />
-      <article className="article-body">
-        {fields && <p>{fields.bodyText}</p>}
-        {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
-      </article>
-    </Wrapper>
+        <hr />
+        <article className="article-body">
+          {fields && <p>{fields.bodyText}</p>}
+          {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
+        </article>
+      </Wrapper>
+    </>
   );
 };
 

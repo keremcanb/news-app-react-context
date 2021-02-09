@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import { PageHero, ArticleGrid, Loader, Error } from '../components';
 
@@ -13,6 +14,9 @@ const BookmarksPage = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>Bookmarks</title>
+      </Helmet>
       <PageHero title="All Bookmarks" />
       <ArticleGrid articles={bookmarkItems} />
     </>

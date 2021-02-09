@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
@@ -11,13 +12,13 @@ const CategoryPage = () => {
   useEffect(() => {
     switch (section) {
       case 'sport':
-        fetchArticles('sport', 6, page);
+        fetchArticles('sport', 12, page);
         break;
       case 'culture':
-        fetchArticles('culture', 6, page);
+        fetchArticles('culture', 12, page);
         break;
       case 'lifeandstyle':
-        fetchArticles('lifeandstyle', 6, page);
+        fetchArticles('lifeandstyle', 12, page);
     }
   }, [section, page]);
 
@@ -39,6 +40,9 @@ const CategoryPage = () => {
     <>
       {filtered && (
         <>
+          <Helmet>
+            <title>{titleHandler()}</title>
+          </Helmet>
           <PageHero title={titleHandler()} isBookmark isSort />
           <Pagination />
           <ArticleGrid articles={filtered} />

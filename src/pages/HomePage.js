@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
@@ -17,6 +18,9 @@ const HomePage = () => {
     <>
       {filtered && (
         <>
+          <Helmet>
+            <title>The Peaks</title>
+          </Helmet>
           <PageHero title="Top stories" isBookmark isSort />
           <HomeGrid articles={filtered} />
           <PageHero title="Sports" isLink />

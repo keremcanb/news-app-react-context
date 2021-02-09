@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
@@ -6,10 +7,10 @@ const SearchPage = () => {
   const { results, query, page, loading, searchArticles } = useArticlesContext();
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      searchArticles(query, 6, page);
+    const delayDebounce = setTimeout(() => {
+      searchArticles(query, 12, page);
     }, 500);
-    return () => clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayDebounce);
   }, [query, page]);
 
   if (loading) {
@@ -20,6 +21,9 @@ const SearchPage = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>Search results</title>
+      </Helmet>
       <PageHero title="Search results" isBookmark isSort />
       <Pagination />
       <ArticleGrid articles={results} />
