@@ -32,10 +32,12 @@ const initialState = {
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchArticles = async (section, pageSize, page) => {
+  const fetchArticles = async (section, pageSize, page, orderby) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${section}?page-size=${pageSize}&page=${page}&${fields}&api-key=${apiKey}`);
+      const { data } = await axios.get(
+        `${section}?page-size=${pageSize}&page=${page}&order-by=${orderby}&${fields}&api-key=${apiKey}`
+      );
       dispatch({
         type: GET_ARTICLES,
         payload: { articles: data.response.results, pages: data.response.pages }
@@ -71,11 +73,11 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const searchArticles = async (query, pageSize, page) => {
+  const searchArticles = async (query, pageSize, page, orderby) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(
-        `search?q=${query}&page-size=${pageSize}&page=${page}&${fields}&api-key=${apiKey}`
+        `search?q=${query}&page-size=${pageSize}&page=${page}&order-by=${orderby}&${fields}&api-key=${apiKey}`
       );
       dispatch({
         type: SEARCH_ARTICLES,

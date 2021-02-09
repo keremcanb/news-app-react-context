@@ -6,21 +6,21 @@ import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
-  const { filtered, page, loading, fetchArticles } = useArticlesContext();
+  const { filtered, page, sort, loading, fetchArticles } = useArticlesContext();
   const { section } = useParams();
 
   useEffect(() => {
     switch (section) {
       case 'sport':
-        fetchArticles('sport', 12, page);
+        fetchArticles('sport', 12, page, sort);
         break;
       case 'culture':
-        fetchArticles('culture', 12, page);
+        fetchArticles('culture', 12, page, sort);
         break;
       case 'lifeandstyle':
-        fetchArticles('lifeandstyle', 12, page);
+        fetchArticles('lifeandstyle', 12, page, sort);
     }
-  }, [section, page]);
+  }, [section, page, sort]);
 
   const titleHandler = () => {
     switch (section) {

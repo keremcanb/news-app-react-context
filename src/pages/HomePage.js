@@ -4,12 +4,12 @@ import { useArticlesContext } from '../context/providers/articles';
 import { HomeGrid, ArticleGrid, PageHero, Loader } from '../components';
 
 const HomePage = () => {
-  const { filtered, sports, page, loading, fetchArticles, fetchSports } = useArticlesContext();
+  const { filtered, sports, page, sort, loading, fetchArticles, fetchSports } = useArticlesContext();
 
   useEffect(() => {
-    fetchArticles('world', 8, page);
+    fetchArticles('world', 8, page, sort);
     fetchSports('sport', 3);
-  }, [page]);
+  }, [page, sort]);
 
   if (loading) {
     return <Loader />;

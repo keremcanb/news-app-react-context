@@ -56,12 +56,6 @@ const ArticlesReducer = (state, action) => {
     case HANDLE_SORT:
       return { ...state, sort: payload };
     case SORT_ARTICLES: {
-      if (sort === 'newest') {
-        filtered.sort((a, b) => b.webPublicationDate.localeCompare(a.webPublicationDate));
-      }
-      if (sort === 'oldest') {
-        filtered.sort((a, b) => a.webPublicationDate.localeCompare(b.webPublicationDate));
-      }
       return { ...state, filtered };
     }
     case SET_LOADING:

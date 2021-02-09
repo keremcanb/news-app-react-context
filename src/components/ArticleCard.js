@@ -56,6 +56,7 @@ const Wrapper = styled.article`
   }
   .card-heading {
     height: 8.7rem;
+    width: 100%;
     padding: 0.5rem 1rem 0 1rem;
     position: absolute;
     top: 13.4rem;

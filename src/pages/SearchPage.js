@@ -4,14 +4,14 @@ import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
 
 const SearchPage = () => {
-  const { results, query, page, loading, searchArticles } = useArticlesContext();
+  const { results, query, page, sort, loading, searchArticles } = useArticlesContext();
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      searchArticles(query, 12, page);
+      searchArticles(query, 12, page, sort);
     }, 500);
     return () => clearTimeout(delayDebounce);
-  }, [query, page]);
+  }, [query, page, sort]);
 
   if (loading) {
     return <Loader />;
