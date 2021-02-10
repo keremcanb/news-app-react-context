@@ -42,6 +42,7 @@ const SearchBox = () => {
         ref={inputFocus}
         barOpened={barOpened}
         placeholder="Search all news"
+        aria-label="Search all news"
       />
     </Form>
   );

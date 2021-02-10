@@ -19,7 +19,7 @@ const PageHero = ({ title, isBookmark, isSort, isLink }) => {
           </Link>
         )}
         {isSort && (
-          <select name="sort" id="sort" value={sort} onChange={sortHandler}>
+          <select name="sort" id="sort" aria-label="Sort news" value={sort} onChange={sortHandler}>
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
