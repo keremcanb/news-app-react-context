@@ -4,16 +4,16 @@ A news app that I developed as a job interview project. App is fetching data fro
 
 Libraries used: Context API, Axios, Styled Components, React Moment, React Icons, React LazyLoad Fadein, React Helmet
 
-![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss1.jpg)
+![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss01.jpg)
 
 ---
 
-![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss2.jpg)
+![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss02.jpg)
 
 ---
 
-![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss3.jpg)
+![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss03.jpg)
 
 ---
 
-![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss4.jpg)
+![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss04.jpg)
