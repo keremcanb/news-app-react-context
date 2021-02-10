@@ -17,3 +17,7 @@ Libraries used: Context API, Axios, Styled Components, React Moment, React Icons
 ---
 
 ![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss04.jpg)
+
+---
+
+![alt text](https://raw.githubusercontent.com/keremcanb/news-app-react-context/master/public/screenshots/ss05.jpg)
