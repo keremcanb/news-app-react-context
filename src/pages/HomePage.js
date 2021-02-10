@@ -8,8 +8,11 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchArticles('world', 8, page, sort);
-    fetchSports('sport', 3);
   }, [page, sort]);
+
+  useEffect(() => {
+    fetchSports('sport', 3);
+  }, [page]);
 
   if (loading) {
     return <Loader />;
