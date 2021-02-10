@@ -12,7 +12,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchSports('sport', 3);
-  }, [page]);
+  }, []);
 
   if (loading) {
     return <Loader />;

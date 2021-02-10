@@ -28,35 +28,33 @@ const ArticlePage = () => {
     return <Loader />;
   }
   return (
-    <>
+    <Wrapper className="section-center">
       <Helmet>
         <title>{webTitle}</title>
       </Helmet>
-      <Wrapper className="section-center">
-        <div className="article-hero">
-          <div className="hero-left">
-            <div>
-              {isBookmark(article) ? (
-                <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
-              ) : (
-                <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
-              )}
-            </div>
-            <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
-              {webPublicationDate}
-            </Moment>
-            <h1>{webTitle}</h1>
-            {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
+      <div className="article-hero">
+        <div className="hero-left">
+          <div>
+            {isBookmark(article) ? (
+              <Button text="Remove Bookmark" onClick={() => unBookmarkItem(article)} />
+            ) : (
+              <Button text="Add Bookmark" onClick={() => bookmarkItem(article)} />
+            )}
           </div>
-          <div className="hero-right" />
+          <Moment format="Do MMMM YYYY, h:mm:ss a" className="date">
+            {webPublicationDate}
+          </Moment>
+          <h1>{webTitle}</h1>
+          {fields && <h2 dangerouslySetInnerHTML={{ __html: fields.standfirst }} />}
         </div>
-        <hr />
-        <article className="article-body">
-          {fields && <p>{fields.bodyText}</p>}
-          {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
-        </article>
-      </Wrapper>
-    </>
+        <div className="hero-right" />
+      </div>
+      <hr />
+      <article className="article-body">
+        {fields && <p>{fields.bodyText}</p>}
+        {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
+      </article>
+    </Wrapper>
   );
 };
 

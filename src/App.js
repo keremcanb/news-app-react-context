@@ -12,7 +12,7 @@ const App = () => (
     <Routes />
     <Footer />
     <ScrollToTop showUnder={160}>
-      <FaArrowCircleUp style={{ fontSize: '3rem', color: '#09357B' }} />
+      <FaArrowCircleUp style={{ fontSize: '3rem' }} />
     </ScrollToTop>
   </Router>
 );
