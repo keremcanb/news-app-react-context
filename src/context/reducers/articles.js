@@ -12,7 +12,7 @@ import {
 
 const ArticlesReducer = (state, action) => {
   const { type, payload } = action;
-  const { page, pages, sort, filtered } = state;
+  const { page, pages, filtered } = state;
 
   switch (type) {
     case GET_ARTICLES:
