@@ -1,21 +1,20 @@
 import {
   SET_LOADING,
-  GET_ARTICLES,
-  GET_ARTICLE,
+  FETCH_ARTICLES,
+  FETCH_ARTICLE,
   SEARCH_ARTICLES,
-  GET_ARTICLES_MINOR,
+  FETCH_SPORTS,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
-  HANDLE_SORT,
-  SORT_ARTICLES
+  HANDLE_SORT
 } from '../types';
 
 const ArticlesReducer = (state, action) => {
   const { type, payload } = action;
-  const { page, pages, filtered } = state;
+  const { page, pages } = state;
 
   switch (type) {
-    case GET_ARTICLES:
+    case FETCH_ARTICLES:
       return {
         ...state,
         articles: payload.articles,
@@ -23,9 +22,9 @@ const ArticlesReducer = (state, action) => {
         pages: payload.pages,
         loading: false
       };
-    case GET_ARTICLES_MINOR:
+    case FETCH_SPORTS:
       return { ...state, sports: payload, loading: false };
-    case GET_ARTICLE:
+    case FETCH_ARTICLE:
       return { ...state, article: payload, loading: false };
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 1 };
@@ -55,9 +54,6 @@ const ArticlesReducer = (state, action) => {
       break;
     case HANDLE_SORT:
       return { ...state, sort: payload };
-    case SORT_ARTICLES: {
-      return { ...state, filtered };
-    }
     case SET_LOADING:
       return { ...state, loading: true };
     default:

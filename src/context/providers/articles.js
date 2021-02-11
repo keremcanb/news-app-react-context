@@ -1,14 +1,13 @@
-import React, { useContext, useReducer, useEffect, createContext } from 'react';
+import React, { useContext, useReducer, createContext } from 'react';
 import {
   SET_LOADING,
-  GET_ARTICLES,
-  GET_ARTICLES_MINOR,
-  GET_ARTICLE,
+  FETCH_ARTICLES,
+  FETCH_SPORTS,
+  FETCH_ARTICLE,
   SEARCH_ARTICLES,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
-  HANDLE_SORT,
-  SORT_ARTICLES
+  HANDLE_SORT
 } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
@@ -39,7 +38,7 @@ export const ArticlesProvider = ({ children }) => {
         `${section}?page-size=${pageSize}&page=${page}&order-by=${orderby}&${fields}&api-key=${apiKey}`
       );
       dispatch({
-        type: GET_ARTICLES,
+        type: FETCH_ARTICLES,
         payload: { articles: data.response.results, pages: data.response.pages }
       });
     } catch (err) {
@@ -52,7 +51,7 @@ export const ArticlesProvider = ({ children }) => {
     try {
       const { data } = await axios.get(`${section}?page-size=${pageSize}&${fields}&api-key=${apiKey}`);
       dispatch({
-        type: GET_ARTICLES_MINOR,
+        type: FETCH_SPORTS,
         payload: data.response.results
       });
     } catch (err) {
@@ -65,7 +64,7 @@ export const ArticlesProvider = ({ children }) => {
     try {
       const { data } = await axios.get(`${id}?${fields}&api-key=${apiKey}`);
       dispatch({
-        type: GET_ARTICLE,
+        type: FETCH_ARTICLE,
         payload: data.response.content
       });
     } catch (err) {
@@ -100,10 +99,6 @@ export const ArticlesProvider = ({ children }) => {
     const { value } = e.target;
     dispatch({ type: HANDLE_SORT, payload: value });
   };
-
-  useEffect(() => {
-    dispatch({ type: SORT_ARTICLES });
-  }, [state.sort]);
 
   return (
     <ArticlesContext.Provider

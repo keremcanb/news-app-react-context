@@ -1,11 +1,11 @@
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, FETCH_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 
 const BookmarksReducer = (state, action) => {
   const { type, payload } = action;
   const { bookmarkItems } = state;
 
   switch (type) {
-    case GET_BOOKMARK_ITEMS:
+    case FETCH_BOOKMARK_ITEMS:
       return {
         ...state,
         bookmarkItems: payload,

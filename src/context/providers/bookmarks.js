@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, useEffect, createContext } from 'react';
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, GET_BOOKMARK_ITEMS, SET_LOADING } from '../types';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, FETCH_BOOKMARK_ITEMS, SET_LOADING } from '../types';
 import reducer from '../reducers/bookmarks';
 
 const BookmarksContext = createContext();
@@ -30,7 +30,7 @@ export const BookmarksProvider = ({ children }) => {
     let bookmarkItems = localStorage.getItem('bookmarks');
     bookmarkItems = bookmarkItems === null ? [] : JSON.parse(bookmarkItems);
     dispatch({
-      type: GET_BOOKMARK_ITEMS,
+      type: FETCH_BOOKMARK_ITEMS,
       payload: bookmarkItems
     });
   };
