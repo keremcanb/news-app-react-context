@@ -45,7 +45,7 @@ const CategoryPage = () => {
           <PageHero title={titleHandler()} isBookmark isSort />
           <Pagination />
           <ArticleGrid articles={filtered} />
-          <Pagination />
+          {/* <Pagination /> */}
         </>
       )}
     </>

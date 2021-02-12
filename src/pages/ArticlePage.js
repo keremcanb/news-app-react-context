@@ -51,7 +51,7 @@ const ArticlePage = () => {
       </div>
       <hr />
       <article className="article-body">
-        {fields && <p>{fields.bodyText}</p>}
+        {fields && <div dangerouslySetInnerHTML={{ __html: fields.body }} />}
         {fields && <div dangerouslySetInnerHTML={{ __html: fields.main }} />}
       </article>
     </Wrapper>
@@ -77,6 +77,10 @@ const Wrapper = styled.section`
     margin-bottom: 2rem;
     p {
       font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
     }
   }
   .hero-left {

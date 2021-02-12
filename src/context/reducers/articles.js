@@ -6,7 +6,8 @@ import {
   FETCH_SPORTS,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
-  HANDLE_SORT
+  HANDLE_SORT,
+  HANDLE_INFINITE_SCROLL
 } from '../types';
 
 const ArticlesReducer = (state, action) => {
@@ -52,6 +53,13 @@ const ArticlesReducer = (state, action) => {
         return { ...state, page: prevPage };
       }
       break;
+    case HANDLE_INFINITE_SCROLL: {
+      let next = page + 1;
+      if (next > pages - 1) {
+        next = 1;
+      }
+      return { ...state, page: next };
+    }
     case HANDLE_SORT:
       return { ...state, sort: payload };
     case SET_LOADING:

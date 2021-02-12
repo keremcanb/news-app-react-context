@@ -7,13 +7,14 @@ import {
   SEARCH_ARTICLES,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
-  HANDLE_SORT
+  HANDLE_SORT,
+  HANDLE_INFINITE_SCROLL
 } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const fields = 'type=article&liveBloggingNow=false&show-fields=all&show-elements=all';
+const fields = 'type=article&liveBloggingNow=false&show-fields=all&show-elements=image';
 const ArticlesContext = createContext();
 const initialState = {
   articles: [],
@@ -95,6 +96,10 @@ export const ArticlesProvider = ({ children }) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
+  const infiniteScrollHandler = () => {
+    dispatch({ type: HANDLE_INFINITE_SCROLL });
+  };
+
   const sortHandler = (e) => {
     const { value } = e.target;
     dispatch({ type: HANDLE_SORT, payload: value });
@@ -110,7 +115,8 @@ export const ArticlesProvider = ({ children }) => {
         fetchSports,
         paginationHandler,
         searchHandler,
-        sortHandler
+        sortHandler,
+        infiniteScrollHandler
       }}
     >
       {children}
