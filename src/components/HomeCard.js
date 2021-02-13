@@ -5,16 +5,11 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import FadeIn from 'react-lazyload-fadein';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import placeholder from '../assets/placeholder.png';
+import { isBookmark } from '../constants/helpers';
 
 const HomeCard = ({ article }) => {
   const { id, webTitle, fields } = article;
-  const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
-
-  const isBookmark = (item) => {
-    if (bookmarkItems !== null) {
-      return bookmarkItems.findIndex((bookmark) => bookmark.id === item.id) > -1;
-    }
-  };
+  const { bookmarkItem, unBookmarkItem } = useBookmarksContext();
 
   return (
     <Wrapper>

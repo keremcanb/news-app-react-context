@@ -11,7 +11,7 @@ const HomePage = () => {
   }, [page, sort]);
 
   useEffect(() => {
-    fetchSports('sport', 3);
+    fetchSports('sport');
   }, []);
 
   if (loading) {

@@ -6,9 +6,10 @@ import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import { Loader, Button } from '../components';
+import { isBookmark } from '../constants/helpers';
 
 const ArticlePage = () => {
-  const { bookmarkItems, bookmarkItem, unBookmarkItem } = useBookmarksContext();
+  const { bookmarkItem, unBookmarkItem } = useBookmarksContext();
   const { article, loading, fetchArticle } = useArticlesContext();
   const { webTitle, webPublicationDate, fields } = article;
   const { section, year, month, day, title } = useParams();
@@ -17,12 +18,6 @@ const ArticlePage = () => {
   useEffect(() => {
     fetchArticle(id);
   }, [id]);
-
-  const isBookmark = (item) => {
-    if (bookmarkItems !== null) {
-      return bookmarkItems.findIndex((bookmark) => bookmark.id === item.id) > -1;
-    }
-  };
 
   if (loading) {
     return <Loader />;

@@ -12,7 +12,7 @@ import {
 
 const ArticlesReducer = (state, action) => {
   const { type, payload } = action;
-  const { page, pages } = state;
+  const { page, pages, articles, filtered } = state;
 
   switch (type) {
     case FETCH_ARTICLES:
@@ -58,7 +58,7 @@ const ArticlesReducer = (state, action) => {
       if (next > pages - 1) {
         next = 1;
       }
-      return { ...state, page: next };
+      return { ...state, ...articles, ...filtered, page: next };
     }
     case HANDLE_SORT:
       return { ...state, sort: payload };

@@ -32,11 +32,11 @@ const initialState = {
 export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchArticles = async (section, pageSize, page, orderby) => {
+  const fetchArticles = async (section, pageSize, page, orderBy) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(
-        `${section}?page-size=${pageSize}&page=${page}&order-by=${orderby}&${fields}&api-key=${apiKey}`
+        `${section}?page-size=${pageSize}&page=${page}&order-by=${orderBy}&${fields}&api-key=${apiKey}`
       );
       dispatch({
         type: FETCH_ARTICLES,
@@ -47,10 +47,10 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const fetchSports = async (section, pageSize) => {
+  const fetchSports = async (section) => {
     dispatch({ type: SET_LOADING });
     try {
-      const { data } = await axios.get(`${section}?page-size=${pageSize}&${fields}&api-key=${apiKey}`);
+      const { data } = await axios.get(`${section}?page-size=3&${fields}&api-key=${apiKey}`);
       dispatch({
         type: FETCH_SPORTS,
         payload: data.response.results
@@ -73,11 +73,11 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const searchArticles = async (query, pageSize, page, orderby) => {
+  const searchArticles = async (query, pageSize, page, orderBy) => {
     dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(
-        `search?q=${query}&page-size=${pageSize}&page=${page}&order-by=${orderby}&${fields}&api-key=${apiKey}`
+        `search?q=${query}&page-size=${pageSize}&page=${page}&order-by=${orderBy}&${fields}&api-key=${apiKey}`
       );
       dispatch({
         type: SEARCH_ARTICLES,
