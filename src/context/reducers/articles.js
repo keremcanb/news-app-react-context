@@ -1,9 +1,14 @@
 import {
-  SET_LOADING,
-  FETCH_ARTICLES,
-  FETCH_ARTICLE,
-  SEARCH_ARTICLES,
+  FETCH_ARTICLES_BEGIN,
+  FETCH_ARTICLES_SUCCESS,
+  FETCH_ARTICLES_ERROR,
+  FETCH_ARTICLE_BEGIN,
+  FETCH_ARTICLE_SUCCESS,
+  FETCH_ARTICLE_ERROR,
   FETCH_SPORTS,
+  SEARCH_ARTICLES_BEGIN,
+  SEARCH_ARTICLES_SUCCESS,
+  SEARCH_ARTICLES_ERROR,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
   HANDLE_SORT,
@@ -15,21 +20,35 @@ const ArticlesReducer = (state, action) => {
   const { page, pages } = state;
 
   switch (type) {
-    case FETCH_ARTICLES:
+    // ARTICLES
+    case FETCH_ARTICLES_BEGIN:
+      return { ...state, loading: true };
+    case FETCH_ARTICLES_SUCCESS:
       return {
         ...state,
         articles: payload.articles,
-        filtered: [...new Set([...state.filtered, ...payload.articles])],
+        filtered: payload.articles,
+        // filtered: [...new Set([...state.filtered, ...payload.articles])],
         pages: payload.pages,
         loading: false
       };
-    case FETCH_SPORTS:
-      return { ...state, sports: payload, loading: false };
-    case FETCH_ARTICLE:
-      return { ...state, article: payload, loading: false };
-    case HANDLE_SEARCH:
-      return { ...state, query: action.payload, page: 1 };
-    case SEARCH_ARTICLES:
+    case FETCH_ARTICLES_ERROR:
+      return { ...state, loading: false, error: true };
+    // ARTICLE
+    case FETCH_ARTICLE_BEGIN:
+      return { ...state, loading: true, error: false };
+    case FETCH_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        article: payload,
+        loading: false
+      };
+    case FETCH_ARTICLE_ERROR:
+      return { ...state, loading: false, error: true };
+    // SEARCH
+    case SEARCH_ARTICLES_BEGIN:
+      return { ...state, loading: true };
+    case SEARCH_ARTICLES_SUCCESS:
       return {
         ...state,
         results: payload.results,
@@ -37,6 +56,13 @@ const ArticlesReducer = (state, action) => {
         pages: payload.pages,
         loading: false
       };
+    case SEARCH_ARTICLES_ERROR:
+      return { ...state, loading: false, error: true };
+    case FETCH_SPORTS:
+      return { ...state, sports: payload, loading: false };
+    // HANDLERS
+    case HANDLE_SEARCH:
+      return { ...state, query: action.payload, page: 1 };
     case HANDLE_PAGINATION:
       if (payload === 'inc') {
         let nextPage = page + 1;
@@ -58,8 +84,6 @@ const ArticlesReducer = (state, action) => {
     }
     case HANDLE_SORT:
       return { ...state, sort: payload };
-    case SET_LOADING:
-      return { ...state, loading: true };
     default:
       throw new Error(`no mathching "${type}" action type`);
   }

@@ -6,7 +6,7 @@ import { Header, Sidebar, Footer } from './components';
 import Routes from './constants/routes';
 
 const App = () => (
-  <Router forceRefresh>
+  <Router>
     <Header />
     <Sidebar />
     <Routes />

@@ -1,4 +1,4 @@
-import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, FETCH_BOOKMARK_ITEMS, SET_LOADING } from '../types';
+import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, FETCH_BOOKMARK_ITEMS } from '../types';
 
 const BookmarksReducer = (state, action) => {
   const { type, payload } = action;
@@ -25,8 +25,6 @@ const BookmarksReducer = (state, action) => {
         bookmarkItems: bookmarkItems.filter((item) => item.id !== payload.id)
       };
     }
-    case SET_LOADING:
-      return { ...state, loading: true };
     default:
       throw new Error(`no mathching "${type}" action type`);
   }

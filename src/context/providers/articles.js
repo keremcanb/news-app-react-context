@@ -1,13 +1,18 @@
 import React, { useContext, useReducer, createContext } from 'react';
 import {
-  SET_LOADING,
-  FETCH_ARTICLES,
+  FETCH_ARTICLES_BEGIN,
+  FETCH_ARTICLES_SUCCESS,
+  FETCH_ARTICLES_ERROR,
+  FETCH_ARTICLE_BEGIN,
+  FETCH_ARTICLE_SUCCESS,
+  FETCH_ARTICLE_ERROR,
   FETCH_SPORTS,
-  FETCH_ARTICLE,
-  SEARCH_ARTICLES,
-  HANDLE_PAGINATION,
+  SEARCH_ARTICLES_BEGIN,
+  SEARCH_ARTICLES_SUCCESS,
+  SEARCH_ARTICLES_ERROR,
   HANDLE_SEARCH,
   HANDLE_SORT,
+  HANDLE_PAGINATION,
   HANDLE_INFINITE_SCROLL
 } from '../types';
 import reducer from '../reducers/articles';
@@ -18,11 +23,12 @@ const fields = 'type=article&liveBloggingNow=false&show-fields=all&show-elements
 const ArticlesContext = createContext();
 const initialState = {
   articles: [],
+  article: {},
   sports: [],
   results: [],
   filtered: [],
-  article: {},
-  loading: true,
+  loading: false,
+  error: false,
   sort: 'newest',
   query: '',
   page: 1,
@@ -33,22 +39,34 @@ export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchArticles = async (section, pageSize, page, orderBy) => {
-    // dispatch({ type: SET_LOADING });
+    dispatch({ type: FETCH_ARTICLES_BEGIN });
     try {
       const { data } = await axios.get(
         `${section}?page-size=${pageSize}&page=${page}&order-by=${orderBy}&${fields}&api-key=${apiKey}`
       );
       dispatch({
-        type: FETCH_ARTICLES,
+        type: FETCH_ARTICLES_SUCCESS,
         payload: { articles: data.response.results, pages: data.response.pages }
       });
     } catch (err) {
-      console.log(err);
+      dispatch({ type: FETCH_ARTICLES_ERROR });
+    }
+  };
+
+  const fetchArticle = async (id) => {
+    dispatch({ type: FETCH_ARTICLE_BEGIN });
+    try {
+      const { data } = await axios.get(`${id}?${fields}&api-key=${apiKey}`);
+      dispatch({
+        type: FETCH_ARTICLE_SUCCESS,
+        payload: data.response.content
+      });
+    } catch (err) {
+      dispatch({ type: FETCH_ARTICLE_ERROR });
     }
   };
 
   const fetchSports = async (section) => {
-    dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(`${section}?page-size=3&${fields}&api-key=${apiKey}`);
       dispatch({
@@ -60,31 +78,18 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
-  const fetchArticle = async (id) => {
-    dispatch({ type: SET_LOADING });
-    try {
-      const { data } = await axios.get(`${id}?${fields}&api-key=${apiKey}`);
-      dispatch({
-        type: FETCH_ARTICLE,
-        payload: data.response.content
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const searchArticles = async (query, pageSize, page, orderBy) => {
-    dispatch({ type: SET_LOADING });
+    dispatch({ type: SEARCH_ARTICLES_BEGIN });
     try {
       const { data } = await axios.get(
         `search?q=${query}&page-size=${pageSize}&page=${page}&order-by=${orderBy}&${fields}&api-key=${apiKey}`
       );
       dispatch({
-        type: SEARCH_ARTICLES,
+        type: SEARCH_ARTICLES_SUCCESS,
         payload: { results: data.response.results, pages: data.response.pages }
       });
     } catch (err) {
-      console.log(err);
+      dispatch({ type: SEARCH_ARTICLES_ERROR });
     }
   };
 

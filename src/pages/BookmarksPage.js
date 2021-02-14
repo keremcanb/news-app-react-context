@@ -1,14 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useBookmarksContext } from '../context/providers/bookmarks';
-import { PageHero, ArticleGrid, Loader, Error } from '../components';
+import { PageHero, ArticleGrid, Error } from '../components';
 
 const BookmarksPage = () => {
-  const { loading, bookmarkItems } = useBookmarksContext();
+  const { bookmarkItems } = useBookmarksContext();
 
-  if (loading) {
-    return <Loader />;
-  }
   if (bookmarkItems.length < 1) {
     return <Error text="No Bookmarks Found" />;
   }
