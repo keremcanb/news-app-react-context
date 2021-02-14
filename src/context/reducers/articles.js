@@ -19,7 +19,7 @@ const ArticlesReducer = (state, action) => {
       return {
         ...state,
         articles: payload.articles,
-        filtered: payload.articles,
+        filtered: [...new Set([...state.filtered, ...payload.articles])],
         pages: payload.pages,
         loading: false
       };

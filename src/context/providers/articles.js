@@ -33,7 +33,7 @@ export const ArticlesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchArticles = async (section, pageSize, page, orderBy) => {
-    dispatch({ type: SET_LOADING });
+    // dispatch({ type: SET_LOADING });
     try {
       const { data } = await axios.get(
         `${section}?page-size=${pageSize}&page=${page}&order-by=${orderBy}&${fields}&api-key=${apiKey}`
