@@ -12,7 +12,7 @@ import {
 
 const ArticlesReducer = (state, action) => {
   const { type, payload } = action;
-  const { page, pages, articles, filtered } = state;
+  const { page, pages } = state;
 
   switch (type) {
     case FETCH_ARTICLES:
@@ -54,11 +54,7 @@ const ArticlesReducer = (state, action) => {
       }
       break;
     case HANDLE_INFINITE_SCROLL: {
-      let next = page + 1;
-      if (next > pages - 1) {
-        next = 1;
-      }
-      return { ...state, ...articles, ...filtered, page: next };
+      return { ...state, page: page + 1 };
     }
     case HANDLE_SORT:
       return { ...state, sort: payload };

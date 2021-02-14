@@ -6,15 +6,7 @@ import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
-  const {
-    filtered,
-    page,
-    sort,
-    loading,
-    fetchArticles,
-    infiniteScrollHandler,
-    fetchMoreArticles
-  } = useArticlesContext();
+  const { filtered, page, sort, loading, fetchArticles, infiniteScrollHandler } = useArticlesContext();
   const { section } = useParams();
 
   useEffect(() => {
