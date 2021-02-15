@@ -20,7 +20,7 @@ const ArticlesReducer = (state, action) => {
   const { page, pages } = state;
 
   switch (type) {
-    // ARTICLES
+    // FETCH ARTICLES
     case FETCH_ARTICLES_BEGIN:
       return { ...state, loading: true };
     case FETCH_ARTICLES_SUCCESS:
@@ -34,7 +34,7 @@ const ArticlesReducer = (state, action) => {
       };
     case FETCH_ARTICLES_ERROR:
       return { ...state, loading: false, error: true };
-    // ARTICLE
+    // FETCH ARTICLE
     case FETCH_ARTICLE_BEGIN:
       return { ...state, loading: true, error: false };
     case FETCH_ARTICLE_SUCCESS:
@@ -63,6 +63,8 @@ const ArticlesReducer = (state, action) => {
     // HANDLERS
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 1 };
+    case HANDLE_SORT:
+      return { ...state, sort: payload };
     case HANDLE_PAGINATION:
       if (payload === 'inc') {
         let nextPage = page + 1;
@@ -82,8 +84,6 @@ const ArticlesReducer = (state, action) => {
     case HANDLE_INFINITE_SCROLL: {
       return { ...state, page: page + 1 };
     }
-    case HANDLE_SORT:
-      return { ...state, sort: payload };
     default:
       throw new Error(`no mathching "${type}" action type`);
   }

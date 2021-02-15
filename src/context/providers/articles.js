@@ -97,17 +97,17 @@ export const ArticlesProvider = ({ children }) => {
     dispatch({ type: HANDLE_SEARCH, payload: query });
   };
 
+  const sortHandler = (e) => {
+    const { value } = e.target;
+    dispatch({ type: HANDLE_SORT, payload: value });
+  };
+
   const paginationHandler = (value) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
   const infiniteScrollHandler = () => {
     dispatch({ type: HANDLE_INFINITE_SCROLL });
-  };
-
-  const sortHandler = (e) => {
-    const { value } = e.target;
-    dispatch({ type: HANDLE_SORT, payload: value });
   };
 
   return (
