@@ -22,13 +22,13 @@ const ArticlesReducer = (state, action) => {
   switch (type) {
     // FETCH ARTICLES
     case FETCH_ARTICLES_BEGIN:
-      return { ...state, loading: true };
+      return { ...state, loading: false };
     case FETCH_ARTICLES_SUCCESS:
       return {
         ...state,
         articles: payload.articles,
-        filtered: payload.articles,
-        // filtered: [...new Set([...state.filtered, ...payload.articles])],
+        // filtered: payload.articles,
+        filtered: [...new Set([...state.filtered, ...payload.articles])],
         pages: payload.pages,
         loading: false
       };

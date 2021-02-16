@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -45,9 +46,16 @@ const CategoryPage = () => {
           </Helmet>
           <PageHero title={titleHandler()} isBookmark isSort />
           <Pagination />
+          <ArticleGrid articles={filtered} />
+          <Pagination />
           <InfiniteScroll dataLength={filtered.length} next={infiniteScrollHandler} hasMore>
             <ArticleGrid articles={filtered} />
           </InfiniteScroll>
+          {/* <div className="section section-center text-center ">
+            <button className="button" onClick={() => infiniteScrollHandler()}>
+              load more
+            </button>
+          </div> */}
         </>
       )}
     </>
