@@ -106,10 +106,6 @@ export const ArticlesProvider = ({ children }) => {
     dispatch({ type: HANDLE_PAGINATION, payload: value });
   };
 
-  const infiniteScrollHandler = () => {
-    dispatch({ type: HANDLE_INFINITE_SCROLL });
-  };
-
   return (
     <ArticlesContext.Provider
       value={{
@@ -120,8 +116,7 @@ export const ArticlesProvider = ({ children }) => {
         fetchSports,
         paginationHandler,
         searchHandler,
-        sortHandler,
-        infiniteScrollHandler
+        sortHandler
       }}
     >
       {children}

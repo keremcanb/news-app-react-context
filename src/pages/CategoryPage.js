@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, Loader, ArticleGrid, Pagination } from '../components';
 
 const CategoryPage = () => {
-  const { filtered, page, sort, loading, fetchArticles, infiniteScrollHandler } = useArticlesContext();
+  const { filtered, page, sort, loading, fetchArticles } = useArticlesContext();
   const { section } = useParams();
 
   useEffect(() => {
@@ -45,9 +44,8 @@ const CategoryPage = () => {
           </Helmet>
           <PageHero title={titleHandler()} isBookmark isSort />
           <Pagination />
-          <InfiniteScroll dataLength={filtered.length} next={infiniteScrollHandler} hasMore>
-            <ArticleGrid articles={filtered} />
-          </InfiniteScroll>
+          <ArticleGrid articles={filtered} />
+          <Pagination />
         </>
       )}
     </>
