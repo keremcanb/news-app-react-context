@@ -12,8 +12,7 @@ import {
   SEARCH_ARTICLES_ERROR,
   HANDLE_SEARCH,
   HANDLE_SORT,
-  HANDLE_PAGINATION,
-  HANDLE_INFINITE_SCROLL
+  HANDLE_PAGINATION
 } from '../types';
 import reducer from '../reducers/articles';
 import axios from '../../constants/axios';

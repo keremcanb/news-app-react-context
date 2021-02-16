@@ -11,8 +11,7 @@ import {
   SEARCH_ARTICLES_ERROR,
   HANDLE_PAGINATION,
   HANDLE_SEARCH,
-  HANDLE_SORT,
-  HANDLE_INFINITE_SCROLL
+  HANDLE_SORT
 } from '../types';
 
 const ArticlesReducer = (state, action) => {
@@ -80,9 +79,6 @@ const ArticlesReducer = (state, action) => {
         return { ...state, page: prevPage };
       }
       break;
-    case HANDLE_INFINITE_SCROLL: {
-      return { ...state, page: page + 1 };
-    }
     default:
       throw new Error(`no mathching "${type}" action type`);
   }
