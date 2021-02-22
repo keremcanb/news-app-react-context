@@ -9,7 +9,7 @@ const SearchPage = () => {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       searchArticles(query, 12, page, sort);
-    }, 500);
+    }, 1000);
     return () => clearTimeout(delayDebounce);
   }, [query, page, sort]);
 
@@ -17,14 +17,14 @@ const SearchPage = () => {
     return <Loader />;
   }
   if (results.length < 1) {
-    return <Error text="No Results Found" />;
+    return <Error text='No Results Found' />;
   }
   return (
     <>
       <Helmet>
         <title>Search results</title>
       </Helmet>
-      <PageHero title="Search results" isBookmark isSort />
+      <PageHero title='Search results' isBookmark isSort />
       <Pagination />
       <ArticleGrid articles={results} />
       <Pagination />
