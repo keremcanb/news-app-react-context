@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaArrowCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
 import { useArticlesContext } from '../context/providers/articles';

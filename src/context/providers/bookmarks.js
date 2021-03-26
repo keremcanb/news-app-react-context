@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect, createContext } from 'react';
+import { useContext, useReducer, useEffect, createContext } from 'react';
 import { BOOKMARK_ITEM, UNBOOKMARK_ITEM, FETCH_BOOKMARK_ITEMS } from '../types';
 import reducer from '../reducers/bookmarks';
 

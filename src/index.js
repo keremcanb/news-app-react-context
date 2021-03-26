@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { debugContextDevtool } from 'react-context-devtool';
 import { ArticlesProvider, BookmarksProvider, SidebarProvider } from './context/providers';

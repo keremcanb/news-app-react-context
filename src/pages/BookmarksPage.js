@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useBookmarksContext } from '../context/providers/bookmarks';
 import { PageHero, ArticleGrid, Error } from '../components';

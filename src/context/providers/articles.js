@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, createContext } from 'react';
+import { useContext, useReducer, createContext } from 'react';
 import {
   FETCH_ARTICLES_BEGIN,
   FETCH_ARTICLES_SUCCESS,

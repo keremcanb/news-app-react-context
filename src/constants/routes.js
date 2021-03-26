@@ -1,4 +1,3 @@
-import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Home, Category, Article, Bookmarks, Search } from '../pages';
 

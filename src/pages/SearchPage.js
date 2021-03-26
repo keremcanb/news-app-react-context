@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useArticlesContext } from '../context/providers/articles';
 import { PageHero, ArticleGrid, Loader, Error, Pagination } from '../components';
@@ -17,14 +17,14 @@ const SearchPage = () => {
     return <Loader />;
   }
   if (results.length < 1) {
-    return <Error text='No Results Found' />;
+    return <Error text="No Results Found" />;
   }
   return (
     <>
       <Helmet>
         <title>Search results</title>
       </Helmet>
-      <PageHero title='Search results' isBookmark isSort />
+      <PageHero title="Search results" isBookmark isSort />
       <Pagination />
       <ArticleGrid articles={results} />
       <Pagination />

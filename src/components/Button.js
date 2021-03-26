@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaBookmark } from 'react-icons/fa';
 
 const Button = ({ text, onClick }) => (
