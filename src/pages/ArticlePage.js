@@ -19,9 +19,7 @@ const ArticlePage = () => {
     fetchArticle(id);
   }, [id]);
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
   return (
     <Wrapper className="section-center">
       <Helmet>

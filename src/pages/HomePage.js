@@ -14,9 +14,7 @@ const HomePage = () => {
     fetchSports('sport');
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
   return (
     <>
       {filtered && (

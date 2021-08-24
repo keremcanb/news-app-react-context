@@ -13,12 +13,8 @@ const SearchPage = () => {
     return () => clearTimeout(delayDebounce);
   }, [query, page, sort]);
 
-  if (loading) {
-    return <Loader />;
-  }
-  if (results.length < 1) {
-    return <Error text="No Results Found" />;
-  }
+  if (loading) return <Loader />;
+  if (results.length < 1) return <Error text="No Results Found" />;
   return (
     <>
       <Helmet>

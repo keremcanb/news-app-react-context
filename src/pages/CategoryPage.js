@@ -32,9 +32,7 @@ const CategoryPage = () => {
     }
   };
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
   return (
     <>
       {filtered && (

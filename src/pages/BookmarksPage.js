@@ -5,9 +5,7 @@ import { PageHero, ArticleGrid, Error } from '../components';
 const BookmarksPage = () => {
   const { bookmarkItems } = useBookmarksContext();
 
-  if (bookmarkItems.length < 1) {
-    return <Error text="No Bookmarks Found" />;
-  }
+  if (bookmarkItems.length < 1) return <Error text="No Bookmarks Found" />;
   return (
     <>
       <Helmet>
